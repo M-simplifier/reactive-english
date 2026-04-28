@@ -34,11 +34,11 @@ output "github_actions_variables" {
     ARTIFACT_REPOSITORY                = var.artifact_repository_id
     CLOUD_RUN_RUNTIME_SERVICE_ACCOUNT  = google_service_account.runtime.email
     CLOUD_SQL_INSTANCE_CONNECTION_NAME = google_sql_database_instance.postgres.connection_name
-    DATABASE_URL_SECRET_NAME            = google_secret_manager_secret.database_url.secret_id
-    GCP_DEPLOYER_SERVICE_ACCOUNT        = google_service_account.deployer.email
-    GCP_PROJECT_ID                      = var.project_id
-    GCP_REGION                          = var.region
-    GCP_WORKLOAD_IDENTITY_PROVIDER      = google_iam_workload_identity_pool_provider.github.name
-    SERVICE_NAME                        = var.service_name
+    DATABASE_URL_SECRET_NAME           = google_secret_manager_secret.database_url.secret_id
+    GCP_DEPLOYER_SERVICE_ACCOUNT       = google_service_account.deployer.email
+    GCP_PROJECT_ID                     = var.project_id
+    GCP_REGION                         = var.region
+    GCP_WORKLOAD_IDENTITY_PROVIDER     = google_iam_workload_identity_pool_provider.github.name
+    SERVICE_NAME                       = var.service_name
   }
 }

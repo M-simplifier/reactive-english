@@ -43,6 +43,7 @@
 !/scripts/**
 
 !/infra/terraform/*.tf
+!/infra/terraform/.terraform.lock.hcl
 !/infra/terraform/terraform.tfvars.example
 
 !/docs/deployment-gcp.md
