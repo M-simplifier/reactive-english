@@ -45,6 +45,17 @@ variable "db_tier" {
   default     = "db-f1-micro"
 }
 
+variable "db_edition" {
+  description = "Cloud SQL edition. ENTERPRISE is required for low-cost shared-core tiers such as db-f1-micro."
+  type        = string
+  default     = "ENTERPRISE"
+
+  validation {
+    condition     = contains(["ENTERPRISE", "ENTERPRISE_PLUS"], var.db_edition)
+    error_message = "db_edition must be ENTERPRISE or ENTERPRISE_PLUS."
+  }
+}
+
 variable "db_disk_size_gb" {
   description = "Cloud SQL disk size in GB."
   type        = number

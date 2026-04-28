@@ -6,6 +6,7 @@ github_branch = "main"
 
 # Cost-control defaults:
 # db_tier          = "db-f1-micro"
+# db_edition       = "ENTERPRISE"
 # db_disk_size_gb  = 10
 # enable_backups   = false
 # deletion_protection = false
