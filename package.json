@@ -1,0 +1,21 @@
+{
+  "name": "reactive-english-workspace",
+  "private": true,
+  "scripts": {
+    "start": "./scripts/start-app.sh",
+    "zlib:shim": "./scripts/setup-local-zlib.sh",
+    "schema:generate": "cabal run schema-bridge -- backend/src/ReactiveEnglish/Schema/Generated.hs frontend/src/App/Schema/Generated.purs",
+    "frontend:build": "npm --prefix frontend run build",
+    "frontend:watch": "npm --prefix frontend run watch",
+    "backend:run": "./scripts/with-local-zlib.sh cabal run reactive-english-server -- --static-dir frontend/dist",
+    "backend:test": "./scripts/with-local-zlib.sh cabal test all",
+    "proof:setup": "./scripts/setup-local-lean.sh",
+    "proof:build": "./scripts/build-proofs.sh",
+    "assurance:check": "npm run schema:generate && npm --prefix frontend run check && ./scripts/with-local-zlib.sh cabal test reactive-english-test && ./scripts/build-proofs.sh",
+    "build": "npm run schema:generate && npm run frontend:build && ./scripts/with-local-zlib.sh cabal build all",
+    "dev": "npm run schema:generate && concurrently -k -n front,back \"npm run frontend:watch\" \"npm run backend:run\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

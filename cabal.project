@@ -1,0 +1,6 @@
+packages:
+  ./schema-bridge
+  ./backend
+
+tests: True
+write-ghc-environment-files: never

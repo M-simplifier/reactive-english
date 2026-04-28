@@ -1,0 +1,4686 @@
+{
+  "lexemes": [
+    {
+      "lexemeId": "lex-greeting-nice-to-meet-you",
+      "headword": "Nice to meet you",
+      "partOfSpeech": "phrase",
+      "cefrBand": "A1",
+      "lessonId": "u01-l01",
+      "definition": "A polite phrase used when you meet someone for the first time.",
+      "exampleSentence": "Nice to meet you, Ken.",
+      "translation": "first-meeting greeting",
+      "collocations": ["Nice to meet you too", "It is nice to meet you"],
+      "distractors": ["At seven", "I am from Brazil", "Good night"],
+      "confusables": ["Nice to watch you", "Good to meet it", "Meet to nice you"],
+      "tags": ["greeting", "social"]
+    },
+    {
+      "lexemeId": "lex-be-am",
+      "headword": "am",
+      "partOfSpeech": "verb",
+      "cefrBand": "A1",
+      "lessonId": "u01-l01",
+      "definition": "The be-verb form used with I.",
+      "exampleSentence": "I am Ken.",
+      "translation": "be verb with I",
+      "collocations": ["I am", "I am from", "I am a student"],
+      "distractors": ["are", "is", "do"],
+      "confusables": ["I are", "I is", "I do"],
+      "tags": ["be", "grammar"]
+    },
+    {
+      "lexemeId": "lex-classmate",
+      "headword": "classmate",
+      "partOfSpeech": "noun",
+      "cefrBand": "A1",
+      "lessonId": "u01-l01",
+      "definition": "A person who studies in the same class as you.",
+      "exampleSentence": "She is my new classmate.",
+      "translation": "person in the same class",
+      "collocations": ["new classmate", "my classmate", "a classmate from school"],
+      "distractors": ["teacher", "country", "station"],
+      "confusables": ["new classroom", "my country", "a class from school"],
+      "tags": ["school", "people"]
+    },
+    {
+      "lexemeId": "lex-from",
+      "headword": "from",
+      "partOfSpeech": "preposition",
+      "cefrBand": "A1",
+      "lessonId": "u01-l02",
+      "definition": "A word used to say a person's origin or starting place.",
+      "exampleSentence": "I am from Brazil.",
+      "translation": "origin word",
+      "collocations": ["from Brazil", "from school", "from my town"],
+      "distractors": ["for", "at", "with"],
+      "confusables": ["for Brazil", "at my town", "with school"],
+      "tags": ["origin", "preposition"]
+    },
+    {
+      "lexemeId": "lex-speak",
+      "headword": "speak",
+      "partOfSpeech": "verb",
+      "cefrBand": "A1",
+      "lessonId": "u01-l02",
+      "definition": "To use a language when talking.",
+      "exampleSentence": "He speaks Spanish.",
+      "translation": "use a language",
+      "collocations": ["speak English", "speak Spanish", "speak slowly"],
+      "distractors": ["listen", "write", "open"],
+      "confusables": ["listen English", "speak homework", "open slowly"],
+      "tags": ["language", "verb"]
+    },
+    {
+      "lexemeId": "lex-this",
+      "headword": "this",
+      "partOfSpeech": "determiner",
+      "cefrBand": "A1",
+      "lessonId": "u01-l03",
+      "definition": "A word for one thing near the speaker.",
+      "exampleSentence": "This is my notebook.",
+      "translation": "near thing",
+      "collocations": ["this book", "this room", "this is"],
+      "distractors": ["that", "these", "there"],
+      "confusables": ["that book near me", "these is", "there book"],
+      "tags": ["classroom", "demonstratives"]
+    },
+    {
+      "lexemeId": "lex-family",
+      "headword": "family",
+      "partOfSpeech": "noun",
+      "cefrBand": "A1",
+      "lessonId": "u01-l04",
+      "definition": "The people closely related to you.",
+      "exampleSentence": "My family is small.",
+      "translation": "related people",
+      "collocations": ["my family", "family photo", "family member"],
+      "distractors": ["friend", "office", "ticket"],
+      "confusables": ["my office", "family ticket", "friend photo"],
+      "tags": ["people", "home"]
+    },
+    {
+      "lexemeId": "lex-routine",
+      "headword": "routine",
+      "partOfSpeech": "noun",
+      "cefrBand": "A1-A2",
+      "lessonId": "u02-l01",
+      "definition": "A usual set of actions you do regularly.",
+      "exampleSentence": "My morning routine is simple.",
+      "translation": "usual actions",
+      "collocations": ["morning routine", "daily routine", "simple routine"],
+      "distractors": ["ticket", "medicine", "weather"],
+      "confusables": ["morning ticket", "daily medicine", "simple weather"],
+      "tags": ["habits", "time"]
+    },
+    {
+      "lexemeId": "lex-usually",
+      "headword": "usually",
+      "partOfSpeech": "adverb",
+      "cefrBand": "A1-A2",
+      "lessonId": "u02-l03",
+      "definition": "A word meaning that something happens most of the time.",
+      "exampleSentence": "I usually eat breakfast at seven.",
+      "translation": "most of the time",
+      "collocations": ["usually eat", "usually go", "usually at home"],
+      "distractors": ["never", "yesterday", "soon"],
+      "confusables": ["usually yesterday", "never most days", "soon eat breakfast"],
+      "tags": ["frequency", "habits"]
+    },
+    {
+      "lexemeId": "lex-near",
+      "headword": "near",
+      "partOfSpeech": "preposition",
+      "cefrBand": "A1-A2",
+      "lessonId": "u03-l03",
+      "definition": "Close to a place or thing.",
+      "exampleSentence": "The cafe is near the station.",
+      "translation": "close to",
+      "collocations": ["near the station", "near my house", "near here"],
+      "distractors": ["behind", "between", "inside"],
+      "confusables": ["inside here", "between the station", "behind close"],
+      "tags": ["place", "directions"]
+    },
+    {
+      "lexemeId": "lex-order",
+      "headword": "order",
+      "partOfSpeech": "verb",
+      "cefrBand": "A1-A2",
+      "lessonId": "u04-l02",
+      "definition": "To ask for food or drink in a cafe or restaurant.",
+      "exampleSentence": "I would like to order a coffee.",
+      "translation": "ask to buy food or drink",
+      "collocations": ["order a coffee", "order lunch", "order online"],
+      "distractors": ["try", "wear", "borrow"],
+      "confusables": ["wear a coffee", "borrow lunch", "try online"],
+      "tags": ["food", "shopping"]
+    },
+    {
+      "lexemeId": "lex-size",
+      "headword": "size",
+      "partOfSpeech": "noun",
+      "cefrBand": "A1-A2",
+      "lessonId": "u04-l04",
+      "definition": "How large or small clothes or objects are.",
+      "exampleSentence": "What size do you need?",
+      "translation": "large or small measure",
+      "collocations": ["what size", "small size", "the right size"],
+      "distractors": ["price", "color", "street"],
+      "confusables": ["what price do you need", "small street", "right color"],
+      "tags": ["shopping", "clothes"]
+    },
+    {
+      "lexemeId": "lex-can",
+      "headword": "can",
+      "partOfSpeech": "modal verb",
+      "cefrBand": "A1-A2",
+      "lessonId": "u05-l02",
+      "definition": "A word used to talk about ability or possibility.",
+      "exampleSentence": "I can swim.",
+      "translation": "ability word",
+      "collocations": ["can swim", "can help", "can speak English"],
+      "distractors": ["must", "was", "have"],
+      "confusables": ["can to swim", "can helps", "can speaking English"],
+      "tags": ["ability", "modal"]
+    },
+    {
+      "lexemeId": "lex-invite",
+      "headword": "invite",
+      "partOfSpeech": "verb",
+      "cefrBand": "A1-A2",
+      "lessonId": "u05-l03",
+      "definition": "To ask someone to come to an event or activity.",
+      "exampleSentence": "I want to invite Mia to the party.",
+      "translation": "ask someone to come",
+      "collocations": ["invite a friend", "invite someone to dinner", "invite them"],
+      "distractors": ["arrive", "answer", "compare"],
+      "confusables": ["arrive a friend", "answer someone to dinner", "compare them"],
+      "tags": ["plans", "social"]
+    },
+    {
+      "lexemeId": "lex-have-to",
+      "headword": "have to",
+      "partOfSpeech": "modal phrase",
+      "cefrBand": "A1-A2",
+      "lessonId": "u06-l04",
+      "definition": "A phrase used to say that something is necessary.",
+      "exampleSentence": "I have to finish my homework.",
+      "translation": "necessary action",
+      "collocations": ["have to go", "have to work", "have to finish"],
+      "distractors": ["want to", "like to", "going to"],
+      "confusables": ["have finish", "have to working", "have to went"],
+      "tags": ["obligation", "grammar"]
+    },
+    {
+      "lexemeId": "lex-yesterday",
+      "headword": "yesterday",
+      "partOfSpeech": "adverb",
+      "cefrBand": "A2",
+      "lessonId": "u08-l01",
+      "definition": "The day before today.",
+      "exampleSentence": "I cleaned my room yesterday.",
+      "translation": "day before today",
+      "collocations": ["yesterday morning", "yesterday evening", "went yesterday"],
+      "distractors": ["tomorrow", "usually", "next week"],
+      "confusables": ["tomorrow morning for past", "usually yesterday", "next week yesterday"],
+      "tags": ["past", "time"]
+    },
+    {
+      "lexemeId": "lex-booking",
+      "headword": "booking",
+      "partOfSpeech": "noun",
+      "cefrBand": "A2",
+      "lessonId": "u09-l02",
+      "definition": "An arrangement to have a hotel room, seat, or service.",
+      "exampleSentence": "I have a booking for two nights.",
+      "translation": "reservation",
+      "collocations": ["hotel booking", "make a booking", "booking number"],
+      "distractors": ["platform", "medicine", "weather"],
+      "confusables": ["make a platform", "hotel medicine", "weather number"],
+      "tags": ["travel", "hotel"]
+    },
+    {
+      "lexemeId": "lex-advice",
+      "headword": "advice",
+      "partOfSpeech": "noun",
+      "cefrBand": "A2",
+      "lessonId": "u10-l04",
+      "definition": "An opinion or suggestion about what someone should do.",
+      "exampleSentence": "The doctor gave me useful advice.",
+      "translation": "suggestion about what to do",
+      "collocations": ["give advice", "useful advice", "doctor's advice"],
+      "distractors": ["symptom", "season", "message"],
+      "confusables": ["give symptom", "useful season", "doctor's message only"],
+      "tags": ["health", "suggestions"]
+    },
+    {
+      "lexemeId": "lex-compare",
+      "headword": "compare",
+      "partOfSpeech": "verb",
+      "cefrBand": "A2",
+      "lessonId": "u11-l03",
+      "definition": "To look at two or more things and say how they are similar or different.",
+      "exampleSentence": "We compare two cities.",
+      "translation": "look for similarities and differences",
+      "collocations": ["compare prices", "compare two places", "compare options"],
+      "distractors": ["complete", "borrow", "invite"],
+      "confusables": ["complete prices", "borrow two places", "invite options"],
+      "tags": ["comparatives", "thinking"]
+    },
+    {
+      "lexemeId": "lex-experience",
+      "headword": "experience",
+      "partOfSpeech": "noun",
+      "cefrBand": "A2",
+      "lessonId": "u12-l01",
+      "definition": "Something that happened to you or that you have done.",
+      "exampleSentence": "Have you ever had this experience?",
+      "translation": "thing you have done or lived through",
+      "collocations": ["life experience", "good experience", "travel experience"],
+      "distractors": ["problem", "message", "season"],
+      "confusables": ["life problem", "good message", "travel season"],
+      "tags": ["present perfect", "communication"]
+    }
+  ],
+  "units": [
+    {
+      "unitId": "u01",
+      "index": 1,
+      "title": "Starting Conversations",
+      "cefrBand": "A1",
+      "focus": "Greetings, be, names, countries, classroom basics, family words",
+      "lessons": [
+        {
+          "lessonId": "u01-l01",
+          "index": 1,
+          "title": "Hello There",
+          "subtitle": "Greetings and names",
+          "goal": "Greet someone, give your name, and reply politely.",
+          "xpReward": 40,
+          "narrative": "Use this lesson in a short everyday scene. Greet someone, give your name, and reply politely.",
+          "tips": [
+            "Use I am for a full self-introduction.",
+            "Nice to meet you is the usual first reply."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u01-l01-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best reply.",
+              "promptDetail": "A: Hi, I am Yuki. ____",
+              "choices": [
+                "Nice to meet you",
+                "I am from Tokyo",
+                "At seven"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "Nice to meet you"
+              ],
+              "translation": null,
+              "hint": "Think about what people say after an introduction.",
+              "explanation": "Nice to meet you is the natural reply when someone tells you their name."
+            },
+            {
+              "exerciseId": "u01-l01-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "Hello, I ___ Ken.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "am",
+              "acceptableAnswers": [
+                "am"
+              ],
+              "translation": null,
+              "hint": "Use the verb be with I.",
+              "explanation": "Use am after I in a basic introduction."
+            },
+            {
+              "exerciseId": "u01-l01-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "She",
+                "is",
+                "my",
+                "new",
+                "classmate"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "She is my new classmate"
+              ],
+              "translation": null,
+              "hint": "Start with the subject, then the verb.",
+              "explanation": "The natural order is subject, verb, then the noun phrase."
+            },
+            {
+              "exerciseId": "u01-l01-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "My name are Aiko",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "False"
+              ],
+              "translation": null,
+              "hint": "Check the verb after my name.",
+              "explanation": "This sentence is not correct. Say My name is Aiko."
+            }
+          ]
+        },
+        {
+          "lessonId": "u01-l02",
+          "index": 2,
+          "title": "Where Are You From?",
+          "subtitle": "Countries and languages",
+          "goal": "Say where people are from and what languages they speak.",
+          "xpReward": 40,
+          "narrative": "Use this lesson in a short everyday scene. Say where people are from and what languages they speak.",
+          "tips": [
+            "Use from before a country name.",
+            "Use speak with languages such as English or Spanish."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u01-l02-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best answer.",
+              "promptDetail": "A: Where are you from? B: ____",
+              "choices": [
+                "I am from Brazil",
+                "I am 22 years old",
+                "I am a teacher"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "I am from Brazil"
+              ],
+              "translation": null,
+              "hint": "Answer with a country.",
+              "explanation": "I am from Brazil directly answers a question about origin."
+            },
+            {
+              "exerciseId": "u01-l02-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "Luis is from Spain. He speaks ___.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "Spanish",
+              "acceptableAnswers": [
+                "Spanish"
+              ],
+              "translation": null,
+              "hint": "Use the language, not the country.",
+              "explanation": "Spanish is the language spoken in Spain."
+            },
+            {
+              "exerciseId": "u01-l02-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "We",
+                "are",
+                "from",
+                "Canada"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "We are from Canada"
+              ],
+              "translation": null,
+              "hint": "Keep be before from Canada.",
+              "explanation": "Use subject plus be, then from and the country name."
+            },
+            {
+              "exerciseId": "u01-l02-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "Emma from Australia",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "False"
+              ],
+              "translation": null,
+              "hint": "A full sentence needs a verb.",
+              "explanation": "This sentence is not correct. Say Emma is from Australia."
+            }
+          ]
+        },
+        {
+          "lessonId": "u01-l03",
+          "index": 3,
+          "title": "In the Classroom",
+          "subtitle": "This, that, and school objects",
+          "goal": "Identify classroom objects and ask simple questions.",
+          "xpReward": 40,
+          "narrative": "Use this lesson in a short everyday scene. Identify classroom objects and ask simple questions.",
+          "tips": [
+            "Use this for something near you.",
+            "Use an before a vowel sound such as eraser."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u01-l03-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best question.",
+              "promptDetail": "You point to a book in your hand. ____",
+              "choices": [
+                "What is this",
+                "Where are you from",
+                "How old are you"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "What is this"
+              ],
+              "translation": null,
+              "hint": "You are asking about an object near you.",
+              "explanation": "What is this is the natural question for an object close to you."
+            },
+            {
+              "exerciseId": "u01-l03-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "That is ___ eraser on the desk.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "an",
+              "acceptableAnswers": [
+                "an"
+              ],
+              "translation": null,
+              "hint": "Eraser begins with a vowel sound.",
+              "explanation": "Use an before eraser because it starts with a vowel sound."
+            },
+            {
+              "exerciseId": "u01-l03-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "This",
+                "is",
+                "our",
+                "English",
+                "teacher"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "This is our English teacher"
+              ],
+              "translation": null,
+              "hint": "Begin with This is.",
+              "explanation": "This is our English teacher is a clear way to introduce a person nearby."
+            },
+            {
+              "exerciseId": "u01-l03-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "These is my notebooks",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "False"
+              ],
+              "translation": null,
+              "hint": "Check the verb with these.",
+              "explanation": "This sentence is not correct. Say These are my notebooks."
+            }
+          ]
+        },
+        {
+          "lessonId": "u01-l04",
+          "index": 4,
+          "title": "Meet My Family",
+          "subtitle": "Family words and ages",
+          "goal": "Talk about family members, ages, and possession.",
+          "xpReward": 40,
+          "narrative": "Use this lesson in a short everyday scene. Talk about family members, ages, and possession.",
+          "tips": [
+            "Use my, his, or her before family words.",
+            "Use has with he, she, or it."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u01-l04-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best sentence.",
+              "promptDetail": "You talk about your brother.",
+              "choices": [
+                "He is twenty years old",
+                "He are twenty years old",
+                "He have twenty years"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "He is twenty years old"
+              ],
+              "translation": null,
+              "hint": "Use is with he.",
+              "explanation": "He is twenty years old is the correct pattern for age."
+            },
+            {
+              "exerciseId": "u01-l04-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "Mika has two sisters, and ___ father is a doctor.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "her",
+              "acceptableAnswers": [
+                "her"
+              ],
+              "translation": null,
+              "hint": "The father belongs to Mika.",
+              "explanation": "Use her because the sentence is about Mika and her father."
+            },
+            {
+              "exerciseId": "u01-l04-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "My",
+                "parents",
+                "live",
+                "in",
+                "Osaka"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "My parents live in Osaka"
+              ],
+              "translation": null,
+              "hint": "Place the verb after the subject.",
+              "explanation": "My parents live in Osaka is a simple, natural family sentence."
+            },
+            {
+              "exerciseId": "u01-l04-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "Our grandmother has 70 years old",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "False"
+              ],
+              "translation": null,
+              "hint": "Check the pattern for age.",
+              "explanation": "This sentence is not correct. Say Our grandmother is 70 years old."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "u02",
+      "index": 2,
+      "title": "Daily Rhythm",
+      "cefrBand": "A1",
+      "focus": "Present simple, time, routines, adverbs of frequency, weekend activities",
+      "lessons": [
+        {
+          "lessonId": "u02-l01",
+          "index": 1,
+          "title": "Morning Routine",
+          "subtitle": "Simple daily actions",
+          "goal": "Describe simple morning routines with present simple verbs.",
+          "xpReward": 40,
+          "narrative": "Use this lesson in a short everyday scene. Describe simple morning routines with present simple verbs.",
+          "tips": [
+            "Use base verbs after I, you, we, and they.",
+            "Time words such as every morning help make routines clear."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u02-l01-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best sentence.",
+              "promptDetail": "Every weekday, Hana gets up at 6:30 and eats toast at home.",
+              "choices": [
+                "She has breakfast at home",
+                "She plays tennis at night",
+                "She goes to bed at five"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "She has breakfast at home"
+              ],
+              "translation": null,
+              "hint": "Match the sentence to the routine.",
+              "explanation": "She has breakfast at home matches the information in the routine."
+            },
+            {
+              "exerciseId": "u02-l01-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "I brush my teeth before I ___ to work.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "go",
+              "acceptableAnswers": [
+                "go"
+              ],
+              "translation": null,
+              "hint": "Use the present simple base verb after I.",
+              "explanation": "Go completes the present simple sentence correctly."
+            },
+            {
+              "exerciseId": "u02-l01-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "She",
+                "takes",
+                "the",
+                "bus",
+                "every",
+                "morning"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "She takes the bus every morning"
+              ],
+              "translation": null,
+              "hint": "Put the time phrase at the end.",
+              "explanation": "The natural order is subject, verb, object, then the time phrase."
+            },
+            {
+              "exerciseId": "u02-l01-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "He eat breakfast at seven",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "False"
+              ],
+              "translation": null,
+              "hint": "Check the verb with he.",
+              "explanation": "This sentence is not correct. Say He eats breakfast at seven."
+            }
+          ]
+        },
+        {
+          "lessonId": "u02-l02",
+          "index": 2,
+          "title": "What Time Is It?",
+          "subtitle": "Clock times and schedules",
+          "goal": "Tell the time and ask about simple schedules.",
+          "xpReward": 40,
+          "narrative": "Use this lesson in a short everyday scene. Tell the time and ask about simple schedules.",
+          "tips": [
+            "Use at with clock times.",
+            "Half past ten means 10:30."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u02-l02-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best answer.",
+              "promptDetail": "A: What time is your class? B: ____",
+              "choices": [
+                "It starts at nine thirty",
+                "It is in room blue",
+                "It is my favorite class"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "It starts at nine thirty"
+              ],
+              "translation": null,
+              "hint": "Answer with a time expression.",
+              "explanation": "It starts at nine thirty directly answers a question about schedule."
+            },
+            {
+              "exerciseId": "u02-l02-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "The movie starts ___ 7:15.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "at",
+              "acceptableAnswers": [
+                "at"
+              ],
+              "translation": null,
+              "hint": "Use the usual preposition for clock times.",
+              "explanation": "Use at before an exact time such as 7:15."
+            },
+            {
+              "exerciseId": "u02-l02-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "My",
+                "train",
+                "leaves",
+                "at",
+                "eight",
+                "forty"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "My train leaves at eight forty"
+              ],
+              "translation": null,
+              "hint": "Keep the time phrase together after leaves.",
+              "explanation": "My train leaves at eight forty is the standard word order."
+            },
+            {
+              "exerciseId": "u02-l02-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "The phrase half past ten means 10:30",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "True"
+              ],
+              "translation": null,
+              "hint": "Think about half an hour after ten.",
+              "explanation": "Half past ten is another way to say 10:30."
+            }
+          ]
+        },
+        {
+          "lessonId": "u02-l03",
+          "index": 3,
+          "title": "Busy Weekdays",
+          "subtitle": "Adverbs of frequency",
+          "goal": "Use adverbs of frequency to describe weekday habits.",
+          "xpReward": 40,
+          "narrative": "Use this lesson in a short everyday scene. Use adverbs of frequency to describe weekday habits.",
+          "tips": [
+            "Put adverbs like often and sometimes before the main verb.",
+            "Use always to describe a very regular habit."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u02-l03-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best sentence.",
+              "promptDetail": "Sara goes running on Monday, Wednesday, and Friday.",
+              "choices": [
+                "She often goes running",
+                "She never goes running",
+                "She is running now"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "She often goes running"
+              ],
+              "translation": null,
+              "hint": "Think about a habit that happens many times.",
+              "explanation": "Often fits a habit that happens several times each week."
+            },
+            {
+              "exerciseId": "u02-l03-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "I ___ check my email before breakfast.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "always",
+              "acceptableAnswers": [
+                "always"
+              ],
+              "translation": null,
+              "hint": "Use an adverb for a very regular action.",
+              "explanation": "Always works because the action happens every day in this routine."
+            },
+            {
+              "exerciseId": "u02-l03-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "They",
+                "sometimes",
+                "study",
+                "at",
+                "the",
+                "library"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "They sometimes study at the library"
+              ],
+              "translation": null,
+              "hint": "Put sometimes before the main verb.",
+              "explanation": "They sometimes study at the library uses natural adverb placement."
+            },
+            {
+              "exerciseId": "u02-l03-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "He always is late",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "False"
+              ],
+              "translation": null,
+              "hint": "Check where always usually goes.",
+              "explanation": "This sentence sounds unnatural here. Say He is always late or He is often late."
+            }
+          ]
+        },
+        {
+          "lessonId": "u02-l04",
+          "index": 4,
+          "title": "Weekend Plans",
+          "subtitle": "Free time activities",
+          "goal": "Talk about weekend activities and simple preferences.",
+          "xpReward": 40,
+          "narrative": "Use this lesson in a short everyday scene. Talk about weekend activities and simple preferences.",
+          "tips": [
+            "Use do for routine questions such as What do you do on Sundays?",
+            "Use likes with he or she."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u02-l04-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best reply.",
+              "promptDetail": "A: What do you do on Sundays? B: ____",
+              "choices": [
+                "I visit my grandparents",
+                "I am from Kyoto",
+                "I am reading now"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "I visit my grandparents"
+              ],
+              "translation": null,
+              "hint": "Answer with a usual weekend activity.",
+              "explanation": "I visit my grandparents is a natural reply about a regular Sunday activity."
+            },
+            {
+              "exerciseId": "u02-l04-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "My friends and I ___ soccer in the park on Saturdays.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "play",
+              "acceptableAnswers": [
+                "play"
+              ],
+              "translation": null,
+              "hint": "Use the main action verb.",
+              "explanation": "Play completes the present simple sentence correctly."
+            },
+            {
+              "exerciseId": "u02-l04-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "She",
+                "likes",
+                "watching",
+                "movies",
+                "on",
+                "weekends"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "She likes watching movies on weekends"
+              ],
+              "translation": null,
+              "hint": "Keep likes before the activity.",
+              "explanation": "She likes watching movies on weekends is the natural word order."
+            },
+            {
+              "exerciseId": "u02-l04-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "We goes hiking on Sunday",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "False"
+              ],
+              "translation": null,
+              "hint": "Check the verb after we.",
+              "explanation": "This sentence is not correct. Say We go hiking on Sunday."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "u03",
+      "index": 3,
+      "title": "Home and Neighborhood",
+      "cefrBand": "A1",
+      "focus": "There is and there are, place words, prepositions, directions",
+      "lessons": [
+        {
+          "lessonId": "u03-l01",
+          "index": 1,
+          "title": "My Apartment",
+          "subtitle": "Rooms and furniture",
+          "goal": "Describe rooms and furniture with there is and there are.",
+          "xpReward": 40,
+          "narrative": "Use this lesson in a short everyday scene. Describe rooms and furniture with there is and there are.",
+          "tips": [
+            "Use there is for one thing.",
+            "Use there are for plural nouns."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u03-l01-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best sentence.",
+              "promptDetail": "Your living room has one sofa and two lamps.",
+              "choices": [
+                "There is a sofa and two lamps",
+                "There are a sofa and two lamps",
+                "There is two lamps"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "There is a sofa and two lamps"
+              ],
+              "translation": null,
+              "hint": "Start with the single item first.",
+              "explanation": "There is a sofa and two lamps works because the sentence begins with the singular item."
+            },
+            {
+              "exerciseId": "u03-l01-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "There ___ a small desk in my bedroom.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "is",
+              "acceptableAnswers": [
+                "is"
+              ],
+              "translation": null,
+              "hint": "Desk is singular.",
+              "explanation": "Use is with the singular noun desk."
+            },
+            {
+              "exerciseId": "u03-l01-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "There",
+                "are",
+                "three",
+                "chairs",
+                "in",
+                "the",
+                "kitchen"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "There are three chairs in the kitchen"
+              ],
+              "translation": null,
+              "hint": "Use there are with a plural noun.",
+              "explanation": "There are three chairs in the kitchen follows the standard pattern."
+            },
+            {
+              "exerciseId": "u03-l01-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "There are a bathroom upstairs",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "False"
+              ],
+              "translation": null,
+              "hint": "Bathroom is singular.",
+              "explanation": "This sentence is not correct. Say There is a bathroom upstairs."
+            }
+          ]
+        },
+        {
+          "lessonId": "u03-l02",
+          "index": 2,
+          "title": "Around My Town",
+          "subtitle": "Town places",
+          "goal": "Say where common places in town are located.",
+          "xpReward": 40,
+          "narrative": "Use this lesson in a short everyday scene. Say where common places in town are located.",
+          "tips": [
+            "Near, next to, and between help you place buildings.",
+            "A location answer often uses is plus a place phrase."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u03-l02-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best sentence.",
+              "promptDetail": "You want to buy medicine.",
+              "choices": [
+                "The pharmacy is next to the bank",
+                "The bakery is under my bed",
+                "The station is a teacher"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "The pharmacy is next to the bank"
+              ],
+              "translation": null,
+              "hint": "Pick the sentence about a real town place.",
+              "explanation": "The pharmacy is next to the bank is a natural location sentence for town navigation."
+            },
+            {
+              "exerciseId": "u03-l02-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "The library is ___ the post office and the cafe.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "between",
+              "acceptableAnswers": [
+                "between"
+              ],
+              "translation": null,
+              "hint": "The library has one place on each side.",
+              "explanation": "Between is the correct preposition when something is in the middle of two places."
+            },
+            {
+              "exerciseId": "u03-l02-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "Our",
+                "school",
+                "is",
+                "near",
+                "the",
+                "river"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "Our school is near the river"
+              ],
+              "translation": null,
+              "hint": "Place near the river after the verb.",
+              "explanation": "Our school is near the river is the natural sentence order."
+            },
+            {
+              "exerciseId": "u03-l02-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "The supermarket is on Green Street",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "True"
+              ],
+              "translation": null,
+              "hint": "This is a normal way to answer a location question.",
+              "explanation": "The supermarket is on Green Street is a correct and useful location sentence."
+            }
+          ]
+        },
+        {
+          "lessonId": "u03-l03",
+          "index": 3,
+          "title": "Where Is the Cafe?",
+          "subtitle": "Prepositions of place",
+          "goal": "Use common prepositions to describe where places are.",
+          "xpReward": 40,
+          "narrative": "Use this lesson in a short everyday scene. Use common prepositions to describe where places are.",
+          "tips": [
+            "Across from shows the opposite side.",
+            "In front of needs two words after in."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u03-l03-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best answer.",
+              "promptDetail": "A: Where is the cafe? B: It is ____ the bookstore.",
+              "choices": [
+                "across from",
+                "every morning",
+                "very hungry"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "across from"
+              ],
+              "translation": null,
+              "hint": "You need a place preposition.",
+              "explanation": "Across from is a place expression that fits the question."
+            },
+            {
+              "exerciseId": "u03-l03-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "The bus stop is ___ front of the station.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "in",
+              "acceptableAnswers": [
+                "in"
+              ],
+              "translation": null,
+              "hint": "Use the fixed phrase in front of.",
+              "explanation": "Use in to complete the phrase in front of."
+            },
+            {
+              "exerciseId": "u03-l03-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "The",
+                "hotel",
+                "is",
+                "behind",
+                "the",
+                "museum"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "The hotel is behind the museum"
+              ],
+              "translation": null,
+              "hint": "Keep behind before the place.",
+              "explanation": "The hotel is behind the museum is the correct word order."
+            },
+            {
+              "exerciseId": "u03-l03-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "The park is between the school",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "False"
+              ],
+              "translation": null,
+              "hint": "Between usually needs two places.",
+              "explanation": "This sentence is not complete. Between usually needs two points, such as between the school and the bank."
+            }
+          ]
+        },
+        {
+          "lessonId": "u03-l04",
+          "index": 4,
+          "title": "Directions on Foot",
+          "subtitle": "Basic street directions",
+          "goal": "Ask for and give simple walking directions.",
+          "xpReward": 40,
+          "narrative": "Use this lesson in a short everyday scene. Ask for and give simple walking directions.",
+          "tips": [
+            "Use turn left and turn right for corners.",
+            "Go straight is useful before the next landmark."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u03-l04-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best instruction.",
+              "promptDetail": "You want someone to move left at the corner.",
+              "choices": [
+                "Turn left at the corner",
+                "Go from Canada",
+                "Take a shower there"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "Turn left at the corner"
+              ],
+              "translation": null,
+              "hint": "Choose the sentence that gives a clear direction.",
+              "explanation": "Turn left at the corner is the direct instruction for this situation."
+            },
+            {
+              "exerciseId": "u03-l04-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "Go straight, and then ___ right at the traffic light.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "turn",
+              "acceptableAnswers": [
+                "turn"
+              ],
+              "translation": null,
+              "hint": "Use another direction verb.",
+              "explanation": "Turn completes the instruction naturally."
+            },
+            {
+              "exerciseId": "u03-l04-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "Walk",
+                "past",
+                "the",
+                "bank",
+                "and",
+                "stop",
+                "at",
+                "the",
+                "bridge"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "Walk past the bank and stop at the bridge"
+              ],
+              "translation": null,
+              "hint": "Put the first action first.",
+              "explanation": "Walk past the bank and stop at the bridge is a natural sequence of directions."
+            },
+            {
+              "exerciseId": "u03-l04-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "Go straight for two blocks",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "True"
+              ],
+              "translation": null,
+              "hint": "This is a standard street instruction.",
+              "explanation": "Go straight for two blocks is a correct and useful direction sentence."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "u04",
+      "index": 4,
+      "title": "Food and Shopping",
+      "cefrBand": "A1-A2",
+      "focus": "Food preferences, polite orders, countable and uncountable nouns, prices and size",
+      "lessons": [
+        {
+          "lessonId": "u04-l01",
+          "index": 1,
+          "title": "Breakfast at Home",
+          "subtitle": "Food likes and simple meals",
+          "goal": "Talk about breakfast foods and basic preferences.",
+          "xpReward": 45,
+          "narrative": "Use this lesson in a short everyday scene. Talk about breakfast foods and basic preferences.",
+          "tips": [
+            "Use like and do not like for personal taste.",
+            "Some works well with plural or uncountable food words in positive sentences."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u04-l01-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best sentence.",
+              "promptDetail": "Yuki eats eggs every morning, but she does not drink coffee.",
+              "choices": [
+                "She likes eggs but not coffee",
+                "She likes coffee but not eggs",
+                "She eats dinner at school"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "She likes eggs but not coffee"
+              ],
+              "translation": null,
+              "hint": "Match both parts of the information.",
+              "explanation": "She likes eggs but not coffee matches the two preferences in the prompt."
+            },
+            {
+              "exerciseId": "u04-l01-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "We have ___ bread and fruit for breakfast.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "some",
+              "acceptableAnswers": [
+                "some"
+              ],
+              "translation": null,
+              "hint": "Use a word that works with bread and fruit in a positive sentence.",
+              "explanation": "Some fits naturally with bread and fruit in a positive statement."
+            },
+            {
+              "exerciseId": "u04-l01-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "I",
+                "usually",
+                "drink",
+                "tea",
+                "with",
+                "breakfast"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "I usually drink tea with breakfast"
+              ],
+              "translation": null,
+              "hint": "Put usually before the main verb.",
+              "explanation": "I usually drink tea with breakfast uses natural adverb placement."
+            },
+            {
+              "exerciseId": "u04-l01-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "I do not like milk",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "True"
+              ],
+              "translation": null,
+              "hint": "This sentence states a preference clearly.",
+              "explanation": "I do not like milk is a correct way to talk about food preference."
+            }
+          ]
+        },
+        {
+          "lessonId": "u04-l02",
+          "index": 2,
+          "title": "At the Cafe",
+          "subtitle": "Polite food orders",
+          "goal": "Order simple food and drinks politely.",
+          "xpReward": 45,
+          "narrative": "Use this lesson in a short everyday scene. Order simple food and drinks politely.",
+          "tips": [
+            "Would like sounds more polite than want in a cafe.",
+            "Use a before a singular countable drink or dish."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u04-l02-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best order.",
+              "promptDetail": "You want one sandwich and one orange juice.",
+              "choices": [
+                "I would like a sandwich and an orange juice",
+                "I am sandwich and juice",
+                "I have like orange"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "I would like a sandwich and an orange juice"
+              ],
+              "translation": null,
+              "hint": "Pick the polite full sentence.",
+              "explanation": "I would like a sandwich and an orange juice is a clear and polite cafe order."
+            },
+            {
+              "exerciseId": "u04-l02-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "Could I have ___ cup of tea, please?",
+              "choices": [],
+              "fragments": [],
+              "answerText": "a",
+              "acceptableAnswers": [
+                "a"
+              ],
+              "translation": null,
+              "hint": "Cup is singular and countable.",
+              "explanation": "Use a before the singular noun phrase cup of tea."
+            },
+            {
+              "exerciseId": "u04-l02-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "Can",
+                "we",
+                "see",
+                "the",
+                "menu",
+                "please"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "Can we see the menu please"
+              ],
+              "translation": null,
+              "hint": "Start with Can we.",
+              "explanation": "Can we see the menu please is a polite question for cafe service."
+            },
+            {
+              "exerciseId": "u04-l02-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "I would like two coffees",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "True"
+              ],
+              "translation": null,
+              "hint": "This is a normal polite order.",
+              "explanation": "I would like two coffees is correct when ordering two cups of coffee."
+            }
+          ]
+        },
+        {
+          "lessonId": "u04-l03",
+          "index": 3,
+          "title": "In the Supermarket",
+          "subtitle": "Some, any, and food shopping",
+          "goal": "Use countable and uncountable nouns when shopping for food.",
+          "xpReward": 45,
+          "narrative": "Use this lesson in a short everyday scene. Use countable and uncountable nouns when shopping for food.",
+          "tips": [
+            "Use any in many negative sentences and questions.",
+            "Use much with uncountable nouns such as rice or milk."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u04-l03-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best sentence.",
+              "promptDetail": "Your fridge is empty.",
+              "choices": [
+                "We do not have any milk",
+                "We do not have many bread",
+                "We are not have eggs"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "We do not have any milk"
+              ],
+              "translation": null,
+              "hint": "Milk is uncountable and the sentence is negative.",
+              "explanation": "We do not have any milk is the correct pattern for an uncountable noun in a negative sentence."
+            },
+            {
+              "exerciseId": "u04-l03-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "There are ___ apples in the basket.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "some",
+              "acceptableAnswers": [
+                "some"
+              ],
+              "translation": null,
+              "hint": "Use a positive quantity word with apples.",
+              "explanation": "Some is the natural choice in a positive sentence with plural apples."
+            },
+            {
+              "exerciseId": "u04-l03-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "Do",
+                "you",
+                "need",
+                "any",
+                "rice",
+                "today"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "Do you need any rice today"
+              ],
+              "translation": null,
+              "hint": "Use any in this question.",
+              "explanation": "Do you need any rice today is a correct shopping question."
+            },
+            {
+              "exerciseId": "u04-l03-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "How much bananas do we need",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "False"
+              ],
+              "translation": null,
+              "hint": "Bananas are countable and plural.",
+              "explanation": "This sentence is not correct. Say How many bananas do we need."
+            }
+          ]
+        },
+        {
+          "lessonId": "u04-l04",
+          "index": 4,
+          "title": "Trying on Clothes",
+          "subtitle": "Size, color, and price",
+          "goal": "Ask about clothes, size, and price in a shop.",
+          "xpReward": 45,
+          "narrative": "Use this lesson in a short everyday scene. Ask about clothes, size, and price in a shop.",
+          "tips": [
+            "Use How much is for price.",
+            "Use larger or smaller when you compare sizes."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u04-l04-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best question.",
+              "promptDetail": "You want to know the cost of a jacket.",
+              "choices": [
+                "How much is this jacket",
+                "Where is your breakfast",
+                "What time is blue"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "How much is this jacket"
+              ],
+              "translation": null,
+              "hint": "Choose the sentence about price.",
+              "explanation": "How much is this jacket is the standard way to ask the price of one item."
+            },
+            {
+              "exerciseId": "u04-l04-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "These shoes are too small. Do you have them in a larger ___?",
+              "choices": [],
+              "fragments": [],
+              "answerText": "size",
+              "acceptableAnswers": [
+                "size"
+              ],
+              "translation": null,
+              "hint": "You need the usual shopping word for fit.",
+              "explanation": "Size completes the sentence naturally in a clothes shop."
+            },
+            {
+              "exerciseId": "u04-l04-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "This",
+                "shirt",
+                "is",
+                "cheaper",
+                "than",
+                "that",
+                "one"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "This shirt is cheaper than that one"
+              ],
+              "translation": null,
+              "hint": "Put cheaper before than that one.",
+              "explanation": "This shirt is cheaper than that one is the correct comparative pattern."
+            },
+            {
+              "exerciseId": "u04-l04-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "I am looking for a black coat",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "True"
+              ],
+              "translation": null,
+              "hint": "This is a useful shopping sentence.",
+              "explanation": "I am looking for a black coat is a clear way to ask for help in a shop."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "u05",
+      "index": 5,
+      "title": "Friends and Free Time",
+      "cefrBand": "A1-A2",
+      "focus": "Hobbies, can and cannot, invitations, timetables for activities",
+      "lessons": [
+        {
+          "lessonId": "u05-l01",
+          "index": 1,
+          "title": "Hobbies and Interests",
+          "subtitle": "Likes and favorite activities",
+          "goal": "Say what people like doing in their free time.",
+          "xpReward": 45,
+          "narrative": "Use this lesson in a short everyday scene. Say what people like doing in their free time.",
+          "tips": [
+            "Use like, love, or enjoy before activities.",
+            "A verb after enjoy usually ends in ing."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u05-l01-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best sentence.",
+              "promptDetail": "Omar enjoys drawing and cooking after work.",
+              "choices": [
+                "He likes drawing and cooking",
+                "He is cooking every winter in Canada",
+                "He has two sisters"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "He likes drawing and cooking"
+              ],
+              "translation": null,
+              "hint": "Pick the sentence about free-time interests.",
+              "explanation": "He likes drawing and cooking matches the hobbies in the prompt."
+            },
+            {
+              "exerciseId": "u05-l01-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "My sister loves ___ photos in the park.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "taking",
+              "acceptableAnswers": [
+                "taking"
+              ],
+              "translation": null,
+              "hint": "Use the ing form after loves here.",
+              "explanation": "Taking works naturally after loves in this sentence."
+            },
+            {
+              "exerciseId": "u05-l01-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "They",
+                "enjoy",
+                "playing",
+                "board",
+                "games",
+                "together"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "They enjoy playing board games together"
+              ],
+              "translation": null,
+              "hint": "Keep playing with the activity.",
+              "explanation": "They enjoy playing board games together is the natural word order."
+            },
+            {
+              "exerciseId": "u05-l01-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "She likes read novels",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "False"
+              ],
+              "translation": null,
+              "hint": "Check the form after likes.",
+              "explanation": "This sentence is not correct. Say She likes reading novels or She likes to read novels."
+            }
+          ]
+        },
+        {
+          "lessonId": "u05-l02",
+          "index": 2,
+          "title": "What Can You Do?",
+          "subtitle": "Ability and help",
+          "goal": "Talk about ability with can and cannot.",
+          "xpReward": 45,
+          "narrative": "Use this lesson in a short everyday scene. Talk about ability with can and cannot.",
+          "tips": [
+            "Use the base verb after can.",
+            "Cannot can describe lack of ability or an unavailable action."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u05-l02-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best sentence.",
+              "promptDetail": "Mina can swim, but she cannot drive.",
+              "choices": [
+                "She can swim but she cannot drive",
+                "She can drives but cannot swim",
+                "She is swim and drive"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "She can swim but she cannot drive"
+              ],
+              "translation": null,
+              "hint": "Use the base verb after can and cannot.",
+              "explanation": "She can swim but she cannot drive uses the correct can pattern."
+            },
+            {
+              "exerciseId": "u05-l02-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "Can your brother ___ the guitar?",
+              "choices": [],
+              "fragments": [],
+              "answerText": "play",
+              "acceptableAnswers": [
+                "play"
+              ],
+              "translation": null,
+              "hint": "Use the base verb after can.",
+              "explanation": "Play is the correct verb form after can."
+            },
+            {
+              "exerciseId": "u05-l02-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "We",
+                "cannot",
+                "come",
+                "to",
+                "practice",
+                "today"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "We cannot come to practice today"
+              ],
+              "translation": null,
+              "hint": "Keep cannot before the main verb.",
+              "explanation": "We cannot come to practice today is a natural ability or availability sentence."
+            },
+            {
+              "exerciseId": "u05-l02-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "Can you help me carry this box",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "True"
+              ],
+              "translation": null,
+              "hint": "This asks for help politely.",
+              "explanation": "Can you help me carry this box is a correct and useful request."
+            }
+          ]
+        },
+        {
+          "lessonId": "u05-l03",
+          "index": 3,
+          "title": "Making Plans",
+          "subtitle": "Invitations and meeting up",
+          "goal": "Invite someone and respond to simple plans.",
+          "xpReward": 45,
+          "narrative": "Use this lesson in a short everyday scene. Invite someone and respond to simple plans.",
+          "tips": [
+            "Would you like to is a polite invitation.",
+            "Use meet with a place or time to make plans clear."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u05-l03-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best reply.",
+              "promptDetail": "A: Would you like to watch a movie on Friday? B: ____",
+              "choices": [
+                "Yes, that sounds great",
+                "I am from Seoul",
+                "At three thirty"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "Yes, that sounds great"
+              ],
+              "translation": null,
+              "hint": "Reply to the invitation directly.",
+              "explanation": "Yes, that sounds great is a natural positive reply to an invitation."
+            },
+            {
+              "exerciseId": "u05-l03-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "Let us ___ at the station at six.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "meet",
+              "acceptableAnswers": [
+                "meet"
+              ],
+              "translation": null,
+              "hint": "Use the verb for coming together.",
+              "explanation": "Meet completes the plan naturally."
+            },
+            {
+              "exerciseId": "u05-l03-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "Do",
+                "you",
+                "want",
+                "to",
+                "play",
+                "tennis",
+                "after",
+                "class"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "Do you want to play tennis after class"
+              ],
+              "translation": null,
+              "hint": "Start with the invitation question.",
+              "explanation": "Do you want to play tennis after class is a clear invitation."
+            },
+            {
+              "exerciseId": "u05-l03-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "How about Sunday afternoon",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "True"
+              ],
+              "translation": null,
+              "hint": "This is a common way to suggest a time.",
+              "explanation": "How about Sunday afternoon is a correct and useful suggestion."
+            }
+          ]
+        },
+        {
+          "lessonId": "u05-l04",
+          "index": 4,
+          "title": "At the Sports Center",
+          "subtitle": "Class times and equipment",
+          "goal": "Talk about activity schedules and what you need.",
+          "xpReward": 45,
+          "narrative": "Use this lesson in a short everyday scene. Talk about activity schedules and what you need.",
+          "tips": [
+            "Use opens, starts, and ends for schedules.",
+            "Use for before the activity when you name needed items."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u05-l04-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best sentence.",
+              "promptDetail": "The yoga class is on Tuesday and Thursday evenings.",
+              "choices": [
+                "The yoga class is twice a week",
+                "The yoga class is in the kitchen",
+                "The yoga class is my cousin"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "The yoga class is twice a week"
+              ],
+              "translation": null,
+              "hint": "Count how often the class happens.",
+              "explanation": "The yoga class is twice a week correctly summarizes the schedule."
+            },
+            {
+              "exerciseId": "u05-l04-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "You need sports shoes ___ the gym class.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "for",
+              "acceptableAnswers": [
+                "for"
+              ],
+              "translation": null,
+              "hint": "Use the preposition that shows purpose.",
+              "explanation": "For is the natural preposition before the activity."
+            },
+            {
+              "exerciseId": "u05-l04-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "The",
+                "pool",
+                "opens",
+                "at",
+                "seven",
+                "in",
+                "the",
+                "morning"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "The pool opens at seven in the morning"
+              ],
+              "translation": null,
+              "hint": "Put the time phrase after opens.",
+              "explanation": "The pool opens at seven in the morning is the correct schedule sentence."
+            },
+            {
+              "exerciseId": "u05-l04-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "Bring a towel and a water bottle",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "True"
+              ],
+              "translation": null,
+              "hint": "This gives useful class information.",
+              "explanation": "Bring a towel and a water bottle is a correct instruction for a sports class."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "u06",
+      "index": 6,
+      "title": "Work and Study",
+      "cefrBand": "A1-A2",
+      "focus": "School schedules, jobs, present continuous, obligations with have to",
+      "lessons": [
+        {
+          "lessonId": "u06-l01",
+          "index": 1,
+          "title": "At School",
+          "subtitle": "Subjects and opinions",
+          "goal": "Describe school subjects and simple class schedules.",
+          "xpReward": 45,
+          "narrative": "Use this lesson in a short everyday scene. Describe school subjects and simple class schedules.",
+          "tips": [
+            "Use favorite plus subject to talk about what you enjoy.",
+            "School schedules often use on plus the day."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u06-l01-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best sentence.",
+              "promptDetail": "Aiko has math on Monday and English on Wednesday.",
+              "choices": [
+                "She has English on Wednesday",
+                "She has Wednesday on English",
+                "She is English on Monday"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "She has English on Wednesday"
+              ],
+              "translation": null,
+              "hint": "Match the day and subject correctly.",
+              "explanation": "She has English on Wednesday matches the schedule in the prompt."
+            },
+            {
+              "exerciseId": "u06-l01-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "My favorite subject ___ history because the stories are interesting.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "is",
+              "acceptableAnswers": [
+                "is"
+              ],
+              "translation": null,
+              "hint": "Subject is singular.",
+              "explanation": "Use is with the singular noun phrase my favorite subject."
+            },
+            {
+              "exerciseId": "u06-l01-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "We",
+                "have",
+                "science",
+                "after",
+                "lunch",
+                "on",
+                "Tuesday"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "We have science after lunch on Tuesday"
+              ],
+              "translation": null,
+              "hint": "Put the time phrases after the subject and verb.",
+              "explanation": "We have science after lunch on Tuesday is the natural schedule order."
+            },
+            {
+              "exerciseId": "u06-l01-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "Our homework are difficult today",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "False"
+              ],
+              "translation": null,
+              "hint": "Homework is treated as singular here.",
+              "explanation": "This sentence is not correct. Say Our homework is difficult today."
+            }
+          ]
+        },
+        {
+          "lessonId": "u06-l02",
+          "index": 2,
+          "title": "At Work",
+          "subtitle": "Jobs and workplace tasks",
+          "goal": "Talk about jobs and everyday tasks at work.",
+          "xpReward": 45,
+          "narrative": "Use this lesson in a short everyday scene. Talk about jobs and everyday tasks at work.",
+          "tips": [
+            "Use job titles with a or an when you mention one person.",
+            "Present simple describes regular tasks at work."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u06-l02-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best sentence.",
+              "promptDetail": "Ken works in a hotel and answers guest questions.",
+              "choices": [
+                "He works at the front desk",
+                "He studies French at school",
+                "He drives a train every Sunday"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "He works at the front desk"
+              ],
+              "translation": null,
+              "hint": "Pick the workplace description that fits a hotel job.",
+              "explanation": "He works at the front desk fits someone who helps hotel guests."
+            },
+            {
+              "exerciseId": "u06-l02-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "My mother ___ emails and makes reports at the office.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "writes",
+              "acceptableAnswers": [
+                "writes"
+              ],
+              "translation": null,
+              "hint": "Use the present simple verb with my mother.",
+              "explanation": "Writes agrees with the singular subject my mother."
+            },
+            {
+              "exerciseId": "u06-l02-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "Sara",
+                "works",
+                "in",
+                "a",
+                "small",
+                "design",
+                "studio"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "Sara works in a small design studio"
+              ],
+              "translation": null,
+              "hint": "Put the workplace phrase after the verb.",
+              "explanation": "Sara works in a small design studio is the natural sentence order."
+            },
+            {
+              "exerciseId": "u06-l02-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "He is a nurse at the city hospital",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "True"
+              ],
+              "translation": null,
+              "hint": "This combines a job and workplace clearly.",
+              "explanation": "He is a nurse at the city hospital is a correct description of a job."
+            }
+          ]
+        },
+        {
+          "lessonId": "u06-l03",
+          "index": 3,
+          "title": "Right Now",
+          "subtitle": "Present continuous",
+          "goal": "Describe actions happening now with present continuous.",
+          "xpReward": 45,
+          "narrative": "Use this lesson in a short everyday scene. Describe actions happening now with present continuous.",
+          "tips": [
+            "Use be plus verb ing for actions happening now.",
+            "Look or right now often signal present continuous."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u06-l03-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best sentence.",
+              "promptDetail": "Look at Luis. He has a phone in his hand and he is smiling at the screen.",
+              "choices": [
+                "He is reading a message",
+                "He reads a message every Monday",
+                "He read a message yesterday"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "He is reading a message"
+              ],
+              "translation": null,
+              "hint": "The action is happening now.",
+              "explanation": "He is reading a message matches the present moment in the prompt."
+            },
+            {
+              "exerciseId": "u06-l03-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "We are ___ for the teacher in the hallway.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "waiting",
+              "acceptableAnswers": [
+                "waiting"
+              ],
+              "translation": null,
+              "hint": "Use the ing form after are.",
+              "explanation": "Waiting completes the present continuous structure are waiting."
+            },
+            {
+              "exerciseId": "u06-l03-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "My",
+                "friends",
+                "are",
+                "studying",
+                "for",
+                "the",
+                "test"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "My friends are studying for the test"
+              ],
+              "translation": null,
+              "hint": "Keep are before studying.",
+              "explanation": "My friends are studying for the test is the correct present continuous order."
+            },
+            {
+              "exerciseId": "u06-l03-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "I am cook dinner now",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "False"
+              ],
+              "translation": null,
+              "hint": "Check the verb form after am.",
+              "explanation": "This sentence is not correct. Say I am cooking dinner now."
+            }
+          ]
+        },
+        {
+          "lessonId": "u06-l04",
+          "index": 4,
+          "title": "Rules and Responsibilities",
+          "subtitle": "Have to and do not have to",
+          "goal": "Talk about obligations and simple rules.",
+          "xpReward": 45,
+          "narrative": "Use this lesson in a short everyday scene. Talk about obligations and simple rules.",
+          "tips": [
+            "Use have to for something necessary.",
+            "Use do not have to when something is not necessary."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u06-l04-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best sentence.",
+              "promptDetail": "Employees must wear an ID card at all times.",
+              "choices": [
+                "They have to wear an ID card",
+                "They do not have to wear an ID card",
+                "They are wearing yesterday"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "They have to wear an ID card"
+              ],
+              "translation": null,
+              "hint": "Think about obligation.",
+              "explanation": "They have to wear an ID card matches the meaning of must here."
+            },
+            {
+              "exerciseId": "u06-l04-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "Students do not have to ___ uniforms on Friday.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "wear",
+              "acceptableAnswers": [
+                "wear"
+              ],
+              "translation": null,
+              "hint": "Use the base verb after have to.",
+              "explanation": "Wear is the correct base verb after do not have to."
+            },
+            {
+              "exerciseId": "u06-l04-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "I",
+                "have",
+                "to",
+                "finish",
+                "this",
+                "report",
+                "today"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "I have to finish this report today"
+              ],
+              "translation": null,
+              "hint": "Keep have to together before the main verb.",
+              "explanation": "I have to finish this report today uses the correct obligation pattern."
+            },
+            {
+              "exerciseId": "u06-l04-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "You have to be here by eight",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "True"
+              ],
+              "translation": null,
+              "hint": "This expresses a rule or requirement.",
+              "explanation": "You have to be here by eight is a correct sentence about obligation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "u07",
+      "index": 7,
+      "title": "Plans and Schedules",
+      "cefrBand": "A1-A2",
+      "focus": "Making plans, routines, invitations, and time expressions for future events",
+      "lessons": [
+        {
+          "lessonId": "u07-l01",
+          "index": 1,
+          "title": "After Work Plans",
+          "subtitle": "Evening activities",
+          "goal": "Talk about simple after-work plans and suggestions.",
+          "xpReward": 45,
+          "narrative": "Use this lesson in a short everyday scene. Talk about simple after-work plans and suggestions.",
+          "tips": [
+            "Use let us for suggestions you share with another person.",
+            "Use after plus a noun phrase to place an event in time."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u07-l01-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best reply.",
+              "promptDetail": "A: Let us get dinner after work. B: ____",
+              "choices": [
+                "That sounds good",
+                "I was dinner yesterday",
+                "At the airport"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "That sounds good"
+              ],
+              "translation": null,
+              "hint": "Reply to the suggestion directly.",
+              "explanation": "That sounds good is a natural positive reply to a suggestion."
+            },
+            {
+              "exerciseId": "u07-l01-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "We can meet ___ the office at six fifteen.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "outside",
+              "acceptableAnswers": [
+                "outside"
+              ],
+              "translation": null,
+              "hint": "Use the place word for the area near the building.",
+              "explanation": "Outside completes the meeting plan naturally."
+            },
+            {
+              "exerciseId": "u07-l01-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "I",
+                "am",
+                "free",
+                "after",
+                "five",
+                "today"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "I am free after five today"
+              ],
+              "translation": null,
+              "hint": "Keep after five together.",
+              "explanation": "I am free after five today is a clear sentence about availability."
+            },
+            {
+              "exerciseId": "u07-l01-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "How about dinner near the station",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "True"
+              ],
+              "translation": null,
+              "hint": "This is a useful suggestion sentence.",
+              "explanation": "How about dinner near the station is a correct and natural suggestion."
+            }
+          ]
+        },
+        {
+          "lessonId": "u07-l02",
+          "index": 2,
+          "title": "Weekly Schedule",
+          "subtitle": "Times, days, and frequency",
+          "goal": "Read and describe a simple weekly schedule.",
+          "xpReward": 45,
+          "narrative": "Use this lesson in a short everyday scene. Read and describe a simple weekly schedule.",
+          "tips": [
+            "Use on for days and at for exact times.",
+            "Twice a week describes repeated events clearly."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u07-l02-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best sentence.",
+              "promptDetail": "The team meeting is on Monday and Thursday at nine.",
+              "choices": [
+                "The team meets twice a week",
+                "The team sleeps at nine",
+                "The team was at the beach"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "The team meets twice a week"
+              ],
+              "translation": null,
+              "hint": "Count how often the meeting happens.",
+              "explanation": "The team meets twice a week correctly summarizes the schedule."
+            },
+            {
+              "exerciseId": "u07-l02-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "Our lesson starts ___ Wednesday morning.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "on",
+              "acceptableAnswers": [
+                "on"
+              ],
+              "translation": null,
+              "hint": "Use the preposition for days.",
+              "explanation": "On is the correct preposition before Wednesday morning."
+            },
+            {
+              "exerciseId": "u07-l02-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "She",
+                "usually",
+                "has",
+                "dance",
+                "class",
+                "on",
+                "Friday"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "She usually has dance class on Friday"
+              ],
+              "translation": null,
+              "hint": "Put usually before the main verb.",
+              "explanation": "She usually has dance class on Friday uses natural adverb placement."
+            },
+            {
+              "exerciseId": "u07-l02-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "The class is every Tuesday at seven",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "True"
+              ],
+              "translation": null,
+              "hint": "This is a correct schedule sentence.",
+              "explanation": "The class is every Tuesday at seven is a clear way to give a schedule."
+            }
+          ]
+        },
+        {
+          "lessonId": "u07-l03",
+          "index": 3,
+          "title": "This Weekend",
+          "subtitle": "Near-future plans",
+          "goal": "Talk about simple plans for this weekend.",
+          "xpReward": 45,
+          "narrative": "Use this lesson in a short everyday scene. Talk about simple plans for this weekend.",
+          "tips": [
+            "This weekend often works with present continuous or going to.",
+            "A time phrase helps turn a wish into a real plan."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u07-l03-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best sentence.",
+              "promptDetail": "Mina plans to visit her cousin on Saturday afternoon.",
+              "choices": [
+                "She is going to visit her cousin on Saturday afternoon",
+                "She visited her cousin on Saturday afternoon",
+                "She visits her cousin every year yesterday"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "She is going to visit her cousin on Saturday afternoon"
+              ],
+              "translation": null,
+              "hint": "Choose the future plan sentence.",
+              "explanation": "She is going to visit her cousin on Saturday afternoon correctly describes a plan."
+            },
+            {
+              "exerciseId": "u07-l03-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "I am ___ my room this weekend because it is messy.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "cleaning",
+              "acceptableAnswers": [
+                "cleaning"
+              ],
+              "translation": null,
+              "hint": "Use present continuous for an arranged near-future plan.",
+              "explanation": "Cleaning works here because the plan is already arranged for this weekend."
+            },
+            {
+              "exerciseId": "u07-l03-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "We",
+                "are",
+                "meeting",
+                "our",
+                "friends",
+                "on",
+                "Sunday"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "We are meeting our friends on Sunday"
+              ],
+              "translation": null,
+              "hint": "Keep are meeting together.",
+              "explanation": "We are meeting our friends on Sunday is a natural near-future arrangement sentence."
+            },
+            {
+              "exerciseId": "u07-l03-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "They are going to stay home tonight",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "True"
+              ],
+              "translation": null,
+              "hint": "This sentence talks about a plan.",
+              "explanation": "They are going to stay home tonight is a correct future plan sentence."
+            }
+          ]
+        },
+        {
+          "lessonId": "u07-l04",
+          "index": 4,
+          "title": "Changing Plans",
+          "subtitle": "Rescheduling and apologies",
+          "goal": "Explain a change in plans and suggest another time.",
+          "xpReward": 45,
+          "narrative": "Use this lesson in a short everyday scene. Explain a change in plans and suggest another time.",
+          "tips": [
+            "Use cannot or cannot make it to explain a problem.",
+            "Another time keeps the conversation polite and flexible."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u07-l04-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best reply.",
+              "promptDetail": "A: Can you come at six? B: ____",
+              "choices": [
+                "Sorry, I cannot make it at six",
+                "I made it six yesterday",
+                "I am from six"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "Sorry, I cannot make it at six"
+              ],
+              "translation": null,
+              "hint": "Choose the sentence that politely changes the plan.",
+              "explanation": "Sorry, I cannot make it at six clearly explains the schedule problem."
+            },
+            {
+              "exerciseId": "u07-l04-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "Can we meet ___ instead?",
+              "choices": [],
+              "fragments": [],
+              "answerText": "later",
+              "acceptableAnswers": [
+                "later"
+              ],
+              "translation": null,
+              "hint": "Use the time word that suggests a later option.",
+              "explanation": "Later completes the rescheduling question naturally."
+            },
+            {
+              "exerciseId": "u07-l04-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "I",
+                "have",
+                "to",
+                "work",
+                "late",
+                "tonight"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "I have to work late tonight"
+              ],
+              "translation": null,
+              "hint": "Keep have to before the verb.",
+              "explanation": "I have to work late tonight is a clear reason for changing plans."
+            },
+            {
+              "exerciseId": "u07-l04-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "How about tomorrow morning",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "True"
+              ],
+              "translation": null,
+              "hint": "This is a natural way to suggest a new time.",
+              "explanation": "How about tomorrow morning is a correct and useful rescheduling suggestion."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "u08",
+      "index": 8,
+      "title": "Looking Back",
+      "cefrBand": "A2",
+      "focus": "Past simple regular and irregular verbs, past time markers, then and now",
+      "lessons": [
+        {
+          "lessonId": "u08-l01",
+          "index": 1,
+          "title": "Yesterday Morning",
+          "subtitle": "Past simple regular verbs",
+          "goal": "Describe completed actions yesterday with regular past forms.",
+          "xpReward": 50,
+          "narrative": "Use this lesson in a short everyday scene. Describe completed actions yesterday with regular past forms.",
+          "tips": [
+            "Past time words such as yesterday make the time clear.",
+            "Regular verbs often add ed in the past."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u08-l01-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best sentence.",
+              "promptDetail": "Yesterday, Hana cleaned her room and studied English before lunch.",
+              "choices": [
+                "She cleaned her room and studied English",
+                "She cleans her room and studies English now",
+                "She is clean her room yesterday"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "She cleaned her room and studied English"
+              ],
+              "translation": null,
+              "hint": "Choose the sentence in the past.",
+              "explanation": "She cleaned her room and studied English correctly reports two past actions."
+            },
+            {
+              "exerciseId": "u08-l01-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "I ___ my mother after breakfast yesterday.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "called",
+              "acceptableAnswers": [
+                "called"
+              ],
+              "translation": null,
+              "hint": "Use the past form of call.",
+              "explanation": "Called is the correct past simple form here."
+            },
+            {
+              "exerciseId": "u08-l01-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "We",
+                "watched",
+                "a",
+                "funny",
+                "video",
+                "last",
+                "night"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "We watched a funny video last night"
+              ],
+              "translation": null,
+              "hint": "Put the past time phrase at the end.",
+              "explanation": "We watched a funny video last night follows natural past simple order."
+            },
+            {
+              "exerciseId": "u08-l01-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "He cook dinner yesterday",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "False"
+              ],
+              "translation": null,
+              "hint": "Check the past form of cook.",
+              "explanation": "This sentence is not correct. Say He cooked dinner yesterday."
+            }
+          ]
+        },
+        {
+          "lessonId": "u08-l02",
+          "index": 2,
+          "title": "Last Weekend",
+          "subtitle": "Past simple irregular verbs",
+          "goal": "Use common irregular past verbs to talk about last weekend.",
+          "xpReward": 50,
+          "narrative": "Use this lesson in a short everyday scene. Use common irregular past verbs to talk about last weekend.",
+          "tips": [
+            "Irregular verbs change form, so memorize common ones such as go and buy.",
+            "Last weekend is a useful past time phrase."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u08-l02-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best sentence.",
+              "promptDetail": "On Saturday, Omar went to the beach and bought a hat.",
+              "choices": [
+                "He went to the beach and bought a hat",
+                "He goes to the beach and buys a hat yesterday",
+                "He is go to the beach"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "He went to the beach and bought a hat"
+              ],
+              "translation": null,
+              "hint": "Choose the sentence with the correct irregular past forms.",
+              "explanation": "He went to the beach and bought a hat uses the correct past forms of go and buy."
+            },
+            {
+              "exerciseId": "u08-l02-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "My friends ___ a great cafe near the station last weekend.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "found",
+              "acceptableAnswers": [
+                "found"
+              ],
+              "translation": null,
+              "hint": "Use the past form of find.",
+              "explanation": "Found is the correct irregular past form of find."
+            },
+            {
+              "exerciseId": "u08-l02-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "She",
+                "had",
+                "a",
+                "quiet",
+                "Sunday",
+                "at",
+                "home"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "She had a quiet Sunday at home"
+              ],
+              "translation": null,
+              "hint": "Keep had before the noun phrase.",
+              "explanation": "She had a quiet Sunday at home is a clear past simple sentence."
+            },
+            {
+              "exerciseId": "u08-l02-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "We saw our teacher at the museum",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "True"
+              ],
+              "translation": null,
+              "hint": "Saw is the past form of see.",
+              "explanation": "We saw our teacher at the museum is a correct past simple sentence."
+            }
+          ]
+        },
+        {
+          "lessonId": "u08-l03",
+          "index": 3,
+          "title": "A Busy Trip",
+          "subtitle": "Past events in sequence",
+          "goal": "Narrate a short trip with past time expressions and linked events.",
+          "xpReward": 50,
+          "narrative": "Use this lesson in a short everyday scene. Narrate a short trip with past time expressions and linked events.",
+          "tips": [
+            "Use because or so only when the sequence is clear.",
+            "Arrived, missed, and took are common travel verbs in the past."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u08-l03-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best sentence.",
+              "promptDetail": "The train was late, so Yuki arrived at the hotel at ten.",
+              "choices": [
+                "She arrived late at the hotel",
+                "She is arriving at the hotel tomorrow",
+                "She arrives every Wednesday"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "She arrived late at the hotel"
+              ],
+              "translation": null,
+              "hint": "Choose the sentence that matches the past event.",
+              "explanation": "She arrived late at the hotel matches the information in the prompt."
+            },
+            {
+              "exerciseId": "u08-l03-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "They ___ the bus because they left the house too late.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "missed",
+              "acceptableAnswers": [
+                "missed"
+              ],
+              "translation": null,
+              "hint": "Use the past form of miss.",
+              "explanation": "Missed completes the past action correctly."
+            },
+            {
+              "exerciseId": "u08-l03-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "I",
+                "took",
+                "many",
+                "photos",
+                "during",
+                "the",
+                "trip"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "I took many photos during the trip"
+              ],
+              "translation": null,
+              "hint": "Put took right after the subject.",
+              "explanation": "I took many photos during the trip is the natural word order."
+            },
+            {
+              "exerciseId": "u08-l03-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "After dinner, we walked by the river",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "True"
+              ],
+              "translation": null,
+              "hint": "This clearly describes a past event.",
+              "explanation": "After dinner, we walked by the river is a correct sentence about the past."
+            }
+          ]
+        },
+        {
+          "lessonId": "u08-l04",
+          "index": 4,
+          "title": "Then and Now",
+          "subtitle": "Past and present comparison",
+          "goal": "Compare past situations with present ones in simple ways.",
+          "xpReward": 50,
+          "narrative": "Use this lesson in a short everyday scene. Compare past situations with present ones in simple ways.",
+          "tips": [
+            "Use lived for a past home and lives for a current home.",
+            "Past and present can sit in the same sentence if the time is clear."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u08-l04-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best sentence.",
+              "promptDetail": "When Ken was ten, he lived in Sapporo. Now he lives in Tokyo.",
+              "choices": [
+                "He lived in Sapporo before",
+                "He lives in Sapporo now",
+                "He is living in Sapporo at ten"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "He lived in Sapporo before"
+              ],
+              "translation": null,
+              "hint": "Notice the change between before and now.",
+              "explanation": "He lived in Sapporo before correctly describes the earlier situation."
+            },
+            {
+              "exerciseId": "u08-l04-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "My grandmother ___ in Osaka when she was a child.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "lived",
+              "acceptableAnswers": [
+                "lived"
+              ],
+              "translation": null,
+              "hint": "Use the past form because the time is finished.",
+              "explanation": "Lived is the correct past simple verb here."
+            },
+            {
+              "exerciseId": "u08-l04-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "He",
+                "played",
+                "soccer",
+                "as",
+                "a",
+                "child"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "He played soccer as a child"
+              ],
+              "translation": null,
+              "hint": "Put the time phrase at the end.",
+              "explanation": "He played soccer as a child is a correct sentence about the past."
+            },
+            {
+              "exerciseId": "u08-l04-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "I was shy in school, but I am more confident now",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "True"
+              ],
+              "translation": null,
+              "hint": "This compares a past state with a present state.",
+              "explanation": "I was shy in school, but I am more confident now correctly compares then and now."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "u09",
+      "index": 9,
+      "title": "Travel and Transport",
+      "cefrBand": "A2",
+      "focus": "Stations, hotels, future travel plans, asking for help on the road",
+      "lessons": [
+        {
+          "lessonId": "u09-l01",
+          "index": 1,
+          "title": "At the Station",
+          "subtitle": "Tickets and platforms",
+          "goal": "Ask simple questions about trains, tickets, and departure information.",
+          "xpReward": 50,
+          "narrative": "Use this lesson in a short everyday scene. Ask simple questions about trains, tickets, and departure information.",
+          "tips": [
+            "Use to with a destination.",
+            "Platform, return ticket, and leaves are common station words."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u09-l01-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best question.",
+              "promptDetail": "You want to know the departure platform.",
+              "choices": [
+                "Which platform does the train leave from",
+                "How old is the station",
+                "What color is your ticket"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "Which platform does the train leave from"
+              ],
+              "translation": null,
+              "hint": "You need the question about train location.",
+              "explanation": "Which platform does the train leave from is the correct question for platform information."
+            },
+            {
+              "exerciseId": "u09-l01-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "I need a ticket ___ Kyoto, please.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "to",
+              "acceptableAnswers": [
+                "to"
+              ],
+              "translation": null,
+              "hint": "Use the preposition for destination.",
+              "explanation": "To is the standard preposition before a destination."
+            },
+            {
+              "exerciseId": "u09-l01-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "The",
+                "next",
+                "train",
+                "leaves",
+                "in",
+                "ten",
+                "minutes"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "The next train leaves in ten minutes"
+              ],
+              "translation": null,
+              "hint": "Keep in ten minutes together as a time phrase.",
+              "explanation": "The next train leaves in ten minutes is the natural order for travel information."
+            },
+            {
+              "exerciseId": "u09-l01-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "Return ticket means a ticket to go and come back",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "True"
+              ],
+              "translation": null,
+              "hint": "Think about two directions in one trip.",
+              "explanation": "Return ticket means travel out and back, so the statement is correct."
+            }
+          ]
+        },
+        {
+          "lessonId": "u09-l02",
+          "index": 2,
+          "title": "Booking a Room",
+          "subtitle": "Hotel requests",
+          "goal": "Make simple hotel requests and ask about room details.",
+          "xpReward": 50,
+          "narrative": "Use this lesson in a short everyday scene. Make simple hotel requests and ask about room details.",
+          "tips": [
+            "Use would like for polite hotel requests.",
+            "Use have to ask if a room includes something."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u09-l02-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best sentence.",
+              "promptDetail": "You want a quiet room for two nights.",
+              "choices": [
+                "I would like a quiet room for two nights",
+                "I am quiet two nights room",
+                "My room is from Friday"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "I would like a quiet room for two nights"
+              ],
+              "translation": null,
+              "hint": "Choose the full polite request.",
+              "explanation": "I would like a quiet room for two nights is a clear and polite hotel request."
+            },
+            {
+              "exerciseId": "u09-l02-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "Does the room ___ breakfast included?",
+              "choices": [],
+              "fragments": [],
+              "answerText": "have",
+              "acceptableAnswers": [
+                "have"
+              ],
+              "translation": null,
+              "hint": "Use the verb that asks about included features.",
+              "explanation": "Have fits naturally in this question about room features."
+            },
+            {
+              "exerciseId": "u09-l02-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "Can",
+                "we",
+                "check",
+                "in",
+                "after",
+                "three"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "Can we check in after three"
+              ],
+              "translation": null,
+              "hint": "Start with the question form.",
+              "explanation": "Can we check in after three is a normal hotel question."
+            },
+            {
+              "exerciseId": "u09-l02-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "I need two towels, please",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "True"
+              ],
+              "translation": null,
+              "hint": "This is a normal hotel request.",
+              "explanation": "I need two towels, please is a clear and polite request for hotel service."
+            }
+          ]
+        },
+        {
+          "lessonId": "u09-l03",
+          "index": 3,
+          "title": "Travel Plans",
+          "subtitle": "Going to for future plans",
+          "goal": "Talk about planned future travel with going to.",
+          "xpReward": 50,
+          "narrative": "Use this lesson in a short everyday scene. Talk about planned future travel with going to.",
+          "tips": [
+            "Use be going to plus a base verb for plans.",
+            "Time phrases such as next month help show future meaning."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u09-l03-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best sentence.",
+              "promptDetail": "Next month, Sara plans to visit her aunt in Fukuoka.",
+              "choices": [
+                "She is going to visit her aunt next month",
+                "She visited her aunt next month",
+                "She visits her aunt yesterday"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "She is going to visit her aunt next month"
+              ],
+              "translation": null,
+              "hint": "Choose the future plan sentence.",
+              "explanation": "She is going to visit her aunt next month correctly expresses a plan."
+            },
+            {
+              "exerciseId": "u09-l03-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "We are going to ___ the museum after lunch.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "visit",
+              "acceptableAnswers": [
+                "visit"
+              ],
+              "translation": null,
+              "hint": "Use the base verb after going to.",
+              "explanation": "Visit is the correct base verb after are going to."
+            },
+            {
+              "exerciseId": "u09-l03-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "I",
+                "am",
+                "going",
+                "to",
+                "pack",
+                "my",
+                "bag",
+                "tonight"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "I am going to pack my bag tonight"
+              ],
+              "translation": null,
+              "hint": "Keep am going to together before the verb.",
+              "explanation": "I am going to pack my bag tonight is the correct future plan pattern."
+            },
+            {
+              "exerciseId": "u09-l03-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "They are going to take the early bus",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "True"
+              ],
+              "translation": null,
+              "hint": "This describes a planned action.",
+              "explanation": "They are going to take the early bus is a correct sentence about a future plan."
+            }
+          ]
+        },
+        {
+          "lessonId": "u09-l04",
+          "index": 4,
+          "title": "Asking for Help on the Road",
+          "subtitle": "Practical travel questions",
+          "goal": "Ask simple travel questions when you are lost or need help.",
+          "xpReward": 50,
+          "narrative": "Use this lesson in a short everyday scene. Ask simple travel questions when you are lost or need help.",
+          "tips": [
+            "Excuse me is a useful opener with strangers.",
+            "Show me on the map is a practical travel question."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u09-l04-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best question.",
+              "promptDetail": "You are lost and want to find city hall.",
+              "choices": [
+                "Excuse me, how can I get to city hall",
+                "What is city hall drinking",
+                "Are you from city hall"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "Excuse me, how can I get to city hall"
+              ],
+              "translation": null,
+              "hint": "Choose the polite travel question.",
+              "explanation": "Excuse me, how can I get to city hall is the natural question when you are lost."
+            },
+            {
+              "exerciseId": "u09-l04-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "Could you show me ___ the map, please?",
+              "choices": [],
+              "fragments": [],
+              "answerText": "on",
+              "acceptableAnswers": [
+                "on"
+              ],
+              "translation": null,
+              "hint": "Use the preposition in the phrase show me on the map.",
+              "explanation": "On completes the phrase show me on the map."
+            },
+            {
+              "exerciseId": "u09-l04-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "Is",
+                "there",
+                "a",
+                "taxi",
+                "stand",
+                "near",
+                "here"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "Is there a taxi stand near here"
+              ],
+              "translation": null,
+              "hint": "Start with Is there.",
+              "explanation": "Is there a taxi stand near here is a correct and useful travel question."
+            },
+            {
+              "exerciseId": "u09-l04-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "I am looking for the bus terminal",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "True"
+              ],
+              "translation": null,
+              "hint": "This clearly explains what you need.",
+              "explanation": "I am looking for the bus terminal is a correct sentence for asking help on the road."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "u10",
+      "index": 10,
+      "title": "Health and Body",
+      "cefrBand": "A2",
+      "focus": "Symptoms, pharmacy language, healthy habits, and simple advice",
+      "lessons": [
+        {
+          "lessonId": "u10-l01",
+          "index": 1,
+          "title": "Not Feeling Well",
+          "subtitle": "Basic symptoms",
+          "goal": "Talk about common health problems and body pain.",
+          "xpReward": 50,
+          "narrative": "Use this lesson in a short everyday scene. Talk about common health problems and body pain.",
+          "tips": [
+            "Use have with symptoms such as a headache or a fever.",
+            "Use hurts to describe a painful body part."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u10-l01-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best sentence.",
+              "promptDetail": "Mina has a sore throat and a fever.",
+              "choices": [
+                "She does not feel well",
+                "She is buying a train",
+                "She is late for breakfast every city"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "She does not feel well"
+              ],
+              "translation": null,
+              "hint": "Choose the sentence that matches the symptoms.",
+              "explanation": "She does not feel well is the natural summary of these symptoms."
+            },
+            {
+              "exerciseId": "u10-l01-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "I have a headache, so I need to ___ down.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "lie",
+              "acceptableAnswers": [
+                "lie"
+              ],
+              "translation": null,
+              "hint": "Use the verb for resting on a bed or sofa.",
+              "explanation": "Lie completes the sentence naturally when someone has a headache."
+            },
+            {
+              "exerciseId": "u10-l01-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "He",
+                "has",
+                "a",
+                "bad",
+                "cough",
+                "today"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "He has a bad cough today"
+              ],
+              "translation": null,
+              "hint": "Put has after the subject.",
+              "explanation": "He has a bad cough today is the correct symptom sentence."
+            },
+            {
+              "exerciseId": "u10-l01-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "My arm hurts",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "True"
+              ],
+              "translation": null,
+              "hint": "This is a normal way to describe pain.",
+              "explanation": "My arm hurts is a correct sentence for body pain."
+            }
+          ]
+        },
+        {
+          "lessonId": "u10-l02",
+          "index": 2,
+          "title": "At the Pharmacy",
+          "subtitle": "Medicine and instructions",
+          "goal": "Ask for medicine and understand simple usage instructions.",
+          "xpReward": 50,
+          "narrative": "Use this lesson in a short everyday scene. Ask for medicine and understand simple usage instructions.",
+          "tips": [
+            "Anything for a cold is a common pharmacy request.",
+            "Take after meals is a common medicine instruction."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u10-l02-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best question.",
+              "promptDetail": "You want medicine for a cold.",
+              "choices": [
+                "Do you have anything for a cold",
+                "Where is your homework",
+                "How old is this bus"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "Do you have anything for a cold"
+              ],
+              "translation": null,
+              "hint": "Choose the useful pharmacy request.",
+              "explanation": "Do you have anything for a cold is a natural way to ask for medicine."
+            },
+            {
+              "exerciseId": "u10-l02-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "Take these tablets ___ meals.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "after",
+              "acceptableAnswers": [
+                "after"
+              ],
+              "translation": null,
+              "hint": "Use the common instruction phrase.",
+              "explanation": "After completes the phrase after meals."
+            },
+            {
+              "exerciseId": "u10-l02-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "This",
+                "medicine",
+                "can",
+                "make",
+                "you",
+                "sleepy"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "This medicine can make you sleepy"
+              ],
+              "translation": null,
+              "hint": "Keep can before the base verb make.",
+              "explanation": "This medicine can make you sleepy is the natural word order."
+            },
+            {
+              "exerciseId": "u10-l02-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "Use this cream twice a day",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "True"
+              ],
+              "translation": null,
+              "hint": "This gives a medicine instruction.",
+              "explanation": "Use this cream twice a day is a correct sentence for medicine directions."
+            }
+          ]
+        },
+        {
+          "lessonId": "u10-l03",
+          "index": 3,
+          "title": "Healthy Habits",
+          "subtitle": "Routine health advice",
+          "goal": "Talk about healthy routines and simple advice.",
+          "xpReward": 50,
+          "narrative": "Use this lesson in a short everyday scene. Talk about healthy routines and simple advice.",
+          "tips": [
+            "Use should for advice, not a strong rule.",
+            "Habit sentences often use present simple with time phrases."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u10-l03-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best sentence.",
+              "promptDetail": "Omar walks to work, drinks water, and sleeps eight hours.",
+              "choices": [
+                "He has healthy habits",
+                "He is never drinking water",
+                "He was at a hotel yesterday"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "He has healthy habits"
+              ],
+              "translation": null,
+              "hint": "Choose the general idea that matches the routine.",
+              "explanation": "He has healthy habits is the best summary of the routine."
+            },
+            {
+              "exerciseId": "u10-l03-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "You should ___ more water during the day.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "drink",
+              "acceptableAnswers": [
+                "drink"
+              ],
+              "translation": null,
+              "hint": "Use the base verb after should.",
+              "explanation": "Drink is the correct base verb after should."
+            },
+            {
+              "exerciseId": "u10-l03-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "She",
+                "goes",
+                "to",
+                "bed",
+                "early",
+                "on",
+                "weekdays"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "She goes to bed early on weekdays"
+              ],
+              "translation": null,
+              "hint": "Keep the time phrase at the end.",
+              "explanation": "She goes to bed early on weekdays is a natural routine sentence."
+            },
+            {
+              "exerciseId": "u10-l03-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "You should to exercise every day",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "False"
+              ],
+              "translation": null,
+              "hint": "Check the form after should.",
+              "explanation": "This sentence is not correct. Say You should exercise every day."
+            }
+          ]
+        },
+        {
+          "lessonId": "u10-l04",
+          "index": 4,
+          "title": "Doctor's Advice",
+          "subtitle": "Simple treatment suggestions",
+          "goal": "Understand and give simple advice after a health problem.",
+          "xpReward": 50,
+          "narrative": "Use this lesson in a short everyday scene. Understand and give simple advice after a health problem.",
+          "tips": [
+            "Use should and should not for calm advice.",
+            "See a doctor is a common next step for stronger problems."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u10-l04-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best reply.",
+              "promptDetail": "A: I have a backache. What should I do? B: ____",
+              "choices": [
+                "You should rest and stretch gently",
+                "You are from Canada",
+                "It is at nine thirty"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "You should rest and stretch gently"
+              ],
+              "translation": null,
+              "hint": "Reply with advice.",
+              "explanation": "You should rest and stretch gently is the appropriate advice in this context."
+            },
+            {
+              "exerciseId": "u10-l04-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "You should not ___ heavy bags for a few days.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "carry",
+              "acceptableAnswers": [
+                "carry"
+              ],
+              "translation": null,
+              "hint": "Use the base verb after should not.",
+              "explanation": "Carry is the correct base verb after should not."
+            },
+            {
+              "exerciseId": "u10-l04-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "He",
+                "should",
+                "see",
+                "a",
+                "doctor",
+                "soon"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "He should see a doctor soon"
+              ],
+              "translation": null,
+              "hint": "Keep should before the base verb.",
+              "explanation": "He should see a doctor soon is the natural advice pattern."
+            },
+            {
+              "exerciseId": "u10-l04-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "You should eat something before the medicine",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "True"
+              ],
+              "translation": null,
+              "hint": "This gives advice about medicine use.",
+              "explanation": "You should eat something before the medicine is a correct advice sentence."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "u11",
+      "index": 11,
+      "title": "Weather and Comparing",
+      "cefrBand": "A2",
+      "focus": "Weather, seasons, comparatives, superlatives, and simple reasons",
+      "lessons": [
+        {
+          "lessonId": "u11-l01",
+          "index": 1,
+          "title": "Today's Weather",
+          "subtitle": "Current weather language",
+          "goal": "Describe weather conditions and short weather plans.",
+          "xpReward": 50,
+          "narrative": "Use this lesson in a short everyday scene. Describe weather conditions and short weather plans.",
+          "tips": [
+            "Weather sentences often use it is.",
+            "Going to rain is a common weather forecast pattern."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u11-l01-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best sentence.",
+              "promptDetail": "It is cold, gray, and rainy in Osaka this morning.",
+              "choices": [
+                "It is rainy and cold",
+                "It is sunny and hot",
+                "It is inside the supermarket"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "It is rainy and cold"
+              ],
+              "translation": null,
+              "hint": "Choose the weather description that matches.",
+              "explanation": "It is rainy and cold correctly summarizes the weather in the prompt."
+            },
+            {
+              "exerciseId": "u11-l01-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "Do not forget your umbrella because it is going to ___.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "rain",
+              "acceptableAnswers": [
+                "rain"
+              ],
+              "translation": null,
+              "hint": "Use the base verb after going to.",
+              "explanation": "Rain completes the forecast naturally."
+            },
+            {
+              "exerciseId": "u11-l01-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "The",
+                "wind",
+                "is",
+                "strong",
+                "near",
+                "the",
+                "coast"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "The wind is strong near the coast"
+              ],
+              "translation": null,
+              "hint": "Put the place phrase at the end.",
+              "explanation": "The wind is strong near the coast is the natural word order."
+            },
+            {
+              "exerciseId": "u11-l01-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "It is twenty degrees and cloudy",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "True"
+              ],
+              "translation": null,
+              "hint": "This is a standard weather sentence.",
+              "explanation": "It is twenty degrees and cloudy is a correct way to report the weather."
+            }
+          ]
+        },
+        {
+          "lessonId": "u11-l02",
+          "index": 2,
+          "title": "Seasons and Activities",
+          "subtitle": "Seasonal habits",
+          "goal": "Connect seasons, weather, and typical activities.",
+          "xpReward": 50,
+          "narrative": "Use this lesson in a short everyday scene. Connect seasons, weather, and typical activities.",
+          "tips": [
+            "Use in with seasons such as in spring.",
+            "Favorite season is a common way to express preference."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u11-l02-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best sentence.",
+              "promptDetail": "In winter, Yuki likes hot soup and warm sweaters.",
+              "choices": [
+                "She likes winter things",
+                "She goes swimming in the snow",
+                "She is booking a room"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "She likes winter things"
+              ],
+              "translation": null,
+              "hint": "Choose the sentence that matches the season habits.",
+              "explanation": "She likes winter things is the best summary of the prompt."
+            },
+            {
+              "exerciseId": "u11-l02-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "We usually go hiking ___ spring when the air is cool.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "in",
+              "acceptableAnswers": [
+                "in"
+              ],
+              "translation": null,
+              "hint": "Use the normal preposition with seasons.",
+              "explanation": "In is the standard preposition before spring."
+            },
+            {
+              "exerciseId": "u11-l02-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "Autumn",
+                "is",
+                "my",
+                "favorite",
+                "season"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "Autumn is my favorite season"
+              ],
+              "translation": null,
+              "hint": "Put is after the subject.",
+              "explanation": "Autumn is my favorite season is the natural order for a preference sentence."
+            },
+            {
+              "exerciseId": "u11-l02-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "People often visit the beach in summer",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "True"
+              ],
+              "translation": null,
+              "hint": "This is a normal general statement about a season.",
+              "explanation": "People often visit the beach in summer is a correct seasonal statement."
+            }
+          ]
+        },
+        {
+          "lessonId": "u11-l03",
+          "index": 3,
+          "title": "Comparing Cities",
+          "subtitle": "Comparatives",
+          "goal": "Use comparative forms to compare places and daily life.",
+          "xpReward": 50,
+          "narrative": "Use this lesson in a short everyday scene. Use comparative forms to compare places and daily life.",
+          "tips": [
+            "Add er to many short adjectives.",
+            "Use more with longer adjectives when needed."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u11-l03-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best sentence.",
+              "promptDetail": "Tokyo has more people than Sendai.",
+              "choices": [
+                "Tokyo is larger than Sendai",
+                "Tokyo is the quietest Sendai",
+                "Tokyo is smaller than Sendai"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "Tokyo is larger than Sendai"
+              ],
+              "translation": null,
+              "hint": "Choose the sentence that shows comparison.",
+              "explanation": "Tokyo is larger than Sendai matches the idea of a bigger city."
+            },
+            {
+              "exerciseId": "u11-l03-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "This street is ___ than the main road, so it is safer for children.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "narrower",
+              "acceptableAnswers": [
+                "narrower"
+              ],
+              "translation": null,
+              "hint": "Use the comparative of narrow.",
+              "explanation": "Narrower is the correct comparative form in this sentence."
+            },
+            {
+              "exerciseId": "u11-l03-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "My",
+                "town",
+                "is",
+                "busier",
+                "than",
+                "before"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "My town is busier than before"
+              ],
+              "translation": null,
+              "hint": "Keep busier before than before.",
+              "explanation": "My town is busier than before is the correct comparative structure."
+            },
+            {
+              "exerciseId": "u11-l03-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "Kyoto is more old than Tokyo",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "False"
+              ],
+              "translation": null,
+              "hint": "Old has an irregular comparative.",
+              "explanation": "This sentence is not correct. Say Kyoto is older than Tokyo."
+            }
+          ]
+        },
+        {
+          "lessonId": "u11-l04",
+          "index": 4,
+          "title": "The Best Choice",
+          "subtitle": "Superlatives and simple reasons",
+          "goal": "Use superlatives to choose the best option in everyday situations.",
+          "xpReward": 50,
+          "narrative": "Use this lesson in a short everyday scene. Use superlatives to choose the best option in everyday situations.",
+          "tips": [
+            "Use the before a superlative.",
+            "Best, cheapest, and most comfortable help make decisions."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u11-l04-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best sentence.",
+              "promptDetail": "Of all the cafes in the area, Blue Leaf has the cheapest lunch.",
+              "choices": [
+                "Blue Leaf is the cheapest cafe for lunch",
+                "Blue Leaf is cheaper than every train",
+                "Blue Leaf cheapest lunch is are"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "Blue Leaf is the cheapest cafe for lunch"
+              ],
+              "translation": null,
+              "hint": "Choose the full superlative sentence.",
+              "explanation": "Blue Leaf is the cheapest cafe for lunch correctly uses a superlative for comparison among many cafes."
+            },
+            {
+              "exerciseId": "u11-l04-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "Today is the ___ day of the week for me because I have no classes.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "best",
+              "acceptableAnswers": [
+                "best"
+              ],
+              "translation": null,
+              "hint": "Use the superlative form of good.",
+              "explanation": "Best is the correct superlative form here."
+            },
+            {
+              "exerciseId": "u11-l04-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "This",
+                "is",
+                "the",
+                "most",
+                "comfortable",
+                "chair",
+                "here"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "This is the most comfortable chair here"
+              ],
+              "translation": null,
+              "hint": "Keep the superlative phrase together.",
+              "explanation": "This is the most comfortable chair here is the correct superlative pattern."
+            },
+            {
+              "exerciseId": "u11-l04-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "Mount Fuji is one of the most famous places in Japan",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "True"
+              ],
+              "translation": null,
+              "hint": "This uses a superlative idea with one of the most.",
+              "explanation": "Mount Fuji is one of the most famous places in Japan is a correct superlative sentence."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "u12",
+      "index": 12,
+      "title": "Experiences and Communication",
+      "cefrBand": "A2",
+      "focus": "Present perfect for experience, phone messages, and explaining problems",
+      "lessons": [
+        {
+          "lessonId": "u12-l01",
+          "index": 1,
+          "title": "Have You Ever Tried It?",
+          "subtitle": "Present perfect with ever and never",
+          "goal": "Ask and answer simple questions about life experience.",
+          "xpReward": 50,
+          "narrative": "Use this lesson in a short everyday scene. Ask and answer simple questions about life experience.",
+          "tips": [
+            "Use have you ever for experience questions.",
+            "Use the past participle after have."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u12-l01-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best question.",
+              "promptDetail": "You want to ask about a new food experience.",
+              "choices": [
+                "Have you ever tried Indian curry",
+                "Did you ever tried Indian curry",
+                "Are you ever try Indian curry"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "Have you ever tried Indian curry"
+              ],
+              "translation": null,
+              "hint": "Choose the present perfect question.",
+              "explanation": "Have you ever tried Indian curry is the correct pattern for an experience question."
+            },
+            {
+              "exerciseId": "u12-l01-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "I have never ___ sushi with avocado before.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "eaten",
+              "acceptableAnswers": [
+                "eaten"
+              ],
+              "translation": null,
+              "hint": "Use the past participle of eat.",
+              "explanation": "Eaten is the correct past participle after have."
+            },
+            {
+              "exerciseId": "u12-l01-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "She",
+                "has",
+                "visited",
+                "Seoul",
+                "twice"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "She has visited Seoul twice"
+              ],
+              "translation": null,
+              "hint": "Keep has before the participle.",
+              "explanation": "She has visited Seoul twice is the correct present perfect order."
+            },
+            {
+              "exerciseId": "u12-l01-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "Have you ever ridden a horse",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "True"
+              ],
+              "translation": null,
+              "hint": "This asks about life experience.",
+              "explanation": "Have you ever ridden a horse is a correct experience question."
+            }
+          ]
+        },
+        {
+          "lessonId": "u12-l02",
+          "index": 2,
+          "title": "Life Experiences",
+          "subtitle": "Already, never, and long experiences",
+          "goal": "Talk about completed experiences that connect to the present.",
+          "xpReward": 50,
+          "narrative": "Use this lesson in a short everyday scene. Talk about completed experiences that connect to the present.",
+          "tips": [
+            "Use already for something completed sooner than expected.",
+            "Use for with a length of time such as for twenty years."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u12-l02-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best sentence.",
+              "promptDetail": "Ken has been to Singapore two times in his life.",
+              "choices": [
+                "He has visited Singapore twice",
+                "He visited Singapore twice yesterday",
+                "He is visiting Singapore before"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "He has visited Singapore twice"
+              ],
+              "translation": null,
+              "hint": "Choose the sentence about life experience, not a specific day.",
+              "explanation": "He has visited Singapore twice correctly expresses experience without a specific time."
+            },
+            {
+              "exerciseId": "u12-l02-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "My parents have ___ in the same town for twenty years.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "lived",
+              "acceptableAnswers": [
+                "lived"
+              ],
+              "translation": null,
+              "hint": "Use the past participle of live.",
+              "explanation": "Lived is the correct participle in this present perfect sentence."
+            },
+            {
+              "exerciseId": "u12-l02-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "We",
+                "have",
+                "never",
+                "seen",
+                "that",
+                "movie"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "We have never seen that movie"
+              ],
+              "translation": null,
+              "hint": "Place never after have.",
+              "explanation": "We have never seen that movie uses natural present perfect word order."
+            },
+            {
+              "exerciseId": "u12-l02-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "I have finished my homework already",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "True"
+              ],
+              "translation": null,
+              "hint": "This connects a completed action to now.",
+              "explanation": "I have finished my homework already is a correct present perfect sentence."
+            }
+          ]
+        },
+        {
+          "lessonId": "u12-l03",
+          "index": 3,
+          "title": "Leaving a Message",
+          "subtitle": "Phone messages and requests",
+          "goal": "Leave a simple phone message and report basic information.",
+          "xpReward": 50,
+          "narrative": "Use this lesson in a short everyday scene. Leave a simple phone message and report basic information.",
+          "tips": [
+            "Call me back is a very common phone phrase.",
+            "Use left a message for a completed phone action."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u12-l03-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best message.",
+              "promptDetail": "Your friend is not home. You want him to call you tonight.",
+              "choices": [
+                "Please tell him to call me tonight",
+                "I am calling yesterday at home",
+                "He is from the phone"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "Please tell him to call me tonight"
+              ],
+              "translation": null,
+              "hint": "Choose the message someone can pass on.",
+              "explanation": "Please tell him to call me tonight is a clear message for another person to pass on."
+            },
+            {
+              "exerciseId": "u12-l03-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "Can you ask Aya to ___ me back after dinner?",
+              "choices": [],
+              "fragments": [],
+              "answerText": "call",
+              "acceptableAnswers": [
+                "call"
+              ],
+              "translation": null,
+              "hint": "Use the common phone verb in call me back.",
+              "explanation": "Call completes the fixed phrase call me back."
+            },
+            {
+              "exerciseId": "u12-l03-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "I",
+                "left",
+                "a",
+                "message",
+                "for",
+                "my",
+                "manager"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "I left a message for my manager"
+              ],
+              "translation": null,
+              "hint": "Keep left right after the subject.",
+              "explanation": "I left a message for my manager is the natural past sentence for phone communication."
+            },
+            {
+              "exerciseId": "u12-l03-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "She said she was late for the meeting",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "True"
+              ],
+              "translation": null,
+              "hint": "This reports a message from another person.",
+              "explanation": "She said she was late for the meeting correctly reports the content of a message."
+            }
+          ]
+        },
+        {
+          "lessonId": "u12-l04",
+          "index": 4,
+          "title": "Explaining Problems",
+          "subtitle": "Because and so",
+          "goal": "Explain simple problems, causes, and results.",
+          "xpReward": 50,
+          "narrative": "Use this lesson in a short everyday scene. Explain simple problems, causes, and results.",
+          "tips": [
+            "Use because before the reason.",
+            "Use so before the result."
+          ],
+          "exercises": [
+            {
+              "exerciseId": "u12-l04-e01",
+              "kind": "MultipleChoice",
+              "prompt": "Choose the best sentence.",
+              "promptDetail": "The train was delayed, so Emi arrived late.",
+              "choices": [
+                "She arrived late because the train was delayed",
+                "She delayed the train because late",
+                "She is delay at the restaurant"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "She arrived late because the train was delayed"
+              ],
+              "translation": null,
+              "hint": "Choose the sentence that keeps the same cause and result.",
+              "explanation": "She arrived late because the train was delayed expresses the same meaning clearly."
+            },
+            {
+              "exerciseId": "u12-l04-e02",
+              "kind": "Cloze",
+              "prompt": "Fill in the blank.",
+              "promptDetail": "I forgot my charger, so my phone is ___.",
+              "choices": [],
+              "fragments": [],
+              "answerText": "dead",
+              "acceptableAnswers": [
+                "dead"
+              ],
+              "translation": null,
+              "hint": "Use the everyday adjective for no battery.",
+              "explanation": "Dead is a common everyday word for a phone with no battery."
+            },
+            {
+              "exerciseId": "u12-l04-e03",
+              "kind": "Ordering",
+              "prompt": "Put the words in the correct order.",
+              "promptDetail": null,
+              "choices": [],
+              "fragments": [
+                "We",
+                "stayed",
+                "home",
+                "because",
+                "it",
+                "was",
+                "stormy"
+              ],
+              "answerText": null,
+              "acceptableAnswers": [
+                "We stayed home because it was stormy"
+              ],
+              "translation": null,
+              "hint": "Put the result first, then the reason.",
+              "explanation": "We stayed home because it was stormy is the natural order for this cause-and-result sentence."
+            },
+            {
+              "exerciseId": "u12-l04-e04",
+              "kind": "TrueFalse",
+              "prompt": "Decide if the sentence or idea is correct.",
+              "promptDetail": "I was tired, so I went to bed early",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "fragments": [],
+              "answerText": null,
+              "acceptableAnswers": [
+                "True"
+              ],
+              "translation": null,
+              "hint": "This clearly shows cause and result.",
+              "explanation": "I was tired, so I went to bed early is a correct sentence using so."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

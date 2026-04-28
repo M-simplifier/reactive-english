@@ -1,0 +1,93 @@
+cabal-version:      3.0
+name:               reactive-english
+version:            0.1.0.0
+build-type:         Simple
+
+flag postgres
+  description: Enable PostgreSQL support for production deployments.
+  default:     False
+  manual:      True
+
+common warnings
+  ghc-options:
+    -Wall
+    -Wcompat
+    -Wincomplete-record-updates
+    -Wincomplete-uni-patterns
+    -Wredundant-constraints
+
+library
+  import:               warnings
+  hs-source-dirs:       src
+  default-language:     GHC2021
+  exposed-modules:
+      ReactiveEnglish.Auth
+    , ReactiveEnglish.Api
+    , ReactiveEnglish.App
+    , ReactiveEnglish.Config
+    , ReactiveEnglish.Curriculum
+    , ReactiveEnglish.Database
+    , ReactiveEnglish.Db
+    , ReactiveEnglish.Domain.Rules
+    , ReactiveEnglish.Domain.Vocabulary
+    , ReactiveEnglish.Schema.Generated
+    , ReactiveEnglish.Service
+    , ReactiveEnglish.Static
+  build-depends:
+      aeson
+    , base >=4.18 && <5
+    , bytestring
+    , cookie
+    , directory
+    , entropy
+    , filepath
+    , http-conduit
+    , http-types
+    , mtl
+    , servant
+    , servant-server
+    , sqlite-simple
+    , tagged
+    , text
+    , time
+    , wai
+    , warp
+  if flag(postgres)
+    cpp-options: -DPOSTGRES_BACKEND
+    build-depends:
+        postgresql-simple
+      , resource-pool
+
+executable reactive-english-server
+  import:               warnings
+  hs-source-dirs:       app
+  main-is:              Main.hs
+  default-language:     GHC2021
+  ghc-options:
+    -threaded
+    -rtsopts
+  build-depends:
+      base >=4.18 && <5
+    , reactive-english
+
+test-suite reactive-english-test
+  import:               warnings
+  type:                 exitcode-stdio-1.0
+  hs-source-dirs:       test
+  main-is:              Main.hs
+  default-language:     GHC2021
+  build-depends:
+      aeson
+    , base >=4.18 && <5
+    , bytestring
+    , directory
+    , hedgehog
+    , filepath
+    , hspec
+    , http-types
+    , reactive-english
+    , temporary
+    , text
+    , time
+    , wai
+    , wai-extra

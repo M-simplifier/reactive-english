@@ -1,0 +1,14 @@
+.env
+.env.*
+.git
+.github
+.local
+.tooling
+dist-newstyle
+frontend/dist
+frontend/node_modules
+frontend/output
+node_modules
+backend/*.db
+gha-creds-*.json
+npm-debug.log*

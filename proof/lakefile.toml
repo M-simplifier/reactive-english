@@ -1,0 +1,6 @@
+name = "reactive-english-proof"
+version = "0.1.0"
+defaultTargets = ["ReactiveEnglishProof"]
+
+[[lean_lib]]
+name = "ReactiveEnglishProof"

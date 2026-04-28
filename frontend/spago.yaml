@@ -1,0 +1,29 @@
+package:
+  name: frontend
+  dependencies:
+    - aff
+    - argonaut
+    - argonaut-codecs
+    - argonaut-core
+    - argonaut-generic
+    - arrays
+    - console
+    - effect
+    - either
+    - exceptions
+    - foldable-traversable
+    - integers
+    - maybe
+    - prelude
+    - refs
+    - strings
+    - tuples
+  test:
+    main: Test.Main
+    dependencies:
+      - assert
+      - console
+workspace:
+  packageSet:
+    registry: 76.1.0
+  extraPackages: {}

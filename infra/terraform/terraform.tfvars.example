@@ -1,0 +1,11 @@
+project_id    = "your-gcp-project-id"
+region        = "us-central1"
+github_owner  = "your-github-user-or-org"
+github_repo   = "reactive-english"
+github_branch = "main"
+
+# Cost-control defaults:
+# db_tier          = "db-f1-micro"
+# db_disk_size_gb  = 10
+# enable_backups   = false
+# deletion_protection = false

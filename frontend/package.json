@@ -1,0 +1,17 @@
+{
+  "name": "reactive-english-frontend",
+  "private": true,
+  "scripts": {
+    "build": "spago bundle --bundle-type app --platform browser --outfile dist/app.js && node ./scripts/postbuild.mjs",
+    "watch": "chokidar \"src/**/*.purs\" \"test/**/*.purs\" \"public/**/*\" \"spago.yaml\" -c \"npm run build\"",
+    "check": "spago test",
+    "serve": "http-server dist -p 4173"
+  },
+  "devDependencies": {
+    "chokidar-cli": "^3.0.0",
+    "esbuild": "^0.25.11",
+    "http-server": "^14.1.1",
+    "purescript": "0.15.16",
+    "spago": "1.0.3"
+  }
+}
