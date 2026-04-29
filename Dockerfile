@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM haskell:9.6.7 AS builder
+FROM haskell:9.8.4 AS builder
 
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
