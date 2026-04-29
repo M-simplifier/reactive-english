@@ -2,6 +2,11 @@ name: Deploy to GCP
 
 on:
   workflow_dispatch:
+    inputs:
+      reason:
+        description: "Optional deploy note."
+        required: false
+        default: "manual deploy"
 
 permissions:
   contents: read
