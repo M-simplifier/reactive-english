@@ -1,4 +1,4 @@
-module Reactive.Banana.Network
+module ReactiveEnglish.Frp.Network
   ( Network
   , listen
   , new
@@ -12,7 +12,7 @@ import Data.Array as Array
 import Data.Foldable (traverse_)
 import Effect (Effect)
 import Effect.Ref as Ref
-import Reactive.Banana.Event (Event, subscribe)
+import ReactiveEnglish.Frp.Event (Event, subscribe)
 
 newtype Network
   = Network (Ref.Ref (Array (Effect Unit)))

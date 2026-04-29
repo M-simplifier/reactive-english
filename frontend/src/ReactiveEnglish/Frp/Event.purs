@@ -1,4 +1,4 @@
-module Reactive.Banana.Event
+module ReactiveEnglish.Frp.Event
   ( Event(..)
   , Handler(..)
   , filterE
@@ -17,7 +17,6 @@ import Prelude
 import Data.Array as Array
 import Data.Foldable (traverse_)
 import Data.Maybe (Maybe(..))
-import Data.Tuple.Nested ((/\))
 import Effect (Effect)
 import Effect.Ref as Ref
 

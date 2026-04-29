@@ -1,15 +1,14 @@
-module Test.Reactive.Banana.Test
+module Test.ReactiveEnglish.Frp.Test
   ( run
   ) where
 
 import Prelude
 
-import Data.Array as Array
 import Data.Tuple (Tuple(..))
 import Effect (Effect)
 import Effect.Ref as Ref
-import Reactive.Banana.Behavior as Behavior
-import Reactive.Banana.Event as Event
+import ReactiveEnglish.Frp.Behavior as Behavior
+import ReactiveEnglish.Frp.Event as Event
 import Test.Assert (assert)
 
 run :: Effect Unit

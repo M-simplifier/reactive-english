@@ -5,10 +5,10 @@ import Prelude
 import Effect (Effect)
 import Test.App.Model as AppModel
 import Test.App.UiAction as UiAction
-import Test.Reactive.Banana.Test as Banana
+import Test.ReactiveEnglish.Frp.Test as Frp
 
 main :: Effect Unit
 main = do
-  Banana.run
+  Frp.run
   AppModel.run
   UiAction.run

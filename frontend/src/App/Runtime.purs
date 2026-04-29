@@ -28,9 +28,9 @@ import Data.Tuple (Tuple(..))
 import Effect (Effect)
 import Effect.Aff (attempt, launchAff_)
 import Effect.Class (liftEffect)
-import Reactive.Banana.Behavior as Behavior
-import Reactive.Banana.Event as Event
-import Reactive.Banana.Network as Network
+import ReactiveEnglish.Frp.Behavior as Behavior
+import ReactiveEnglish.Frp.Event as Event
+import ReactiveEnglish.Frp.Network as Network
 
 run :: Effect Unit
 run = do

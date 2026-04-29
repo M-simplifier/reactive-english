@@ -1,4 +1,4 @@
-module Reactive.Banana.Behavior
+module ReactiveEnglish.Frp.Behavior
   ( Behavior
   , accumB
   , apply
@@ -15,7 +15,7 @@ import Prelude
 import Data.Tuple (Tuple(..))
 import Effect (Effect)
 import Effect.Ref as Ref
-import Reactive.Banana.Event (Event(..), mapE, newEvent, push, subscribe)
+import ReactiveEnglish.Frp.Event (Event(..), mapE, newEvent, push, subscribe)
 
 newtype Behavior a
   = Behavior
