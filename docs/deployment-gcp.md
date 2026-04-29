@@ -28,6 +28,8 @@ The default Terraform variables are intentionally small:
 
 - Cloud Run `min-instances=0`, `max-instances=2`, `512Mi`, `1 CPU`.
 - Cloud SQL `db-f1-micro`, zonal, 10 GB HDD, disk autoresize disabled.
+- Cloud SQL edition is pinned to `ENTERPRISE` so low-cost shared-core tiers are
+  not accidentally rejected by newer GCP defaults.
 - Automated backups disabled by default for the cheapest learning deployment.
 - Artifact Registry is regional and should be kept pruned.
 
@@ -95,6 +97,7 @@ region        = "us-central1"
 github_owner  = "your-github-user-or-org"
 github_repo   = "reactive-english"
 github_branch = "main"
+db_edition    = "ENTERPRISE"
 ```
 
 Then apply:
@@ -137,7 +140,9 @@ https://YOUR_CLOUD_RUN_HOST
 
 ## Deploy
 
-Push to `main` or run `Deploy to GCP` manually from the GitHub Actions tab.
+Run `Deploy to GCP` manually from the GitHub Actions tab. The workflow file is
+`.github/workflows/deploy-cloud-run.yml`; deployment is intentionally
+manual-only so ordinary pushes do not create production revisions.
 
 The workflow:
 
