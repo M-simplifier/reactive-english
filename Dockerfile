@@ -1,10 +1,22 @@
 # syntax=docker/dockerfile:1
 
-FROM haskell:9.8.4 AS builder
+FROM haskell:9.6.7 AS builder
+
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
     ca-certificates \
+    curl \
+    gnupg \
+  && install -d /usr/share/keyrings \
+  && curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc \
+    | gpg --dearmor -o /usr/share/keyrings/postgresql.gpg \
+  && . /etc/os-release \
+  && echo "deb [signed-by=/usr/share/keyrings/postgresql.gpg] https://apt.postgresql.org/pub/repos/apt ${VERSION_CODENAME}-pgdg main" \
+    > /etc/apt/sources.list.d/pgdg.list \
+  && apt-get update \
+  && apt-get install -y --no-install-recommends \
     libpq-dev \
     nodejs \
     npm \
@@ -33,9 +45,21 @@ RUN cabal run schema-bridge -- backend/src/ReactiveEnglish/Schema/Generated.hs f
 
 FROM debian:bookworm-slim AS runtime
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
     ca-certificates \
+    curl \
+    gnupg \
+  && install -d /usr/share/keyrings \
+  && curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc \
+    | gpg --dearmor -o /usr/share/keyrings/postgresql.gpg \
+  && . /etc/os-release \
+  && echo "deb [signed-by=/usr/share/keyrings/postgresql.gpg] https://apt.postgresql.org/pub/repos/apt ${VERSION_CODENAME}-pgdg main" \
+    > /etc/apt/sources.list.d/pgdg.list \
+  && apt-get update \
+  && apt-get install -y --no-install-recommends \
     libpq5 \
     zlib1g \
   && rm -rf /var/lib/apt/lists/*
