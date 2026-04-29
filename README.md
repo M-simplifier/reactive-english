@@ -52,17 +52,6 @@ npm run build
 `assurance:check` runs schema generation, frontend tests, backend tests, and
 Lean proofs.
 
-## Visual Learning
-
-This repository includes a local visual learning deck for understanding the
-technical architecture, ADD posture, and GCP release path:
-
-```sh
-npm run learning:serve
-```
-
-Then open `http://localhost:8090`.
-
 ## Deployment
 
 The production path uses Cloud Run, Artifact Registry, Cloud SQL for
