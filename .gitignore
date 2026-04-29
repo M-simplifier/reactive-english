@@ -47,3 +47,7 @@
 !/infra/terraform/terraform.tfvars.example
 
 !/docs/deployment-gcp.md
+
+!/learning/
+!/learning/visual/
+!/learning/visual/**

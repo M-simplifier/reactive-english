@@ -1,0 +1,8 @@
+Use case: scientific-educational
+Asset type: abstract hero artwork for a local web learning resource about a full-stack functional programming web app.
+Primary request: Create a cinematic, high-energy, text-free visual metaphor for a typed full-stack learning system: glowing Haskell/PureScript-style functional nodes, FRP event streams, proof/assurance layers, and cloud deployment pathways converging into a browser learning cockpit.
+Scene/backdrop: deep midnight navy technical command room, layered glass panels, luminous network diagrams, subtle server/cloud silhouettes, learning cards floating in depth.
+Subject: an elegant central flow of colored signals from frontend to backend to proof layer to cloud infrastructure, with geometric nodes and clean arcs.
+Style: premium editorial tech illustration, crisp, modern, high contrast, teal/amber/lime accents, no logos, no brand marks.
+Composition: wide 16:9 hero banner, generous negative space in the center-left for overlay text, visual complexity strongest on the right and bottom edges.
+Constraints: absolutely no readable text, no letters, no numbers, no watermarks, no company logos, no mascots, no people.

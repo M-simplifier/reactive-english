@@ -11,6 +11,7 @@
     "backend:test": "./scripts/with-local-zlib.sh cabal test all",
     "proof:setup": "./scripts/setup-local-lean.sh",
     "proof:build": "./scripts/build-proofs.sh",
+    "learning:serve": "./scripts/start-learning.sh",
     "assurance:check": "npm run schema:generate && npm --prefix frontend run check && ./scripts/with-local-zlib.sh cabal test reactive-english-test && ./scripts/build-proofs.sh",
     "build": "npm run schema:generate && npm run frontend:build && ./scripts/with-local-zlib.sh cabal build all",
     "dev": "npm run schema:generate && concurrently -k -n front,back \"npm run frontend:watch\" \"npm run backend:run\""

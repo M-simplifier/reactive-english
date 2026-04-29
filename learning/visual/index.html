@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Reactive English Visual Learning</title>
+    <meta
+      name="description"
+      content="Reactive English repo の技術範囲を学ぶためのビジュアル教材"
+    />
+    <link
+      rel="icon"
+      href="./favicon.svg"
+      type="image/svg+xml"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-a"></div>
+    <div class="ambient ambient-b"></div>
+
+    <header class="site-header" data-reveal>
+      <a class="brand" href="#top" aria-label="Reactive English Visual Learning">
+        <span class="brand-mark">RE</span>
+        <span>
+          <span class="brand-title">Reactive English</span>
+          <span class="brand-subtitle">Visual Learning Deck</span>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Learning sections">
+        <a href="#map">地図</a>
+        <a href="#stack">技術</a>
+        <a href="#assurance">ADD</a>
+        <a href="#deploy">Deploy</a>
+        <a href="#drills">確認</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" data-reveal>
+        <div class="hero-copy">
+          <p class="eyebrow">A typed full-stack proving app, seen as a control room</p>
+          <h1>この repo の全体像を、1つの操作型地図として掴む。</h1>
+          <p class="lead">
+            Haskell、PureScript、FRP、スキーマ共有、ADD、Google認証、語彙学習、
+            GCP/Terraform/GitHub Actions までを、実装の流れとして追える学習リソースです。
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#route">学習ルートを見る</a>
+            <a class="button secondary" href="#deploy">CI/CD地図へ</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="Generated system artwork">
+          <img
+            src="./assets/generated-system-hero.png"
+            alt="抽象的なフルスタック学習システムの生成ビジュアル"
+          />
+          <div class="hero-glass">
+            <span>Generated visual asset</span>
+            <strong>typed app + assurance + cloud</strong>
+          </div>
+        </div>
+      </section>
+
+      <section id="route" class="route" data-reveal>
+        <div class="section-heading">
+          <p class="eyebrow">Learning route</p>
+          <h2>読む順番は、実装がデータを動かす順番に合わせる。</h2>
+        </div>
+        <ol class="route-list" aria-label="Learning route">
+          <li>
+            <span>01</span>
+            <strong>Repo Atlas</strong>
+            <p>どのフォルダが何を担うかを掴む。</p>
+          </li>
+          <li>
+            <span>02</span>
+            <strong>Typed Boundary</strong>
+            <p>Haskell/PureScript の境界を schema bridge で固定する。</p>
+          </li>
+          <li>
+            <span>03</span>
+            <strong>FRP Runtime</strong>
+            <p>Event/Behavior/Network が UI と reducer をつなぐ。</p>
+          </li>
+          <li>
+            <span>04</span>
+            <strong>Backend Domain</strong>
+            <p>進捗、XP、復習、語彙学習を純粋なルールに寄せる。</p>
+          </li>
+          <li>
+            <span>05</span>
+            <strong>ADD</strong>
+            <p>Type/EBT/PBT/Proof の使い分けを読む。</p>
+          </li>
+          <li>
+            <span>06</span>
+            <strong>Auth + User Data</strong>
+            <p>Google認証とdev導線が同じ session 形へ合流する。</p>
+          </li>
+          <li>
+            <span>07</span>
+            <strong>GCP Release</strong>
+            <p>OIDC、Secret Manager、Cloud Run、Cloud SQL をつなぐ。</p>
+          </li>
+        </ol>
+      </section>
+
+      <section id="map" class="system-map" data-reveal>
+        <div class="section-heading wide">
+          <p class="eyebrow">System map</p>
+          <h2>Reactive English は「学習アプリ」だが、技術的には6つの境界でできている。</h2>
+          <p>
+            重要なのは個別技術名より、どの境界を型で閉じ、どの境界をテストで叩き、
+            どの境界をクラウドのIAMとSecretで閉じるかです。
+          </p>
+        </div>
+
+        <div class="map-stage" role="img" aria-label="Reactive English architecture map">
+          <svg viewBox="0 0 1100 620" class="map-svg">
+            <defs>
+              <linearGradient id="gFrontend" x1="0" x2="1">
+                <stop offset="0" stop-color="#54f0ff" />
+                <stop offset="1" stop-color="#67ff9f" />
+              </linearGradient>
+              <linearGradient id="gBackend" x1="0" x2="1">
+                <stop offset="0" stop-color="#ffcf5a" />
+                <stop offset="1" stop-color="#ff7a59" />
+              </linearGradient>
+              <filter id="glow">
+                <feGaussianBlur stdDeviation="4" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+
+            <path class="map-line cyan" d="M170 135 C340 110 380 270 535 270" />
+            <path class="map-line amber" d="M565 270 C730 270 735 138 910 135" />
+            <path class="map-line lime" d="M535 305 C410 420 310 478 165 490" />
+            <path class="map-line violet" d="M565 305 C690 420 800 478 945 490" />
+            <path class="map-line dim" d="M360 120 C515 55 650 55 805 120" />
+
+            <g class="map-node" transform="translate(70 82)">
+              <rect width="225" height="118" rx="28" />
+              <text x="26" y="44">PureScript SPA</text>
+              <text x="26" y="76">FRP runtime + reducer</text>
+            </g>
+            <g class="map-node core" transform="translate(410 230)">
+              <rect width="280" height="136" rx="34" />
+              <text x="34" y="52">Schema Bridge</text>
+              <text x="34" y="86">one contract, two languages</text>
+            </g>
+            <g class="map-node warm" transform="translate(805 82)">
+              <rect width="225" height="118" rx="28" />
+              <text x="26" y="44">Haskell Backend</text>
+              <text x="26" y="76">Servant + domain rules</text>
+            </g>
+            <g class="map-node proof" transform="translate(70 438)">
+              <rect width="225" height="118" rx="28" />
+              <text x="26" y="44">ADD Evidence</text>
+              <text x="26" y="76">Type / EBT / PBT / Proof</text>
+            </g>
+            <g class="map-node cloud" transform="translate(805 438)">
+              <rect width="225" height="118" rx="28" />
+              <text x="26" y="44">GCP Release</text>
+              <text x="26" y="76">Cloud Run + Cloud SQL</text>
+            </g>
+            <g class="map-node data" transform="translate(432 40)">
+              <rect width="236" height="100" rx="28" />
+              <text x="28" y="42">Curriculum Data</text>
+              <text x="28" y="72">A1-A2 lessons + lexemes</text>
+            </g>
+          </svg>
+        </div>
+      </section>
+
+      <section id="stack" class="stack" data-reveal>
+        <div class="section-heading">
+          <p class="eyebrow">Technology stack</p>
+          <h2>技術選定は「AIエージェントが全体整合性を握る」前提で効いている。</h2>
+        </div>
+        <div class="stack-grid">
+          <article class="stack-card cyan">
+            <span>Frontend</span>
+            <h3>PureScript + tiny FRP</h3>
+            <p>UI action を Msg に変換し、Event と Behavior で reducer へ流す。</p>
+            <code>frontend/src/ReactiveEnglish/Frp</code>
+          </article>
+          <article class="stack-card amber">
+            <span>Backend</span>
+            <h3>Haskell + Servant</h3>
+            <p>API、認証、進捗、語彙学習、DB境界を型付きに保つ。</p>
+            <code>backend/src/ReactiveEnglish</code>
+          </article>
+          <article class="stack-card lime">
+            <span>Contract</span>
+            <h3>Schema Bridge</h3>
+            <p>Haskell/PureScript の payload drift を生成コードで潰す。</p>
+            <code>schema-bridge/src/SchemaBridge/Spec.hs</code>
+          </article>
+          <article class="stack-card violet">
+            <span>Proof</span>
+            <h3>Lean + PBT</h3>
+            <p>純粋な小さな規則を、性質テストと証明で支える。</p>
+            <code>proof/ReactiveEnglishProof</code>
+          </article>
+          <article class="stack-card blue">
+            <span>Persistence</span>
+            <h3>SQLite local / PostgreSQL prod</h3>
+            <p>ローカルは軽量、本番は Cloud SQL に寄せる二層構成。</p>
+            <code>DATABASE_BACKEND=postgres</code>
+          </article>
+          <article class="stack-card red">
+            <span>Release</span>
+            <h3>Terraform + GitHub OIDC</h3>
+            <p>長期鍵なしで Artifact Registry と Cloud Run へ手動デプロイ。</p>
+            <code>.github/workflows/deploy-cloud-run.yml</code>
+          </article>
+        </div>
+      </section>
+
+      <section class="flow-lab" data-reveal>
+        <div class="section-heading wide">
+          <p class="eyebrow">Flow lab</p>
+          <h2>1つの操作がどこを通るかを、クリックで追う。</h2>
+        </div>
+        <div class="flow-shell">
+          <div class="flow-buttons" role="tablist" aria-label="Flow steps">
+            <button class="flow-button active" data-flow="boot">起動</button>
+            <button class="flow-button" data-flow="auth">認証</button>
+            <button class="flow-button" data-flow="lesson">レッスン</button>
+            <button class="flow-button" data-flow="vocab">語彙</button>
+            <button class="flow-button" data-flow="assure">保証</button>
+            <button class="flow-button" data-flow="release">公開</button>
+          </div>
+          <div class="flow-panel">
+            <div class="flow-rail" aria-hidden="true">
+              <span></span><span></span><span></span><span></span>
+            </div>
+            <div>
+              <p class="flow-label" id="flow-label">Local Boot</p>
+              <h3 id="flow-title">npm start は開発体験を1本化する。</h3>
+              <p id="flow-body">
+                zlib shim、schema generation、frontend bundle、backend server をまとめて立ち上げる。
+                Google Client ID がなければ質問し、dev login のみでも動く。
+              </p>
+              <div class="flow-tags" id="flow-tags">
+                <span>scripts/start-app.sh</span><span>SQLite</span><span>localhost:8080</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="assurance" class="assurance" data-reveal>
+        <div class="section-heading">
+          <p class="eyebrow">Assurance-driven development</p>
+          <h2>ADD は「全部を証明する」ではなく、境界ごとに一番効く保証を選ぶ。</h2>
+        </div>
+        <div class="assurance-grid">
+          <article>
+            <span class="ring type">Type</span>
+            <h3>TypeSystem</h3>
+            <p>API payload、UI action、設定値など、配線ミスをコンパイル時に潰す。</p>
+            <small>例: schema bridge、App.UiAction、DatabaseBackend</small>
+          </article>
+          <article>
+            <span class="ring ebt">EBT</span>
+            <h3>Example-based tests</h3>
+            <p>HTTP、SQLite、OAuth、DOM action のような境界を具体例で叩く。</p>
+            <small>例: dev login、401、vocabulary review、Google tokeninfo</small>
+          </article>
+          <article>
+            <span class="ring pbt">PBT</span>
+            <h3>Property-based tests</h3>
+            <p>入力空間の広い純粋関数を、独立した参照モデルと比較する。</p>
+            <small>例: mastery、review spacing、shuffle permutation</small>
+          </article>
+          <article>
+            <span class="ring proof">Proof</span>
+            <h3>Formal proof</h3>
+            <p>小さく安定した意味論だけを Lean で証明する。</p>
+            <small>例: bounded mastery、monotone buckets、auth claim acceptance</small>
+          </article>
+        </div>
+        <div class="claim-board">
+          <h3>ADD planlet</h3>
+          <pre><code>Claim:
+Type gate:
+EBT gate:
+PBT gate:
+Proof gate:
+Not applicable:
+Verification commands:</code></pre>
+        </div>
+      </section>
+
+      <section class="deep-dive" data-reveal>
+        <div class="section-heading wide">
+          <p class="eyebrow">Three technical lenses</p>
+          <h2>この repo で特に学ぶ価値が高い3つの構造。</h2>
+        </div>
+        <div class="lens-grid">
+          <article class="lens">
+            <h3>1. FRP は小さく使う</h3>
+            <p>
+              `Event` は発火、`Behavior` は現在値、`Network` は cleanup を持つ。
+              ここでは高階FRP研究をせず、SPA runtime の message flow に集中している。
+            </p>
+            <div class="mini-timeline">
+              <span>DOM action</span><span>Msg</span><span>reducer</span><span>render + command</span>
+            </div>
+          </article>
+          <article class="lens">
+            <h3>2. スキーマ境界を先に固定する</h3>
+            <p>
+              `SchemaBridge/Spec.hs` から Haskell と PureScript の型を生成する。
+              これで frontend/backend の payload ずれが、推測ではなく機械的に見える。
+            </p>
+            <div class="bridge-visual">
+              <span>Spec.hs</span><i></i><span>Generated.hs</span><i></i><span>Generated.purs</span>
+            </div>
+          </article>
+          <article class="lens">
+            <h3>3. 本番公開は鍵を置かない</h3>
+            <p>
+              GitHub Actions は OIDC で GCP に短命認証する。DB URL は Secret Manager、
+              Terraform state は秘密扱い、Cloud Run は小さい上限で動かす。
+            </p>
+            <div class="mini-timeline warm">
+              <span>GitHub</span><span>OIDC</span><span>WIF</span><span>Cloud Run</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="features" data-reveal>
+        <div class="feature-card auth-card">
+          <p class="eyebrow">Authentication</p>
+          <h2>Google認証とdev導線は、同じ session 形へ収束する。</h2>
+          <p>
+            実Googleログインは最小回数で確認し、複数ユーザー検証は dev login で高速化する。
+            重要なのは「外部 provider の曖昧なwire shape」をそのまま信頼しないことです。
+          </p>
+          <ul>
+            <li>`email_verified` の Bool/String を normalize して fail closed</li>
+            <li>ブラウザは HttpOnly session cookie を保持</li>
+            <li>study API は session なしなら 401</li>
+          </ul>
+        </div>
+        <div class="feature-card vocab-card">
+          <p class="eyebrow">Vocabulary learning</p>
+          <h2>語彙学習は、別プロダクト化せず lesson world に差し込む。</h2>
+          <p>
+            lexeme は5つの知識次元で進捗を持ち、recognition、meaning recall、
+            form recall、context、collocation を分けて扱う。
+          </p>
+          <ul>
+            <li>user + lexeme + dimension ごとに mastery を保存</li>
+            <li>review spacing と XP は純粋 kernel で検証</li>
+            <li>word mission は lesson attempt と独立した overlay</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="deploy" class="deploy" data-reveal>
+        <div class="section-heading wide">
+          <p class="eyebrow">Infrastructure and CI/CD</p>
+          <h2>公開フローは「手動deploy、短命認証、秘密はSecret Manager」が基本形。</h2>
+        </div>
+        <div class="deploy-board">
+          <div class="deploy-step">
+            <span>01</span>
+            <h3>Terraform apply</h3>
+            <p>Artifact Registry、Cloud SQL、Secret Manager、IAM、WIF を作る。</p>
+          </div>
+          <div class="deploy-step">
+            <span>02</span>
+            <h3>GitHub Variables</h3>
+            <p>project id や service account 名は repo variable。DB URL は置かない。</p>
+          </div>
+          <div class="deploy-step">
+            <span>03</span>
+            <h3>workflow_dispatch</h3>
+            <p>通常 push では本番 deploy しない。Actions タブから手動実行。</p>
+          </div>
+          <div class="deploy-step">
+            <span>04</span>
+            <h3>OIDC auth</h3>
+            <p>GitHub が WIF 経由で deployer service account を impersonate。</p>
+          </div>
+          <div class="deploy-step">
+            <span>05</span>
+            <h3>Docker image</h3>
+            <p>PostgreSQL support 付きで build し、Artifact Registry へ push。</p>
+          </div>
+          <div class="deploy-step">
+            <span>06</span>
+            <h3>Cloud Run</h3>
+            <p>Cloud SQL を attach し、DATABASE_URL を Secret Manager から注入。</p>
+          </div>
+        </div>
+
+        <div class="risk-grid">
+          <article>
+            <h3>月額放置の目安</h3>
+            <p class="big">$9-12</p>
+            <p>ほぼ Cloud SQL `db-f1-micro` + 10GB HDD。Cloud Run は `min-instances=0`。</p>
+          </article>
+          <article>
+            <h3>攻撃時の上限ではない場所</h3>
+            <p>request count、outbound transfer、logging は厳密な停止線ではない。</p>
+            <p>次の強化候補は Budget alert、Cloud Armor、ログ除外、自動停止。</p>
+          </article>
+          <article>
+            <h3>停止手順</h3>
+            <p>`terraform destroy` または GCP project 削除。Terraform state は秘密扱い。</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="drills" class="drills" data-reveal>
+        <div class="section-heading">
+          <p class="eyebrow">Self check</p>
+          <h2>最後に、自分で説明できるかを確認する。</h2>
+        </div>
+        <div class="drill-grid">
+          <button class="drill-card" data-answer="schema">
+            <span>Q1</span>
+            <strong>frontend と backend の payload drift はどこで防ぐ？</strong>
+          </button>
+          <button class="drill-card" data-answer="add">
+            <span>Q2</span>
+            <strong>OAuthのwire shape事故はどの保証レイヤーで潰した？</strong>
+          </button>
+          <button class="drill-card" data-answer="deploy">
+            <span>Q3</span>
+            <strong>なぜ GitHub に GCP service account key を置かない？</strong>
+          </button>
+          <button class="drill-card" data-answer="frp">
+            <span>Q4</span>
+            <strong>この FRP engine を小さく保つ理由は？</strong>
+          </button>
+        </div>
+        <div class="answer-panel" id="answer-panel" aria-live="polite">
+          <p>カードを押すと答えが出ます。</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Reactive English Visual Learning Deck</p>
+      <p>Local-first learning artifact. No cloud calls required.</p>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
