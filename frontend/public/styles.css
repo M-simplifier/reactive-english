@@ -626,6 +626,56 @@ h4 {
   color: var(--ink);
 }
 
+.placement-nudge {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 22px;
+  align-items: center;
+  overflow: hidden;
+  margin: 0 0 22px;
+  padding: clamp(20px, 4vw, 30px);
+  background:
+    radial-gradient(circle at 98% 0%, rgba(255, 189, 63, 0.28), transparent 30%),
+    radial-gradient(circle at 4% 100%, rgba(39, 194, 154, 0.18), transparent 34%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 245, 220, 0.68));
+}
+
+.placement-nudge::after {
+  content: "";
+  position: absolute;
+  right: -46px;
+  bottom: -72px;
+  width: 210px;
+  height: 210px;
+  border: 24px solid rgba(40, 88, 216, 0.12);
+  border-radius: 999px;
+}
+
+.placement-nudge-copy,
+.placement-nudge-actions {
+  position: relative;
+  z-index: 1;
+}
+
+.placement-nudge-copy {
+  display: grid;
+  gap: 8px;
+}
+
+.placement-nudge-copy p:last-child {
+  max-width: 720px;
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.58;
+}
+
+.placement-nudge-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .meter {
   overflow: hidden;
   height: 13px;
@@ -1224,6 +1274,7 @@ h4 {
 @media (max-width: 1060px) {
   .landing-grid,
   .mission-hero,
+  .placement-nudge,
   .workspace-grid,
   .challenge-layout {
     grid-template-columns: 1fr;
@@ -1301,6 +1352,7 @@ h4 {
 
   .review-footer,
   .preview-head,
+  .placement-nudge-actions,
   .exercise-head,
   .quest-card-head {
     flex-direction: column;

@@ -320,6 +320,7 @@ renderDashboard state =
           , "</div>"
           , "</aside>"
           , "</section>"
+          , renderPlacementOnboarding bootstrap
           , "<section class=\"workspace-grid\">"
           , "<div class=\"route-column\">"
           , renderUnitTabs state bootstrap.units
@@ -337,6 +338,27 @@ renderDashboard state =
           , "</aside>"
           , "</section>"
           ]
+
+renderPlacementOnboarding :: AppBootstrap -> String
+renderPlacementOnboarding bootstrap =
+  if bootstrap.placementStatus.hasCompletedPlacement then
+    ""
+  else
+    joinWith ""
+      [ "<section class=\"glass-card placement-nudge\">"
+      , "<div class=\"placement-nudge-copy\">"
+      , "<p class=\"small-label\">Route calibration</p>"
+      , "<h3>Start near your real level.</h3>"
+      , "<p>New here? Take the A1-C2 skip test before grinding through basics. It only changes your route after you submit.</p>"
+      , "</div>"
+      , "<div class=\"placement-nudge-actions\">"
+      , "<span class=\"route-badge\">Untested route</span>"
+      , "<button class=\"primary-button\" "
+      , uiActionAttribute ActionStartPlacement
+      , " data-value=\"\">Run the skip test</button>"
+      , "</div>"
+      , "</section>"
+      ]
 
 renderRecommendedCard :: LessonSummary -> String
 renderRecommendedCard lesson =

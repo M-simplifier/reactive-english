@@ -77,6 +77,8 @@ main =
           fmap unitUnlocked (findUnit "u2" bootstrap) `shouldBe` Just False
           vocabularyTotalTracked (bootstrapVocabulary bootstrap) `shouldBe` 2
           length (vocabularyReviewQueue (bootstrapVocabulary bootstrap)) `shouldSatisfy` (> 0)
+          placementHasCompleted (bootstrapPlacementStatus bootstrap) `shouldBe` False
+          placementHighestBand (bootstrapPlacementStatus bootstrap) `shouldBe` Nothing
 
       it "serves placement questions and jumps a strong learner into C2 with one-time XP" $
         withTestApplication $ \app -> do
@@ -107,6 +109,8 @@ main =
           placementRecommendedLessonId result `shouldBe` Just "u6-l1"
           profileXp (bootstrapProfile (placementBootstrap result)) `shouldBe` initialXp + placementXpAwarded result
           profileCompletedLessons (bootstrapProfile (placementBootstrap result)) `shouldBe` 3
+          placementHasCompleted (bootstrapPlacementStatus (placementBootstrap result)) `shouldBe` True
+          placementHighestBand (bootstrapPlacementStatus (placementBootstrap result)) `shouldBe` Just "C2"
           fmap lessonStatusValue (findLesson "u6-l1" (placementBootstrap result)) `shouldBe` Just Available
 
           repeated <- decodeResponse =<< runSession (postJsonWithCookie "/api/placement" cookieHeaderValue submission) app
@@ -568,6 +572,15 @@ reviewDueLabel ReviewSummary {dueLabel} = dueLabel
 
 bootstrapVocabulary :: AppBootstrap -> VocabularyDashboard
 bootstrapVocabulary AppBootstrap {vocabulary} = vocabulary
+
+bootstrapPlacementStatus :: AppBootstrap -> PlacementStatus
+bootstrapPlacementStatus AppBootstrap {placementStatus} = placementStatus
+
+placementHasCompleted :: PlacementStatus -> Bool
+placementHasCompleted PlacementStatus {hasCompletedPlacement} = hasCompletedPlacement
+
+placementHighestBand :: PlacementStatus -> Maybe String
+placementHighestBand PlacementStatus {highestCefrBand} = highestCefrBand
 
 vocabularyTotalTracked :: VocabularyDashboard -> Int
 vocabularyTotalTracked VocabularyDashboard {totalTracked} = totalTracked

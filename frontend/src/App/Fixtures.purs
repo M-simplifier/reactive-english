@@ -288,6 +288,10 @@ initialBootstrap =
             }
           ]
       }
+  , placementStatus:
+      { hasCompletedPlacement: false
+      , highestCefrBand: Nothing
+      }
   , units:
       [ { unitId: "unit-daily-english"
         , index: 1

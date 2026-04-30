@@ -14,7 +14,8 @@ import App.Model
   )
 import App.Runtime (decodeBrowserAction)
 import App.Schema.Generated
-  ( AuthProvider(..)
+  ( AppBootstrap
+  , AuthProvider(..)
   , SessionSnapshot
   )
 import App.UiAction
@@ -41,6 +42,8 @@ run = do
   testVocabularyCheckActionDecodesToVocabularyMessage
   testRenderedVocabularyCheckUsesTypedAction
   testRenderedPlacementStartUsesTypedAction
+  testUntestedDashboardRendersPlacementNudge
+  testPlacedDashboardHidesPlacementNudge
 
 testUiActionRoundTrips :: Effect Unit
 testUiActionRoundTrips =
@@ -84,6 +87,24 @@ testRenderedPlacementStartUsesTypedAction =
   in
     assert (String.contains (Pattern (uiActionAttribute ActionStartPlacement)) html)
 
+testUntestedDashboardRendersPlacementNudge :: Effect Unit
+testUntestedDashboardRendersPlacementNudge =
+  let
+    html = View.render authedDashboardState
+  in
+    assert (String.contains (Pattern "Untested route") html)
+
+testPlacedDashboardHidesPlacementNudge :: Effect Unit
+testPlacedDashboardHidesPlacementNudge =
+  let
+    placedBootstrap =
+      initialBootstrap
+        { placementStatus = { hasCompletedPlacement: true, highestCefrBand: Just "B2" }
+        }
+    html = View.render (dashboardStateFor placedBootstrap)
+  in
+    assert (not (String.contains (Pattern "Untested route") html))
+
 sampleBrowserValue :: UiAction -> String
 sampleBrowserValue action =
   case action of
@@ -112,9 +133,13 @@ authedVocabularyState =
 
 authedDashboardState :: AppState
 authedDashboardState =
+  dashboardStateFor initialBootstrap
+
+dashboardStateFor :: AppBootstrap -> AppState
+dashboardStateFor bootstrap =
   let
     authed = update (SessionSnapshotLoaded signedInSession) initialState
-    dashboard = update (BootstrapLoaded LiveBackend initialBootstrap) authed.state
+    dashboard = update (BootstrapLoaded LiveBackend bootstrap) authed.state
   in
     dashboard.state
 

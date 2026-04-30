@@ -484,6 +484,7 @@ placementResult =
       initialBootstrap
         { profile = initialBootstrap.profile { xp = initialBootstrap.profile.xp + 2400, completedLessons = 3 }
         , recommendedLessonId = Just "lesson-weekend-plans"
+        , placementStatus = { hasCompletedPlacement: true, highestCefrBand: Just "C2" }
         }
   }
 

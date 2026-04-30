@@ -499,6 +499,7 @@ getBootstrap connection userIdValue = do
   unitSummaries <- loadUnitSummaries connection userIdValue
   reviewQueue <- loadReviewSummaries connection userIdValue 5
   vocabularyDashboard <- getVocabularyDashboard connection userIdValue
+  highestPlacementLevel <- loadHighestPlacementLevel connection userIdValue
   dueReviewCount <- loadDueReviewCount connection userIdValue
   accuracyPercent <- loadAccuracyPercent connection userIdValue
   ProfileRow {rowLearnerName, rowLearnerXp, rowLearnerStreak} <- loadProfileRow connection userIdValue
@@ -521,6 +522,11 @@ getBootstrap connection userIdValue = do
             completedLessons = completedLessonCount,
             totalLessons = totalLessonCount
           }
+      placementStatus =
+        PlacementStatus
+          { hasCompletedPlacement = isJust highestPlacementLevel,
+            highestCefrBand = renderCefrLevel <$> highestPlacementLevel
+          }
   pure
     AppBootstrap
       { profile = profile,
@@ -528,6 +534,7 @@ getBootstrap connection userIdValue = do
         recommendedLessonId = recommendedLessonValue,
         reviewQueue = reviewQueue,
         vocabulary = vocabularyDashboard,
+        placementStatus = placementStatus,
         units = unitSummaries
       }
 

@@ -208,12 +208,18 @@ declarations =
       [ Field "answers" (TArray (TNamed "PlacementAnswer"))
       ],
     RecordDeclaration
+      "PlacementStatus"
+      [ Field "hasCompletedPlacement" TBoolean,
+        Field "highestCefrBand" (TMaybe TString)
+      ],
+    RecordDeclaration
       "AppBootstrap"
       [ Field "profile" (TNamed "LearnerProfile"),
         Field "stats" (TNamed "DashboardStats"),
         Field "recommendedLessonId" (TMaybe TString),
         Field "reviewQueue" (TArray (TNamed "ReviewSummary")),
         Field "vocabulary" (TNamed "VocabularyDashboard"),
+        Field "placementStatus" (TNamed "PlacementStatus"),
         Field "units" (TArray (TNamed "UnitSummary"))
       ],
     RecordDeclaration

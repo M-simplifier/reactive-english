@@ -254,6 +254,14 @@ data PlacementSubmission
   deriving stock (Show, Eq, Generic)
   deriving anyclass (FromJSON, ToJSON)
 
+data PlacementStatus
+  = PlacementStatus
+      {hasCompletedPlacement :: Bool
+      , highestCefrBand :: Maybe String
+      }
+  deriving stock (Show, Eq, Generic)
+  deriving anyclass (FromJSON, ToJSON)
+
 data AppBootstrap
   = AppBootstrap
       {profile :: LearnerProfile
@@ -261,6 +269,7 @@ data AppBootstrap
       , recommendedLessonId :: Maybe String
       , reviewQueue :: [ReviewSummary]
       , vocabulary :: VocabularyDashboard
+      , placementStatus :: PlacementStatus
       , units :: [UnitSummary]
       }
   deriving stock (Show, Eq, Generic)

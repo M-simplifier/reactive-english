@@ -324,6 +324,12 @@ type PlacementSubmission
     { answers :: Array PlacementAnswer
     }
 
+type PlacementStatus
+  =
+    { hasCompletedPlacement :: Boolean
+    , highestCefrBand :: Maybe String
+    }
+
 type AppBootstrap
   =
     { profile :: LearnerProfile
@@ -331,6 +337,7 @@ type AppBootstrap
     , recommendedLessonId :: Maybe String
     , reviewQueue :: Array ReviewSummary
     , vocabulary :: VocabularyDashboard
+    , placementStatus :: PlacementStatus
     , units :: Array UnitSummary
     }
 
