@@ -12,12 +12,16 @@ module App.Model
   , PreviewState(..)
   , SessionState(..)
   , ActiveVocabularySession
+  , ActivePlacementSession
   , VocabularyDraft(..)
   , VocabularyState(..)
+  , PlacementDraft(..)
+  , PlacementState(..)
   , activeExercise
   , activeProgressPercent
   , buildSubmission
   , buildVocabularySubmission
+  , buildPlacementAnswer
   , cacheLessonDetail
   , currentViewer
   , defaultSelectedUnitId
@@ -29,12 +33,13 @@ module App.Model
   , initialState
   , isAuthenticated
   , lessonIsStartable
+  , placementActiveQuestion
   , selectedUnitSummary
   , update
   , vocabularyActivePrompt
   ) where
 
-import Prelude (class Eq, class Functor, bind, div, map, max, not, otherwise, pure, (&&), (*), (+), (/=), (<<<), (<=), (<>), (==), (>>=), (||))
+import Prelude (class Eq, class Functor, bind, div, map, max, not, otherwise, pure, (&&), (*), (+), (/=), (<<<), (<=), (<>), (==), (>=), (>>=), (||))
 
 import App.Schema.Generated
   ( AnswerFeedback
@@ -48,6 +53,10 @@ import App.Schema.Generated
   , LessonDetail
   , LessonStatus(..)
   , LessonSummary
+  , PlacementAnswer
+  , PlacementQuestion
+  , PlacementResult
+  , PlacementSubmission
   , SessionSnapshot
   , UnitSummary
   , UserSummary
@@ -137,6 +146,26 @@ type ActiveVocabularySession =
   , submitting :: Boolean
   }
 
+data PlacementDraft
+  = PlacementNoDraft
+  | PlacementChoiceDraft Int
+
+data PlacementState
+  = PlacementClosed
+  | PlacementLoading
+  | PlacementActive ActivePlacementSession
+  | PlacementError String
+
+type ActivePlacementSession =
+  { questions :: Array PlacementQuestion
+  , currentIndex :: Int
+  , answers :: Array PlacementAnswer
+  , draft :: PlacementDraft
+  , result :: Maybe PlacementResult
+  , message :: Maybe String
+  , submitting :: Boolean
+  }
+
 type CompletionBanner =
   { title :: String
   , detail :: String
@@ -152,6 +181,7 @@ type AppState =
   , lessonCache :: Array LessonDetail
   , session :: SessionState
   , vocabularySession :: VocabularyState
+  , placementSession :: PlacementState
   , banner :: Maybe CompletionBanner
   , dataSource :: DataSource
   }
@@ -197,6 +227,14 @@ data Msg
   | VocabularyReviewFailed String
   | AdvanceVocabularyReview
   | CloseVocabularyReview
+  | StartPlacementTest
+  | PlacementQuestionsLoaded DataSource (Array PlacementQuestion)
+  | PlacementQuestionsFailed String
+  | ChoosePlacementChoice Int
+  | ContinuePlacement
+  | PlacementLoaded DataSource PlacementResult
+  | PlacementSubmissionFailed String
+  | ClosePlacement
   | ReturnDashboard
   | DismissBanner
 
@@ -212,6 +250,8 @@ data Command
   | FinishAttempt String String
   | LoadVocabularyReviewPrompts
   | SendVocabularyReview VocabularyReviewSubmission
+  | LoadPlacementQuestions
+  | SendPlacement PlacementSubmission
 
 type Transition =
   { state :: AppState
@@ -227,6 +267,7 @@ initialState =
   , lessonCache: []
   , session: SessionClosed
   , vocabularySession: VocabularyClosed
+  , placementSession: PlacementClosed
   , banner: Nothing
   , dataSource: LiveBackend
   }
@@ -630,9 +671,79 @@ update msg state =
     CloseVocabularyReview ->
       transition (state { vocabularySession = VocabularyClosed }) []
 
+    StartPlacementTest ->
+      transition
+        ( state
+            { placementSession = PlacementLoading
+            , banner = Nothing
+            }
+        )
+        [ LoadPlacementQuestions ]
+
+    PlacementQuestionsLoaded source questions ->
+      if Array.null questions then
+        transition
+          ( state
+              { placementSession = PlacementError "This curriculum does not include a placement test yet."
+              , dataSource = source
+              }
+          )
+          []
+      else
+        transition
+          ( state
+              { placementSession = openPlacementSession questions
+              , dataSource = source
+              }
+          )
+          []
+
+    PlacementQuestionsFailed message ->
+      transition (state { placementSession = PlacementError message }) []
+
+    ChoosePlacementChoice choiceIndex ->
+      transition
+        (overActivePlacementSession (\session -> session { draft = PlacementChoiceDraft choiceIndex, message = Nothing }) state)
+        []
+
+    ContinuePlacement ->
+      continuePlacement state
+
+    PlacementLoaded source result ->
+      let
+        updatedState =
+          overActivePlacementSession
+            ( \session ->
+                session
+                  { result = Just result
+                  , message = Nothing
+                  , submitting = false
+                  }
+            )
+            state
+        selectedFromResult =
+          result.recommendedLessonId >>= unitIdForLesson result.bootstrap
+      in
+        transition
+          ( updatedState
+              { bootstrap = Loaded result.bootstrap
+              , selectedUnitId = selectedFromResult <|> defaultSelectedUnitId result.bootstrap
+              , dataSource = source
+              }
+          )
+          []
+
+    PlacementSubmissionFailed message ->
+      transition
+        (overActivePlacementSession (\session -> session { submitting = false, message = Just message }) state)
+        []
+
+    ClosePlacement ->
+      transition (state { placementSession = PlacementClosed }) []
+
     ReturnDashboard ->
       transition
-        (state { session = SessionClosed, vocabularySession = VocabularyClosed, preview = PreviewClosed })
+        (state { session = SessionClosed, vocabularySession = VocabularyClosed, placementSession = PlacementClosed, preview = PreviewClosed })
         []
 
     DismissBanner ->
@@ -673,6 +784,7 @@ resetForAuthChange state =
     , lessonCache = []
     , session = SessionClosed
     , vocabularySession = VocabularyClosed
+    , placementSession = PlacementClosed
     , banner = Nothing
     }
 
@@ -833,6 +945,79 @@ advanceVocabularyReview state =
     _ ->
       transition state []
 
+openPlacementSession :: Array PlacementQuestion -> PlacementState
+openPlacementSession questions =
+  case Array.head questions of
+    Just _ ->
+      PlacementActive
+        { questions
+        , currentIndex: 0
+        , answers: []
+        , draft: PlacementNoDraft
+        , result: Nothing
+        , message: Nothing
+        , submitting: false
+        }
+
+    Nothing ->
+      PlacementError "This curriculum does not include a placement test yet."
+
+continuePlacement :: AppState -> Transition
+continuePlacement state =
+  case state.placementSession of
+    PlacementActive session ->
+      case session.result of
+        Just _ ->
+          transition state []
+
+        Nothing ->
+          case buildPlacementAnswer session of
+            Just answer ->
+              let
+                nextAnswers = session.answers <> [ answer ]
+                nextIndex = session.currentIndex + 1
+              in
+                if nextIndex >= Array.length session.questions then
+                  transition
+                    ( state
+                        { placementSession =
+                            PlacementActive
+                              ( session
+                                  { answers = nextAnswers
+                                  , submitting = true
+                                  , message = Just "Scoring your route..."
+                                  }
+                              )
+                        }
+                    )
+                    [ SendPlacement { answers: nextAnswers } ]
+                else
+                  transition
+                    ( state
+                        { placementSession =
+                            PlacementActive
+                              ( session
+                                  { answers = nextAnswers
+                                  , currentIndex = nextIndex
+                                  , draft = PlacementNoDraft
+                                  , message = Nothing
+                                  }
+                              )
+                        }
+                    )
+                    []
+
+            Nothing ->
+              transition
+                ( overActivePlacementSession
+                    (\session' -> session' { message = Just "Choose an answer before continuing." })
+                    state
+                )
+                []
+
+    _ ->
+      transition state []
+
 overActiveSession :: (ActiveSession -> ActiveSession) -> AppState -> AppState
 overActiveSession f state =
   case state.session of
@@ -843,6 +1028,12 @@ overActiveVocabularySession :: (ActiveVocabularySession -> ActiveVocabularySessi
 overActiveVocabularySession f state =
   case state.vocabularySession of
     VocabularyActive session -> state { vocabularySession = VocabularyActive (f session) }
+    _ -> state
+
+overActivePlacementSession :: (ActivePlacementSession -> ActivePlacementSession) -> AppState -> AppState
+overActivePlacementSession f state =
+  case state.placementSession of
+    PlacementActive session -> state { placementSession = PlacementActive (f session) }
     _ -> state
 
 activeExercise :: ActiveSession -> Maybe ExercisePrompt
@@ -970,6 +1161,26 @@ buildVocabularySubmission session =
       _ ->
         Nothing
 
+placementActiveQuestion :: ActivePlacementSession -> Maybe PlacementQuestion
+placementActiveQuestion session =
+  Array.index session.questions session.currentIndex
+
+buildPlacementAnswer :: ActivePlacementSession -> Maybe PlacementAnswer
+buildPlacementAnswer session =
+  do
+    question <- placementActiveQuestion session
+    case session.draft of
+      PlacementChoiceDraft choiceIndex -> do
+        choice <- Array.index question.choices choiceIndex
+        pure
+          { questionId: question.questionId
+          , selectedChoice: Just choice
+          , answerText: Nothing
+          }
+
+      PlacementNoDraft ->
+        Nothing
+
 emptyVocabularyDraftFor :: VocabularyReviewPrompt -> VocabularyDraft
 emptyVocabularyDraftFor prompt =
   if Array.null prompt.choices then
@@ -1014,6 +1225,14 @@ findLessonSummary :: AppBootstrap -> String -> Maybe LessonSummary
 findLessonSummary bootstrap lessonId =
   Array.find (\lesson -> lesson.lessonId == lessonId)
     (Array.concatMap _.lessonSummaries bootstrap.units)
+
+unitIdForLesson :: AppBootstrap -> String -> Maybe String
+unitIdForLesson bootstrap lessonId =
+  map _.unitId
+    ( Array.find
+        (\unit -> Array.any (\lesson -> lesson.lessonId == lessonId) unit.lessonSummaries)
+        bootstrap.units
+    )
 
 lessonIsStartable :: LessonSummary -> Boolean
 lessonIsStartable lesson =

@@ -29,6 +29,10 @@ data UiAction
   | ActionSubmitVocabularyText
   | ActionAdvanceVocabulary
   | ActionCloseVocabularyReview
+  | ActionStartPlacement
+  | ActionChoosePlacementChoice
+  | ActionContinuePlacement
+  | ActionClosePlacement
   | ActionBackDashboard
   | ActionDismissBanner
   | ActionRetryBootstrap
@@ -56,6 +60,10 @@ allUiActions =
   , ActionSubmitVocabularyText
   , ActionAdvanceVocabulary
   , ActionCloseVocabularyReview
+  , ActionStartPlacement
+  , ActionChoosePlacementChoice
+  , ActionContinuePlacement
+  , ActionClosePlacement
   , ActionBackDashboard
   , ActionDismissBanner
   , ActionRetryBootstrap
@@ -83,6 +91,10 @@ uiActionToString action =
     ActionSubmitVocabularyText -> "submit-vocab-text"
     ActionAdvanceVocabulary -> "advance-vocabulary"
     ActionCloseVocabularyReview -> "close-vocabulary-review"
+    ActionStartPlacement -> "start-placement"
+    ActionChoosePlacementChoice -> "choose-placement-choice"
+    ActionContinuePlacement -> "continue-placement"
+    ActionClosePlacement -> "close-placement"
     ActionBackDashboard -> "back-dashboard"
     ActionDismissBanner -> "dismiss-banner"
     ActionRetryBootstrap -> "retry-bootstrap"
@@ -109,6 +121,10 @@ uiActionFromString value =
     "submit-vocab-text" -> Just ActionSubmitVocabularyText
     "advance-vocabulary" -> Just ActionAdvanceVocabulary
     "close-vocabulary-review" -> Just ActionCloseVocabularyReview
+    "start-placement" -> Just ActionStartPlacement
+    "choose-placement-choice" -> Just ActionChoosePlacementChoice
+    "continue-placement" -> Just ActionContinuePlacement
+    "close-placement" -> Just ActionClosePlacement
     "back-dashboard" -> Just ActionBackDashboard
     "dismiss-banner" -> Just ActionDismissBanner
     "retry-bootstrap" -> Just ActionRetryBootstrap

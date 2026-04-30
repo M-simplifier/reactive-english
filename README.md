@@ -11,7 +11,8 @@ The app includes:
 - local SQLite persistence
 - production PostgreSQL support for Cloud Run
 - Google Sign-In plus a local development login lane
-- seeded A1-A2 English curriculum data
+- seeded A1-C2 English curriculum data
+- an A1-C2 placement test that can unlock the right starting band
 - backend EBT/PBT coverage and a small Lean proof workspace
 
 This repository is public source for a running web app. Runtime credentials,
@@ -45,12 +46,13 @@ configured. Press Enter to run with the local dev login lane only.
 ## Verification
 
 ```sh
+npm run curriculum:generate
 npm run assurance:check
 npm run build
 ```
 
-`assurance:check` runs schema generation, frontend tests, backend tests, and
-Lean proofs.
+`curriculum:generate` regenerates the checked-in CEFR seed. `assurance:check`
+runs schema generation, frontend tests, backend tests, and Lean proofs.
 
 ## Deployment
 

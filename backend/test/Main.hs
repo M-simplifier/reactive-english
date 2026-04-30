@@ -32,6 +32,7 @@ import ReactiveEnglish.Auth
   )
 import ReactiveEnglish.Config (AppConfig (..), defaultAppConfig)
 import qualified ReactiveEnglish.Domain.Rules as Rules
+import qualified ReactiveEnglish.Domain.Placement as Placement
 import qualified ReactiveEnglish.Domain.Vocabulary as Vocabulary
 import ReactiveEnglish.Schema.Generated
 import System.Directory (createDirectoryIfMissing)
@@ -68,14 +69,50 @@ main =
           viewerEmail <$> viewer restoredSnapshot `shouldBe` Just "alex@dev.local"
 
           bootstrap <- decodeResponse =<< runSession (getWithCookie "/api/bootstrap" cookieHeaderValue) app
-          recommendedLessonId bootstrap `shouldBe` Just "u1-l1"
+          bootstrapRecommendedLessonId bootstrap `shouldBe` Just "u1-l1"
           profileCompletedLessons (bootstrapProfile bootstrap) `shouldBe` 0
-          profileTotalLessons (bootstrapProfile bootstrap) `shouldBe` 3
-          length (units bootstrap) `shouldBe` 2
+          profileTotalLessons (bootstrapProfile bootstrap) `shouldBe` 4
+          length (units bootstrap) `shouldBe` 3
           fmap unitUnlocked (findUnit "u1" bootstrap) `shouldBe` Just True
           fmap unitUnlocked (findUnit "u2" bootstrap) `shouldBe` Just False
           vocabularyTotalTracked (bootstrapVocabulary bootstrap) `shouldBe` 2
           length (vocabularyReviewQueue (bootstrapVocabulary bootstrap)) `shouldSatisfy` (> 0)
+
+      it "serves placement questions and jumps a strong learner into C2 with one-time XP" $
+        withTestApplication $ \app -> do
+          (cookieHeaderValue, _) <- loginDev app "alex@dev.local"
+
+          questions <- decodeResponse =<< runSession (getWithCookie "/api/placement" cookieHeaderValue) app
+          length (questions :: [PlacementQuestion]) `shouldBe` 6
+          all (not . null . placementQuestionChoices) questions `shouldBe` True
+
+          initialBootstrap <- decodeResponse =<< runSession (getWithCookie "/api/bootstrap" cookieHeaderValue) app
+          let initialXp = profileXp (bootstrapProfile initialBootstrap)
+              submission =
+                PlacementSubmission
+                  { answers =
+                      [ PlacementAnswer {questionId = "placement-a1-greeting", selectedChoice = Just "Nice to meet you.", answerText = Nothing},
+                        PlacementAnswer {questionId = "placement-a2-plan", selectedChoice = Just "I am going to visit my aunt tomorrow.", answerText = Nothing},
+                        PlacementAnswer {questionId = "placement-b1-opinion", selectedChoice = Just "I agree to some extent, but the cost worries me.", answerText = Nothing},
+                        PlacementAnswer {questionId = "placement-b2-concession", selectedChoice = Just "Although the proposal is ambitious, it is financially realistic.", answerText = Nothing},
+                        PlacementAnswer {questionId = "placement-c1-qualification", selectedChoice = Just "The evidence suggests a link, but it does not prove causation.", answerText = Nothing},
+                        PlacementAnswer {questionId = "placement-c2-stance", selectedChoice = Just "The wording is ostensibly neutral, but it implies skepticism.", answerText = Nothing}
+                      ]
+                  }
+
+          result <- decodeResponse =<< runSession (postJsonWithCookie "/api/placement" cookieHeaderValue submission) app
+          placementPlacedBand result `shouldBe` "C2"
+          placementXpAwarded result `shouldSatisfy` (> 0)
+          placementCompletedLessonsDelta result `shouldBe` 3
+          placementRecommendedLessonId result `shouldBe` Just "u6-l1"
+          profileXp (bootstrapProfile (placementBootstrap result)) `shouldBe` initialXp + placementXpAwarded result
+          profileCompletedLessons (bootstrapProfile (placementBootstrap result)) `shouldBe` 3
+          fmap lessonStatusValue (findLesson "u6-l1" (placementBootstrap result)) `shouldBe` Just Available
+
+          repeated <- decodeResponse =<< runSession (postJsonWithCookie "/api/placement" cookieHeaderValue submission) app
+          placementPlacedBand repeated `shouldBe` "C2"
+          placementXpAwarded repeated `shouldBe` 0
+          placementCompletedLessonsDelta repeated `shouldBe` 0
 
       it "serves vocabulary review prompts and records user-scoped word progress" $
         withTestApplication $ \app -> do
@@ -164,7 +201,7 @@ main =
           profileXp (completionProfile completion) `shouldSatisfy` (> 0)
 
           bootstrap <- decodeResponse =<< runSession (getWithCookie "/api/bootstrap" cookieHeaderValue) app
-          recommendedLessonId bootstrap `shouldBe` Just "u1-l2"
+          bootstrapRecommendedLessonId bootstrap `shouldBe` Just "u1-l2"
           fmap lessonStatusValue (findLesson "u1-l1" bootstrap) `shouldBe` Just Completed
           fmap lessonStatusValue (findLesson "u1-l2" bootstrap) `shouldBe` Just Available
 
@@ -248,14 +285,14 @@ main =
           map reviewDueLabel reviewItems `shouldBe` ["Due now", "Due now"]
 
           bootstrap <- decodeResponse =<< runSession (getWithCookie "/api/bootstrap" alexCookie) app
-          recommendedLessonId bootstrap `shouldBe` Just "u1-l1"
+          bootstrapRecommendedLessonId bootstrap `shouldBe` Just "u1-l1"
           statsDueReviews (bootstrapStats bootstrap) `shouldBe` 2
           fmap lessonStatusValue (findLesson "u1-l1" bootstrap) `shouldBe` Just InProgress
 
           jamieBootstrap <- decodeResponse =<< runSession (getWithCookie "/api/bootstrap" jamieCookie) app
           profileCompletedLessons (bootstrapProfile jamieBootstrap) `shouldBe` 0
           statsDueReviews (bootstrapStats jamieBootstrap) `shouldBe` 0
-          recommendedLessonId jamieBootstrap `shouldBe` Just "u1-l1"
+          bootstrapRecommendedLessonId jamieBootstrap `shouldBe` Just "u1-l1"
 
       it "decodes and normalizes Google tokeninfo email_verified from bool and string responses" $ do
         decodeAndNormalizeGoogleEmailVerified "true" `shouldBe` Right (Right True)
@@ -326,6 +363,15 @@ main =
 
       it "keeps vocabulary answer evaluation counters and XP coherent" $
         hedgehogShouldSucceed prop_evaluateVocabularyReviewCoherent
+
+      it "keeps placement percentages bounded for sane inputs" $
+        hedgehogShouldSucceed prop_placementScorePercentBounded
+
+      it "keeps placement XP deltas nonnegative" $
+        hedgehogShouldSucceed prop_placementXpDeltaNonnegative
+
+      it "selects the highest passed placement band" $
+        hedgehogShouldSucceed prop_placementChoosesHighestPassedBand
 
 withTestApplication :: (Application -> IO a) -> IO a
 withTestApplication action =
@@ -451,6 +497,9 @@ bootstrapProfile AppBootstrap {profile} = profile
 bootstrapStats :: AppBootstrap -> DashboardStats
 bootstrapStats AppBootstrap {stats} = stats
 
+bootstrapRecommendedLessonId :: AppBootstrap -> Maybe String
+bootstrapRecommendedLessonId AppBootstrap {recommendedLessonId} = recommendedLessonId
+
 findLesson :: String -> AppBootstrap -> Maybe LessonSummary
 findLesson requestedLessonId AppBootstrap {units} =
   find
@@ -556,6 +605,24 @@ vocabularyFeedbackCorrect VocabularyFeedback {correct} = correct
 vocabularyFeedbackMastery :: VocabularyFeedback -> Int
 vocabularyFeedbackMastery VocabularyFeedback {masteryPercent} = masteryPercent
 
+placementQuestionChoices :: PlacementQuestion -> [String]
+placementQuestionChoices PlacementQuestion {choices} = choices
+
+placementPlacedBand :: PlacementResult -> String
+placementPlacedBand PlacementResult {placedCefrBand} = placedCefrBand
+
+placementXpAwarded :: PlacementResult -> Int
+placementXpAwarded PlacementResult {xpAwarded} = xpAwarded
+
+placementCompletedLessonsDelta :: PlacementResult -> Int
+placementCompletedLessonsDelta PlacementResult {completedLessonsDelta} = completedLessonsDelta
+
+placementRecommendedLessonId :: PlacementResult -> Maybe String
+placementRecommendedLessonId PlacementResult {recommendedLessonId} = recommendedLessonId
+
+placementBootstrap :: PlacementResult -> AppBootstrap
+placementBootstrap PlacementResult {bootstrap} = bootstrap
+
 lessonStatusValue :: LessonSummary -> LessonStatus
 lessonStatusValue LessonSummary {status} = status
 
@@ -603,6 +670,68 @@ sampleCurriculum =
       "      \"distractors\": [\"for\", \"at\", \"with\"],",
       "      \"confusables\": [\"for Osaka\", \"at school\"],",
       "      \"tags\": [\"origin\", \"preposition\"]",
+      "    }",
+      "  ],",
+      "  \"placementQuestions\": [",
+      "    {",
+      "      \"questionId\": \"placement-a1-greeting\",",
+      "      \"cefrBand\": \"A1\",",
+      "      \"skill\": \"social language\",",
+      "      \"prompt\": \"Choose the best reply to: Hi, I'm Yuki.\",",
+      "      \"promptDetail\": null,",
+      "      \"choices\": [\"Nice to meet you.\", \"At seven o'clock.\", \"She goes by train.\"],",
+      "      \"acceptableAnswers\": [\"Nice to meet you.\"],",
+      "      \"explanation\": \"Nice to meet you is a standard first-meeting reply.\"",
+      "    },",
+      "    {",
+      "      \"questionId\": \"placement-a2-plan\",",
+      "      \"cefrBand\": \"A2\",",
+      "      \"skill\": \"future plans\",",
+      "      \"prompt\": \"Choose the sentence that clearly describes a plan.\",",
+      "      \"promptDetail\": null,",
+      "      \"choices\": [\"I am going to visit my aunt tomorrow.\", \"Visit aunt I tomorrow.\", \"I visited usually.\"],",
+      "      \"acceptableAnswers\": [\"I am going to visit my aunt tomorrow.\"],",
+      "      \"explanation\": \"Going to expresses a planned future action.\"",
+      "    },",
+      "    {",
+      "      \"questionId\": \"placement-b1-opinion\",",
+      "      \"cefrBand\": \"B1\",",
+      "      \"skill\": \"opinions\",",
+      "      \"prompt\": \"Choose the balanced opinion.\",",
+      "      \"promptDetail\": null,",
+      "      \"choices\": [\"I agree to some extent, but the cost worries me.\", \"Everything is perfect always.\", \"No opinion because yes.\"],",
+      "      \"acceptableAnswers\": [\"I agree to some extent, but the cost worries me.\"],",
+      "      \"explanation\": \"The sentence gives a view and a reservation.\"",
+      "    },",
+      "    {",
+      "      \"questionId\": \"placement-b2-concession\",",
+      "      \"cefrBand\": \"B2\",",
+      "      \"skill\": \"concession\",",
+      "      \"prompt\": \"Choose the best concession sentence.\",",
+      "      \"promptDetail\": null,",
+      "      \"choices\": [\"Although the proposal is ambitious, it is financially realistic.\", \"Because the proposal ambitious realistic.\", \"It is realistic although because.\"],",
+      "      \"acceptableAnswers\": [\"Although the proposal is ambitious, it is financially realistic.\"],",
+      "      \"explanation\": \"Although introduces a concession before the main claim.\"",
+      "    },",
+      "    {",
+      "      \"questionId\": \"placement-c1-qualification\",",
+      "      \"cefrBand\": \"C1\",",
+      "      \"skill\": \"argument precision\",",
+      "      \"prompt\": \"Choose the most cautious interpretation of evidence.\",",
+      "      \"promptDetail\": null,",
+      "      \"choices\": [\"The evidence suggests a link, but it does not prove causation.\", \"The evidence proves every possible cause.\", \"The evidence is not evidence.\"],",
+      "      \"acceptableAnswers\": [\"The evidence suggests a link, but it does not prove causation.\"],",
+      "      \"explanation\": \"The sentence separates suggestion from proof.\"",
+      "    },",
+      "    {",
+      "      \"questionId\": \"placement-c2-stance\",",
+      "      \"cefrBand\": \"C2\",",
+      "      \"skill\": \"implied stance\",",
+      "      \"prompt\": \"Choose the sentence with subtle stance and implication.\",",
+      "      \"promptDetail\": null,",
+      "      \"choices\": [\"The wording is ostensibly neutral, but it implies skepticism.\", \"The words are good and very nice.\", \"Neutral words are neutral because neutral.\"],",
+      "      \"acceptableAnswers\": [\"The wording is ostensibly neutral, but it implies skepticism.\"],",
+      "      \"explanation\": \"Ostensibly signals appearance with possible doubt.\"",
       "    }",
       "  ],",
       "  \"units\": [",
@@ -707,6 +836,40 @@ sampleCurriculum =
       "              \"translation\": \"彼女は8時に仕事へ行く。\",",
       "              \"hint\": \"Check the verb ending.\",",
       "              \"explanation\": \"Third-person singular needs goes, so the sentence is false.\"",
+      "            }",
+      "          ]",
+      "        }",
+      "      ]",
+      "    },",
+      "    {",
+      "      \"unitId\": \"u6\",",
+      "      \"index\": 3,",
+      "      \"title\": \"Implied Stance\",",
+      "      \"cefrBand\": \"C2\",",
+      "      \"focus\": \"Subtle tone and rhetorical implication\",",
+      "      \"lessons\": [",
+      "        {",
+      "          \"lessonId\": \"u6-l1\",",
+      "          \"index\": 1,",
+      "          \"title\": \"Reading Between The Lines\",",
+      "          \"subtitle\": \"stance and implication\",",
+      "          \"goal\": \"Identify implied attitude in precise formal language.\",",
+      "          \"xpReward\": 90,",
+      "          \"narrative\": \"Advanced readers separate literal meaning from implied stance.\",",
+      "          \"tips\": [\"Notice words such as ostensibly and supposedly.\", \"Base interpretation on specific wording.\"],",
+      "          \"exercises\": [",
+      "            {",
+      "              \"exerciseId\": \"u6-l1-e1\",",
+      "              \"kind\": \"MultipleChoice\",",
+      "              \"prompt\": \"What does ostensibly suggest?\",",
+      "              \"promptDetail\": \"The solution is ostensibly simple, but the consequences are unclear.\",",
+      "              \"choices\": [\"It appears simple but may not be.\", \"It is certainly simple.\", \"It is illegal.\"],",
+      "              \"fragments\": [],",
+      "              \"answerText\": null,",
+      "              \"acceptableAnswers\": [\"It appears simple but may not be.\"],",
+      "              \"translation\": null,",
+      "              \"hint\": \"Think appearance versus reality.\",",
+      "              \"explanation\": \"Ostensibly often suggests a gap between appearance and reality.\"",
       "            }",
       "          ]",
       "        }",
@@ -933,6 +1096,39 @@ prop_evaluateVocabularyReviewCoherent =
     Vocabulary.evaluationNextReviewHours evaluation
       === if shouldSubmitCorrect then Vocabulary.vocabularyReviewHours (Vocabulary.evaluationMasteryPercent evaluation) else 0
 
+prop_placementScorePercentBounded :: Property
+prop_placementScorePercentBounded =
+  property $ do
+    total <- forAll (Gen.int (Range.linear 0 200))
+    correct <- forAll (Gen.int (Range.linear 0 total))
+    let score = Placement.placementScorePercent correct total
+    assert (score >= 0 && score <= 100)
+
+prop_placementXpDeltaNonnegative :: Property
+prop_placementXpDeltaNonnegative =
+  property $ do
+    previous <- forAll (Gen.maybe genPlacementLevel)
+    next <- forAll genPlacementLevel
+    assert (Placement.placementXpDelta previous next >= 0)
+    case previous of
+      Just previousLevel | Placement.levelRank previousLevel >= Placement.levelRank next ->
+        Placement.placementXpDelta previous next === 0
+      _ ->
+        assert True
+
+prop_placementChoosesHighestPassedBand :: Property
+prop_placementChoosesHighestPassedBand =
+  property $ do
+    target <- forAll genPlacementLevel
+    let scores =
+          [ ( level,
+              if Placement.levelRank level <= Placement.levelRank target then 2 else 1,
+              3
+            )
+            | level <- Placement.allCefrLevels
+          ]
+    Placement.placementLevelFromBandScores scores === target
+
 specDecideCompletion :: Bool -> Int -> Int -> Int -> Int -> Int -> Rules.CompletionDecision
 specDecideCompletion alreadyCompleted previousBestAccuracy accuracyPercent correctCount totalExercises lessonXpReward =
   let specPassingAttempt = accuracyPercent >= 60
@@ -1144,6 +1340,10 @@ genShuffleSeed =
     <$> Gen.string
       (Range.linear 0 32)
       (Gen.element (['a' .. 'z'] <> ['A' .. 'Z'] <> ['0' .. '9'] <> "-_:"))
+
+genPlacementLevel :: Gen Placement.CefrLevel
+genPlacementLevel =
+  Gen.enumBounded
 
 genDay :: Gen Day
 genDay =

@@ -189,6 +189,25 @@ declarations =
         Field "dashboard" (TNamed "VocabularyDashboard")
       ],
     RecordDeclaration
+      "PlacementQuestion"
+      [ Field "questionId" TString,
+        Field "cefrBand" TString,
+        Field "skill" TString,
+        Field "prompt" TString,
+        Field "promptDetail" (TMaybe TString),
+        Field "choices" (TArray TString)
+      ],
+    RecordDeclaration
+      "PlacementAnswer"
+      [ Field "questionId" TString,
+        Field "selectedChoice" (TMaybe TString),
+        Field "answerText" (TMaybe TString)
+      ],
+    RecordDeclaration
+      "PlacementSubmission"
+      [ Field "answers" (TArray (TNamed "PlacementAnswer"))
+      ],
+    RecordDeclaration
       "AppBootstrap"
       [ Field "profile" (TNamed "LearnerProfile"),
         Field "stats" (TNamed "DashboardStats"),
@@ -196,6 +215,15 @@ declarations =
         Field "reviewQueue" (TArray (TNamed "ReviewSummary")),
         Field "vocabulary" (TNamed "VocabularyDashboard"),
         Field "units" (TArray (TNamed "UnitSummary"))
+      ],
+    RecordDeclaration
+      "PlacementResult"
+      [ Field "placedCefrBand" TString,
+        Field "scorePercent" TInt,
+        Field "xpAwarded" TInt,
+        Field "completedLessonsDelta" TInt,
+        Field "recommendedLessonId" (TMaybe TString),
+        Field "bootstrap" (TNamed "AppBootstrap")
       ],
     RecordDeclaration
       "AttemptStart"

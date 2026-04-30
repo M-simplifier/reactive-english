@@ -94,6 +94,10 @@ decodeBrowserAction action value =
         ActionSubmitVocabularyText -> Just (SubmitVocabularyTextAnswer value)
         ActionAdvanceVocabulary -> Just AdvanceVocabularyReview
         ActionCloseVocabularyReview -> Just CloseVocabularyReview
+        ActionStartPlacement -> Just StartPlacementTest
+        ActionChoosePlacementChoice -> ChoosePlacementChoice <$> Int.fromString value
+        ActionContinuePlacement -> Just ContinuePlacement
+        ActionClosePlacement -> Just ClosePlacement
         ActionBackDashboard -> Just ReturnDashboard
         ActionDismissBanner -> Just DismissBanner
         ActionRetryBootstrap -> Just AppStarted
@@ -192,6 +196,22 @@ runCommand browser client sink command =
             liftPush (VocabularyReviewLoaded source reviewResult)
           Left error ->
             liftPush (VocabularyReviewFailed (show error))
+
+      LoadPlacementQuestions -> do
+        result <- attempt client.loadPlacementQuestions
+        case result of
+          Right (Tuple source questions) ->
+            liftPush (PlacementQuestionsLoaded source questions)
+          Left error ->
+            liftPush (PlacementQuestionsFailed (show error))
+
+      SendPlacement submission -> do
+        result <- attempt (client.submitPlacement submission)
+        case result of
+          Right (Tuple source placementResult) ->
+            liftPush (PlacementLoaded source placementResult)
+          Left error ->
+            liftPush (PlacementSubmissionFailed (show error))
   where
   liftPush msg =
     liftEffect (Event.push sink msg)

@@ -16,6 +16,9 @@ import App.Schema.Generated
   , DevLoginRequest
   , GoogleAuthRequest
   , LessonDetail
+  , PlacementQuestion
+  , PlacementResult
+  , PlacementSubmission
   , SessionSnapshot
   , VocabularyReviewPrompt
   , VocabularyReviewResult
@@ -45,6 +48,8 @@ type Client =
   , finishAttempt :: String -> String -> Aff (Tuple DataSource AttemptCompletion)
   , loadVocabularyReview :: Aff (Tuple DataSource (Array VocabularyReviewPrompt))
   , sendVocabularyReview :: VocabularyReviewSubmission -> Aff (Tuple DataSource VocabularyReviewResult)
+  , loadPlacementQuestions :: Aff (Tuple DataSource (Array PlacementQuestion))
+  , submitPlacement :: PlacementSubmission -> Aff (Tuple DataSource PlacementResult)
   }
 
 foreign import requestJsonImpl
@@ -80,6 +85,10 @@ createClient =
         withLiveData (requestNoBody "GET" "/api/vocabulary/review")
     , sendVocabularyReview: \submission ->
         withLiveData (requestJson "POST" "/api/vocabulary/review" submission)
+    , loadPlacementQuestions:
+        withLiveData (requestNoBody "GET" "/api/placement")
+    , submitPlacement: \submission ->
+        withLiveData (requestJson "POST" "/api/placement" submission)
     }
 
 withLiveData :: forall a. Aff a -> Aff (Tuple DataSource a)

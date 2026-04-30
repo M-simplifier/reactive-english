@@ -78,4 +78,4 @@ COPY curriculum /app/curriculum
 ENV PORT=8080
 EXPOSE 8080
 
-CMD ["/app/reactive-english-server", "--static-dir", "/app/frontend/dist", "--curriculum-path", "/app/curriculum/english-a2.json"]
+CMD ["/app/reactive-english-server", "--static-dir", "/app/frontend/dist", "--curriculum-path", "/app/curriculum/english-cefr-c2.json"]

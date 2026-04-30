@@ -19,6 +19,8 @@ type Api =
            :<|> "logout" :> Header "Cookie" String :> Post '[JSON] (Headers '[Header "Set-Cookie" SetCookie] SessionSnapshot)
            :<|> Header "Cookie" String
              :> ( "bootstrap" :> Get '[JSON] AppBootstrap
+                    :<|> "placement" :> Get '[JSON] [PlacementQuestion]
+                    :<|> "placement" :> ReqBody '[JSON] PlacementSubmission :> Post '[JSON] PlacementResult
                     :<|> "units" :> Capture "unitId" String :> Get '[JSON] UnitSummary
                     :<|> "lessons" :> Capture "lessonId" String :> Get '[JSON] LessonDetail
                     :<|> "attempts" :> ReqBody '[JSON] AttemptStart :> Post '[JSON] AttemptView

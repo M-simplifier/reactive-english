@@ -6,11 +6,14 @@ import Prelude (div, map, not, show, (&&), (*), (+), (-), (<<<), (<>), (==), (>=
 
 import App.Model
   ( ActiveSession
+  , ActivePlacementSession
   , AppState
   , AuthState(..)
   , DataSource(..)
   , DraftAnswer(..)
   , LoadState(..)
+  , PlacementDraft(..)
+  , PlacementState(..)
   , PreviewState(..)
   , SessionState(..)
   , VocabularyDraft(..)
@@ -20,6 +23,7 @@ import App.Model
   , currentViewer
   , findLessonSummary
   , lessonIsStartable
+  , placementActiveQuestion
   , selectedUnitSummary
   , vocabularyActivePrompt
   )
@@ -32,6 +36,8 @@ import App.Schema.Generated
   , KnowledgeDimension(..)
   , LessonStatus(..)
   , LessonSummary
+  , PlacementQuestion
+  , PlacementResult
   , ReviewSummary
   , SessionSnapshot
   , UnitSummary
@@ -62,6 +68,7 @@ render state =
     , renderSurface state
     , "</main>"
     , renderVocabularyOverlay state
+    , renderPlacementOverlay state
     , renderCompletionBanner state
     , "</div>"
     ]
@@ -102,7 +109,7 @@ renderTopbar state =
       , "<div class=\"brand-lockup\">"
       , "<div class=\"brand-mark\">RE</div>"
       , "<div>"
-      , "<p class=\"eyebrow\">A2 English mission deck</p>"
+      , "<p class=\"eyebrow\">A1-C2 English mission deck</p>"
       , "<h1 class=\"brand\">Reactive English</h1>"
       , "</div>"
       , "</div>"
@@ -201,9 +208,9 @@ renderSignedOut flow =
       [ "<section class=\"landing-grid\">"
       , "<article class=\"landing-hero glass-card\">"
       , "<div class=\"hero-badge-row\">"
-      , "<span class=\"route-badge\">48 lessons</span>"
-      , "<span class=\"route-badge\">192 exercises</span>"
-      , "<span class=\"route-badge\">A1 to A2</span>"
+      , "<span class=\"route-badge\">96 lessons</span>"
+      , "<span class=\"route-badge\">384 exercises</span>"
+      , "<span class=\"route-badge\">A1 to C2</span>"
       , "</div>"
       , "<p class=\"eyebrow\">English that feels like a route, not a form</p>"
       , "<h2>Pick a sign-in lane and start today's mission.</h2>"
@@ -319,6 +326,7 @@ renderDashboard state =
           , unitMarkup
           , "</div>"
           , "<aside class=\"side-rail\">"
+          , renderPlacementHub bootstrap
           , renderVocabularyHub bootstrap
           , "<section class=\"glass-card queue-card\">"
           , "<p class=\"small-label\">Review weather</p>"
@@ -547,6 +555,166 @@ renderVocabularyHub bootstrap =
       , reviewButton
       , "</section>"
       ]
+
+renderPlacementHub :: AppBootstrap -> String
+renderPlacementHub bootstrap =
+  joinWith ""
+    [ "<section class=\"glass-card placement-card\">"
+    , "<div class=\"vocab-card-head\">"
+    , "<div>"
+    , "<p class=\"small-label\">Level jump</p>"
+    , "<h3>Placement radar</h3>"
+    , "</div>"
+    , "<span class=\"kind-badge\">A1-C2</span>"
+    , "</div>"
+    , "<p class=\"hero-progress-copy\">Skip material you already command. A strong result opens the first lesson at your placed band and banks the matching XP bonus once.</p>"
+    , "<div class=\"placement-stat-row\">"
+    , "<span><strong>"
+    , show bootstrap.profile.completedLessons
+    , "</strong> completed</span>"
+    , "<span><strong>"
+    , show bootstrap.profile.totalLessons
+    , "</strong> total</span>"
+    , "</div>"
+    , "<button class=\"primary-button\" "
+    , uiActionAttribute ActionStartPlacement
+    , " data-value=\"\">Take placement test</button>"
+    , "</section>"
+    ]
+
+renderPlacementOverlay :: AppState -> String
+renderPlacementOverlay state =
+  case state.placementSession of
+    PlacementClosed ->
+      ""
+
+    PlacementLoading ->
+      joinWith ""
+        [ "<div class=\"vocabulary-overlay placement-overlay\">"
+        , "<section class=\"glass-card vocabulary-panel placement-panel\">"
+        , "<p class=\"small-label\">Placement radar</p>"
+        , "<h3>Loading the A1-C2 route check...</h3>"
+        , "</section>"
+        , "</div>"
+        ]
+
+    PlacementError message ->
+      joinWith ""
+        [ "<div class=\"vocabulary-overlay placement-overlay\">"
+        , "<section class=\"glass-card vocabulary-panel placement-panel\">"
+        , "<p class=\"small-label\">Placement radar</p>"
+        , "<h3>Placement test unavailable</h3>"
+        , "<p>"
+        , escape message
+        , "</p>"
+        , "<button class=\"primary-button\" "
+        , uiActionAttribute ActionClosePlacement
+        , " data-value=\"\">Back to dashboard</button>"
+        , "</section>"
+        , "</div>"
+        ]
+
+    PlacementActive session ->
+      case session.result of
+        Just result ->
+          renderPlacementResult result
+
+        Nothing ->
+          case placementActiveQuestion session of
+            Nothing ->
+              ""
+
+            Just question ->
+              joinWith ""
+                [ "<div class=\"vocabulary-overlay placement-overlay\">"
+                , "<section class=\"glass-card vocabulary-panel placement-panel\">"
+                , "<div class=\"exercise-head\">"
+                , "<div>"
+                , "<p class=\"small-label\">Question "
+                , show (session.currentIndex + 1)
+                , " / "
+                , show (Array.length session.questions)
+                , " - "
+                , escape question.cefrBand
+                , " / "
+                , escape question.skill
+                , "</p>"
+                , "<h3>"
+                , escape question.prompt
+                , "</h3>"
+                , renderOptionalParagraph "prompt-detail" question.promptDetail
+                , "</div>"
+                , "<button class=\"ghost-button compact-button\" "
+                , uiActionAttribute ActionClosePlacement
+                , " data-value=\"\">Close</button>"
+                , "</div>"
+                , renderPlacementBody question session
+                , renderSessionMessage session.message
+                , "</section>"
+                , "</div>"
+                ]
+
+renderPlacementBody :: PlacementQuestion -> ActivePlacementSession -> String
+renderPlacementBody question session =
+  joinWith ""
+    [ "<div class=\"choice-grid\">"
+    , joinWith "" (mapWithIndex (renderPlacementChoice session.draft) question.choices)
+    , "</div>"
+    , "<button class=\"primary-button\" "
+    , uiActionAttribute ActionContinuePlacement
+    , " data-value=\"\""
+    , if session.submitting then " disabled" else ""
+    , ">"
+    , if session.currentIndex + 1 >= Array.length session.questions then "Score placement" else "Next question"
+    , "</button>"
+    ]
+
+renderPlacementChoice :: PlacementDraft -> Int -> String -> String
+renderPlacementChoice draft index choice =
+  let
+    selectedClass = case draft of
+      PlacementChoiceDraft selectedIndex | selectedIndex == index -> " selected"
+      _ -> ""
+  in
+    joinWith ""
+      [ "<button class=\"choice-button"
+      , selectedClass
+      , "\" "
+      , uiActionAttribute ActionChoosePlacementChoice
+      , " data-value=\""
+      , show index
+      , "\">"
+      , escape choice
+      , "</button>"
+      ]
+
+renderPlacementResult :: PlacementResult -> String
+renderPlacementResult result =
+  joinWith ""
+    [ "<div class=\"vocabulary-overlay placement-overlay\">"
+    , "<section class=\"glass-card vocabulary-panel placement-panel placement-result\">"
+    , "<p class=\"small-label\">Placement complete</p>"
+    , "<h3>You placed at "
+    , escape result.placedCefrBand
+    , "</h3>"
+    , "<p>Your score was "
+    , show result.scorePercent
+    , "%. The route has been refreshed around your level.</p>"
+    , "<div class=\"feedback-meta\">"
+    , "<span>"
+    , show result.xpAwarded
+    , " XP awarded</span>"
+    , "<span>"
+    , show result.completedLessonsDelta
+    , " lessons skipped</span>"
+    , maybe "" (\lessonId -> "<span>Next: " <> escape lessonId <> "</span>") result.recommendedLessonId
+    , "</div>"
+    , "<button class=\"primary-button\" "
+    , uiActionAttribute ActionClosePlacement
+    , " data-value=\"\">Open refreshed dashboard</button>"
+    , "</section>"
+    , "</div>"
+    ]
 
 renderVocabularyCard :: VocabularyCard -> String
 renderVocabularyCard card =

@@ -9,6 +9,7 @@ module ReactiveEnglish.Curriculum
     CurriculumExercise (..),
     CurriculumLexeme (..),
     CurriculumLesson (..),
+    CurriculumPlacementQuestion (..),
     CurriculumUnit (..),
   )
 where
@@ -19,6 +20,7 @@ import ReactiveEnglish.Schema.Generated (ExerciseKind)
 
 data Curriculum = Curriculum
   { lexemes :: Maybe [CurriculumLexeme],
+    placementQuestions :: Maybe [CurriculumPlacementQuestion],
     units :: [CurriculumUnit]
   }
   deriving stock (Show, Eq, Generic)
@@ -97,3 +99,28 @@ data CurriculumExercise = CurriculumExercise
   }
   deriving stock (Show, Eq, Generic)
   deriving anyclass (FromJSON)
+
+data CurriculumPlacementQuestion = CurriculumPlacementQuestion
+  { questionId :: String,
+    placementCefrBand :: String,
+    skill :: String,
+    placementPrompt :: String,
+    placementPromptDetail :: Maybe String,
+    placementChoices :: [String],
+    placementAcceptableAnswers :: [String],
+    placementExplanation :: String
+  }
+  deriving stock (Show, Eq, Generic)
+
+instance FromJSON CurriculumPlacementQuestion where
+  parseJSON =
+    withObject "CurriculumPlacementQuestion" $ \object ->
+      CurriculumPlacementQuestion
+        <$> object .: "questionId"
+        <*> object .: "cefrBand"
+        <*> object .: "skill"
+        <*> object .: "prompt"
+        <*> object .:? "promptDetail"
+        <*> object .: "choices"
+        <*> object .: "acceptableAnswers"
+        <*> object .: "explanation"

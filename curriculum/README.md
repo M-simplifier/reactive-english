@@ -3,14 +3,27 @@
 The curriculum seed is authored as checked-in JSON. The backend loads it on
 startup and reseeds the SQLite database when needed.
 
-## File
+## Files
 
-- `curriculum/english-a2.json`
+- `curriculum/english-cefr-c2.json`: default A1-C2 seed used by the app
+- `curriculum/english-a2.json`: legacy smaller seed retained for comparison
 
 ## Shape
 
 ```json
 {
+  "placementQuestions": [
+    {
+      "questionId": "placement-a1-1",
+      "cefrBand": "A1",
+      "skill": "greetings",
+      "prompt": "Choose the best reply to: Hi, I'm Yuki.",
+      "promptDetail": null,
+      "choices": ["Nice to meet you.", "At seven o'clock."],
+      "acceptableAnswers": ["Nice to meet you."],
+      "explanation": "A1 checks basic social response."
+    }
+  ],
   "units": [
     {
       "unitId": "u1",
@@ -53,6 +66,9 @@ startup and reseeds the SQLite database when needed.
 ## Authoring Rules
 
 - Keep IDs stable and globally unique.
+- Regenerate the default CEFR seed with `npm run curriculum:generate`.
+- Keep placement answers out of the public API response; the backend stores
+  `acceptableAnswers` only for scoring.
 - `choices` is used by multiple-choice and true/false items.
 - `fragments` is used by ordering exercises.
 - `answerText` is the canonical answer for cloze items.

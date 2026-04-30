@@ -28,6 +28,7 @@ library
     , ReactiveEnglish.Curriculum
     , ReactiveEnglish.Database
     , ReactiveEnglish.Db
+    , ReactiveEnglish.Domain.Placement
     , ReactiveEnglish.Domain.Rules
     , ReactiveEnglish.Domain.Vocabulary
     , ReactiveEnglish.Schema.Generated

@@ -40,6 +40,7 @@ run = do
   testRuntimeDecodesEveryUiAction
   testVocabularyCheckActionDecodesToVocabularyMessage
   testRenderedVocabularyCheckUsesTypedAction
+  testRenderedPlacementStartUsesTypedAction
 
 testUiActionRoundTrips :: Effect Unit
 testUiActionRoundTrips =
@@ -76,6 +77,13 @@ testRenderedVocabularyCheckUsesTypedAction =
   in
     assert (String.contains (Pattern (uiActionAttribute ActionCheckVocabularyAnswer)) html)
 
+testRenderedPlacementStartUsesTypedAction :: Effect Unit
+testRenderedPlacementStartUsesTypedAction =
+  let
+    html = View.render authedDashboardState
+  in
+    assert (String.contains (Pattern (uiActionAttribute ActionStartPlacement)) html)
+
 sampleBrowserValue :: UiAction -> String
 sampleBrowserValue action =
   case action of
@@ -83,6 +91,7 @@ sampleBrowserValue action =
     ActionOrderingPick -> "0"
     ActionOrderingUnpick -> "0"
     ActionChooseVocabularyChoice -> "0"
+    ActionChoosePlacementChoice -> "0"
     ActionChooseBoolean -> "true"
     _ -> "sample"
 
@@ -100,6 +109,14 @@ authedVocabularyState =
     opened = update StartVocabularyReview dashboard.state
   in
     opened.state
+
+authedDashboardState :: AppState
+authedDashboardState =
+  let
+    authed = update (SessionSnapshotLoaded signedInSession) initialState
+    dashboard = update (BootstrapLoaded LiveBackend initialBootstrap) authed.state
+  in
+    dashboard.state
 
 signedInSession :: SessionSnapshot
 signedInSession =

@@ -302,6 +302,28 @@ type VocabularyReviewResult
     , dashboard :: VocabularyDashboard
     }
 
+type PlacementQuestion
+  =
+    { questionId :: String
+    , cefrBand :: String
+    , skill :: String
+    , prompt :: String
+    , promptDetail :: Maybe String
+    , choices :: Array String
+    }
+
+type PlacementAnswer
+  =
+    { questionId :: String
+    , selectedChoice :: Maybe String
+    , answerText :: Maybe String
+    }
+
+type PlacementSubmission
+  =
+    { answers :: Array PlacementAnswer
+    }
+
 type AppBootstrap
   =
     { profile :: LearnerProfile
@@ -310,6 +332,16 @@ type AppBootstrap
     , reviewQueue :: Array ReviewSummary
     , vocabulary :: VocabularyDashboard
     , units :: Array UnitSummary
+    }
+
+type PlacementResult
+  =
+    { placedCefrBand :: String
+    , scorePercent :: Int
+    , xpAwarded :: Int
+    , completedLessonsDelta :: Int
+    , recommendedLessonId :: Maybe String
+    , bootstrap :: AppBootstrap
     }
 
 type AttemptStart

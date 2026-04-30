@@ -4,6 +4,7 @@
   "scripts": {
     "start": "./scripts/start-app.sh",
     "zlib:shim": "./scripts/setup-local-zlib.sh",
+    "curriculum:generate": "node scripts/generate-curriculum.mjs",
     "schema:generate": "cabal run schema-bridge -- backend/src/ReactiveEnglish/Schema/Generated.hs frontend/src/App/Schema/Generated.purs",
     "frontend:build": "npm --prefix frontend run build",
     "frontend:watch": "npm --prefix frontend run watch",

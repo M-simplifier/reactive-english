@@ -12,9 +12,11 @@ import App.Model
   , DataSource(..)
   , LoadState(..)
   , Msg(..)
+  , PlacementState(..)
   , PreviewState(..)
   , SessionState(..)
   , VocabularyState(..)
+  , buildPlacementAnswer
   , buildSubmission
   , buildVocabularySubmission
   , initialState
@@ -27,6 +29,8 @@ import App.Schema.Generated
   , KnowledgeDimension(..)
   , LessonStatus(..)
   , LessonSummary
+  , PlacementQuestion
+  , PlacementResult
   , SessionSnapshot
   , VocabularyReviewPrompt
   )
@@ -54,6 +58,9 @@ run = do
   testSharedCheckAnswerRoutesActiveVocabularySession
   testVocabularyFeedbackPatchesDashboard
   testAdvanceVocabularyReviewClosesAfterLastCard
+  testStartPlacementDispatchesLoad
+  testPlacementChoiceBuildsSubmission
+  testPlacementResultPatchesBootstrap
 
 testStartupDispatch :: Effect Unit
 testStartupDispatch = do
@@ -355,6 +362,52 @@ testAdvanceVocabularyReviewClosesAfterLastCard = do
     VocabularyClosed -> true
     _ -> false)
 
+testStartPlacementDispatchesLoad :: Effect Unit
+testStartPlacementDispatchesLoad = do
+  let result = update StartPlacementTest authedDashboard.state
+  assert (case Array.head result.commands of
+    Just LoadPlacementQuestions -> true
+    _ -> false)
+  assert (case result.state.placementSession of
+    PlacementLoading -> true
+    _ -> false)
+
+testPlacementChoiceBuildsSubmission :: Effect Unit
+testPlacementChoiceBuildsSubmission = do
+  let
+    loading = update StartPlacementTest authedDashboard.state
+    loaded = update (PlacementQuestionsLoaded LiveBackend placementQuestions) loading.state
+    picked = update (ChoosePlacementChoice 1) loaded.state
+    continued = update ContinuePlacement picked.state
+  assert (case picked.state.placementSession of
+    PlacementActive session ->
+      case buildPlacementAnswer session of
+        Just answer -> answer.questionId == "placement-c2-stance" && answer.selectedChoice == Just "The wording is ostensibly neutral, but it implies skepticism."
+        Nothing -> false
+    _ -> false)
+  assert (case Array.head continued.commands of
+    Just (SendPlacement submission) ->
+      case Array.head submission.answers of
+        Just answer -> answer.questionId == "placement-c2-stance" && answer.selectedChoice == Just "The wording is ostensibly neutral, but it implies skepticism."
+        Nothing -> false
+    _ -> false)
+
+testPlacementResultPatchesBootstrap :: Effect Unit
+testPlacementResultPatchesBootstrap = do
+  let
+    loading = update StartPlacementTest authedDashboard.state
+    loaded = update (PlacementQuestionsLoaded LiveBackend placementQuestions) loading.state
+    picked = update (ChoosePlacementChoice 1) loaded.state
+    submitted = update ContinuePlacement picked.state
+    completed = update (PlacementLoaded LiveBackend placementResult) submitted.state
+  assert (case completed.state.bootstrap of
+    Loaded bootstrap -> bootstrap.profile.xp == placementResult.bootstrap.profile.xp && bootstrap.recommendedLessonId == Just "lesson-weekend-plans"
+    _ -> false)
+  assert (completed.state.selectedUnitId == Just "unit-next-steps")
+  assert (case completed.state.placementSession of
+    PlacementActive session -> session.result /= Nothing && session.submitting == false
+    _ -> false)
+
 signedOutSession :: SessionSnapshot
 signedOutSession =
   { viewer: Nothing
@@ -404,6 +457,35 @@ fromMaybePrompt =
     , dueLabel: "New word"
     }
     (Array.head initialBootstrap.vocabulary.reviewQueue)
+
+placementQuestions :: Array PlacementQuestion
+placementQuestions =
+  [ { questionId: "placement-c2-stance"
+    , cefrBand: "C2"
+    , skill: "implied stance"
+    , prompt: "Choose the sentence with subtle stance and implication."
+    , promptDetail: Nothing
+    , choices:
+        [ "The wording is certainly neutral."
+        , "The wording is ostensibly neutral, but it implies skepticism."
+        , "The wording is words."
+        ]
+    }
+  ]
+
+placementResult :: PlacementResult
+placementResult =
+  { placedCefrBand: "C2"
+  , scorePercent: 100
+  , xpAwarded: 2400
+  , completedLessonsDelta: 2
+  , recommendedLessonId: Just "lesson-weekend-plans"
+  , bootstrap:
+      initialBootstrap
+        { profile = initialBootstrap.profile { xp = initialBootstrap.profile.xp + 2400, completedLessons = 3 }
+        , recommendedLessonId = Just "lesson-weekend-plans"
+        }
+  }
 
 singleChoiceAttempt :: AttemptView
 singleChoiceAttempt =

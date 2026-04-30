@@ -50,12 +50,14 @@ import ReactiveEnglish.Service
     completeAttempt,
     getBootstrap,
     getLessonDetailById,
+    getPlacementQuestions,
     getReviewQueue,
     getUnitSummaryById,
     getVocabularyDashboard,
     getVocabularyReviewQueue,
     startAttempt,
     submitAnswer,
+    submitPlacement,
     submitVocabularyReview,
   )
 import ReactiveEnglish.Static (frontendApp)
@@ -157,6 +159,8 @@ server appEnv =
 
     protectedServer maybeCookieHeader =
       handleViewerIO appEnv maybeCookieHeader (\connection viewer -> getBootstrap connection (authenticatedUserId viewer))
+        :<|> handleViewerIO appEnv maybeCookieHeader (\connection viewer -> getPlacementQuestions connection (authenticatedUserId viewer))
+        :<|> (\submission -> handleViewerEither appEnv maybeCookieHeader (\connection viewer -> submitPlacement connection (authenticatedUserId viewer) submission))
         :<|> (\unitIdValue -> handleViewerMaybe appEnv maybeCookieHeader notFoundError getUnitSummaryById unitIdValue)
         :<|> (\lessonIdValue -> handleViewerMaybe appEnv maybeCookieHeader notFoundError getLessonDetailById lessonIdValue)
         :<|> (\attemptStart -> handleViewerEither appEnv maybeCookieHeader (\connection viewer -> startAttempt connection (authenticatedUserId viewer) attemptStart))

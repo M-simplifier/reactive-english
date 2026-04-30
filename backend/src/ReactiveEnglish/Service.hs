@@ -8,12 +8,14 @@ module ReactiveEnglish.Service
     completeAttempt,
     getBootstrap,
     getLessonDetailById,
+    getPlacementQuestions,
     getReviewQueue,
     getUnitSummaryById,
     getVocabularyDashboard,
     getVocabularyReviewQueue,
     startAttempt,
     submitAnswer,
+    submitPlacement,
     submitVocabularyReview,
   )
 where
@@ -40,11 +42,22 @@ import ReactiveEnglish.Domain.Rules
     findRecommendedLessonId,
     formatDay,
     lessonStatusFrom,
+    normalizeAnswer,
     percent,
     renderDueLabel,
     shuffleAttemptOrderingFragments,
     shuffleFragmentsWithSeed,
     unitProgressPercent,
+  )
+import ReactiveEnglish.Domain.Placement
+  ( CefrLevel,
+    allCefrLevels,
+    cefrLevelForBand,
+    placementLevelFromBandScores,
+    placementScorePercent,
+    placementXpDelta,
+    renderCefrLevel,
+    shouldCompleteLessonForPlacement,
   )
 import qualified ReactiveEnglish.Domain.Vocabulary as Vocabulary
 import ReactiveEnglish.Db
@@ -419,6 +432,68 @@ instance PGFromRow.FromRow LexemeProgressRow where
       <*> PGFromRow.field
 #endif
 
+data PlacementQuestionRow = PlacementQuestionRow
+  { rowPlacementQuestionId :: String,
+    rowPlacementCefrBand :: String,
+    rowPlacementSkill :: String,
+    rowPlacementPrompt :: String,
+    rowPlacementPromptDetail :: Maybe String,
+    rowPlacementChoices :: BS.ByteString,
+    rowPlacementAcceptableAnswers :: BS.ByteString,
+    _rowPlacementExplanation :: String
+  }
+
+instance SQLiteFromRow.FromRow PlacementQuestionRow where
+  fromRow =
+    PlacementQuestionRow
+      <$> SQLiteFromRow.field
+      <*> SQLiteFromRow.field
+      <*> SQLiteFromRow.field
+      <*> SQLiteFromRow.field
+      <*> SQLiteFromRow.field
+      <*> SQLiteFromRow.field
+      <*> SQLiteFromRow.field
+      <*> SQLiteFromRow.field
+
+#ifdef POSTGRES_BACKEND
+instance PGFromRow.FromRow PlacementQuestionRow where
+  fromRow =
+    PlacementQuestionRow
+      <$> PGFromRow.field
+      <*> PGFromRow.field
+      <*> PGFromRow.field
+      <*> PGFromRow.field
+      <*> PGFromRow.field
+      <*> PGFromRow.field
+      <*> PGFromRow.field
+      <*> PGFromRow.field
+#endif
+
+data LessonBandRow = LessonBandRow
+  { rowBandLessonId :: String,
+    rowBandCefrBand :: String
+  }
+
+instance SQLiteFromRow.FromRow LessonBandRow where
+  fromRow = LessonBandRow <$> SQLiteFromRow.field <*> SQLiteFromRow.field
+
+#ifdef POSTGRES_BACKEND
+instance PGFromRow.FromRow LessonBandRow where
+  fromRow = LessonBandRow <$> PGFromRow.field <*> PGFromRow.field
+#endif
+
+data PlacementResultRow = PlacementResultRow
+  { rowPlacementResultBand :: String
+  }
+
+instance SQLiteFromRow.FromRow PlacementResultRow where
+  fromRow = PlacementResultRow <$> SQLiteFromRow.field
+
+#ifdef POSTGRES_BACKEND
+instance PGFromRow.FromRow PlacementResultRow where
+  fromRow = PlacementResultRow <$> PGFromRow.field
+#endif
+
 getBootstrap :: Connection -> Int -> IO AppBootstrap
 getBootstrap connection userIdValue = do
   unitSummaries <- loadUnitSummaries connection userIdValue
@@ -480,6 +555,69 @@ getLessonDetailById connection userIdValue requestedLessonId = do
 
 getReviewQueue :: Connection -> Int -> IO [ReviewSummary]
 getReviewQueue connection userIdValue = loadReviewSummaries connection userIdValue 20
+
+getPlacementQuestions :: Connection -> Int -> IO [PlacementQuestion]
+getPlacementQuestions connection _userIdValue =
+  map toPlacementQuestion <$> loadPlacementQuestionRows connection
+
+submitPlacement :: Connection -> Int -> PlacementSubmission -> IO (Either ServiceError PlacementResult)
+submitPlacement connection userIdValue PlacementSubmission {answers = submittedAnswers} = do
+  outcome <- withTransaction connection $ do
+    questionRows <- loadPlacementQuestionRows connection
+    if null questionRows
+      then pure (Left (ValidationError "Placement test is not configured in this curriculum."))
+      else do
+        now <- getCurrentTime
+        let scoredRows = map (scorePlacementQuestion submittedAnswers) questionRows
+            correctCount = length (filter snd scoredRows)
+            totalQuestions = length questionRows
+            bandScores =
+              [ (level, correctFor level scoredRows, totalFor level scoredRows)
+                | level <- allCefrLevels
+              ]
+            placedLevel = placementLevelFromBandScores bandScores
+            scorePercentValue = placementScorePercent correctCount totalQuestions
+        previousLevel <- loadHighestPlacementLevel connection userIdValue
+        let xpDelta = placementXpDelta previousLevel placedLevel
+        completedBefore <- loadCompletedLessonCount connection userIdValue
+        markLessonsCompletedForPlacement connection userIdValue placedLevel scorePercentValue now
+        completedAfter <- loadCompletedLessonCount connection userIdValue
+        applyCompletionRewards connection userIdValue xpDelta now
+        execute
+          connection
+          "INSERT INTO user_placement_results (user_id, placed_cefr_band, score_percent, correct_count, total_questions, xp_awarded, completed_lessons_delta, submitted_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+          ( userIdValue,
+            renderCefrLevel placedLevel,
+            scorePercentValue,
+            correctCount,
+            totalQuestions,
+            xpDelta,
+            max 0 (completedAfter - completedBefore),
+            now
+          )
+        pure
+          ( Right
+              ( renderCefrLevel placedLevel,
+                scorePercentValue,
+                xpDelta,
+                max 0 (completedAfter - completedBefore)
+              )
+          )
+  case outcome of
+    Left serviceError -> pure (Left serviceError)
+    Right (placedBand, scorePercentValue, xpDelta, completedLessonsDeltaValue) -> do
+      bootstrap <- getBootstrap connection userIdValue
+      pure
+        ( Right
+            PlacementResult
+              { placedCefrBand = placedBand,
+                scorePercent = scorePercentValue,
+                xpAwarded = xpDelta,
+                completedLessonsDelta = completedLessonsDeltaValue,
+                recommendedLessonId = bootstrapRecommendedLessonId bootstrap,
+                bootstrap = bootstrap
+              }
+        )
 
 getVocabularyDashboard :: Connection -> Int -> IO VocabularyDashboard
 getVocabularyDashboard connection userIdValue = do
@@ -955,6 +1093,82 @@ loadLexemeProgressRows connection userIdValue =
     connection
     "SELECT lexeme_id, dimension, correct_count, incorrect_count, mastery_percent, due_at FROM user_lexeme_progress WHERE user_id = ?"
     (DbOnly userIdValue)
+
+loadPlacementQuestionRows :: Connection -> IO [PlacementQuestionRow]
+loadPlacementQuestionRows connection =
+  query
+    connection
+    "SELECT question_id, cefr_band, skill, prompt, prompt_detail, choices_json, acceptable_answers_json, explanation FROM placement_questions ORDER BY cefr_band, question_id"
+    ()
+
+toPlacementQuestion :: PlacementQuestionRow -> PlacementQuestion
+toPlacementQuestion PlacementQuestionRow {rowPlacementQuestionId, rowPlacementCefrBand, rowPlacementSkill, rowPlacementPrompt, rowPlacementPromptDetail, rowPlacementChoices} =
+  PlacementQuestion
+    { questionId = rowPlacementQuestionId,
+      cefrBand = rowPlacementCefrBand,
+      skill = rowPlacementSkill,
+      prompt = rowPlacementPrompt,
+      promptDetail = rowPlacementPromptDetail,
+      choices = decodeList rowPlacementChoices
+    }
+
+scorePlacementQuestion :: [PlacementAnswer] -> PlacementQuestionRow -> (PlacementQuestionRow, Bool)
+scorePlacementQuestion submittedAnswers questionRow@PlacementQuestionRow {rowPlacementQuestionId, rowPlacementAcceptableAnswers} =
+  let accepted = map normalizeAnswer (decodeList rowPlacementAcceptableAnswers)
+      candidates =
+        case findPlacementAnswer rowPlacementQuestionId submittedAnswers of
+          Nothing -> []
+          Just PlacementAnswer {selectedChoice, answerText} ->
+            filter (not . null) (map normalizeAnswer (mapMaybe id [selectedChoice, answerText]))
+   in (questionRow, any (`elem` accepted) candidates)
+
+findPlacementAnswer :: String -> [PlacementAnswer] -> Maybe PlacementAnswer
+findPlacementAnswer requestedQuestionId =
+  find (\PlacementAnswer {questionId} -> questionId == requestedQuestionId)
+
+correctFor :: CefrLevel -> [(PlacementQuestionRow, Bool)] -> Int
+correctFor level =
+  length . filter (\(row, correct) -> correct && placementRowMatchesLevel level row)
+
+totalFor :: CefrLevel -> [(PlacementQuestionRow, Bool)] -> Int
+totalFor level =
+  length . filter (\(row, _) -> placementRowMatchesLevel level row)
+
+placementRowMatchesLevel :: CefrLevel -> PlacementQuestionRow -> Bool
+placementRowMatchesLevel level PlacementQuestionRow {rowPlacementCefrBand} =
+  cefrLevelForBand rowPlacementCefrBand == Just level
+
+loadHighestPlacementLevel :: Connection -> Int -> IO (Maybe CefrLevel)
+loadHighestPlacementLevel connection userIdValue = do
+  rows <- query connection "SELECT placed_cefr_band FROM user_placement_results WHERE user_id = ?" (DbOnly userIdValue)
+  let levels = mapMaybe (\PlacementResultRow {rowPlacementResultBand} -> cefrLevelForBand rowPlacementResultBand) rows
+  pure
+    ( case reverse (sortOn id levels) of
+        level : _ -> Just level
+        [] -> Nothing
+    )
+
+loadCompletedLessonCount :: Connection -> Int -> IO Int
+loadCompletedLessonCount connection userIdValue = do
+  values <- query connection "SELECT COUNT(*) FROM user_lesson_progress WHERE user_id = ? AND completed_at IS NOT NULL" (DbOnly userIdValue)
+  pure (extractOnlyInt values)
+
+markLessonsCompletedForPlacement :: Connection -> Int -> CefrLevel -> Int -> UTCTime -> IO ()
+markLessonsCompletedForPlacement connection userIdValue placedLevel scorePercentValue now = do
+  lessonRows <-
+    query
+      connection
+      "SELECT l.lesson_id, u.cefr_band FROM lessons l JOIN units u ON u.unit_id = l.unit_id ORDER BY u.sort_index, l.sort_index"
+      ()
+  mapM_ markIfPrior lessonRows
+  where
+    markIfPrior LessonBandRow {rowBandLessonId, rowBandCefrBand}
+      | shouldCompleteLessonForPlacement placedLevel rowBandCefrBand =
+          execute
+            connection
+            "INSERT INTO user_lesson_progress (user_id, lesson_id, completed_at, best_accuracy, last_attempted_at, total_attempts) VALUES (?, ?, ?, ?, ?, 0) ON CONFLICT (user_id, lesson_id) DO UPDATE SET completed_at = COALESCE(user_lesson_progress.completed_at, excluded.completed_at), best_accuracy = CASE WHEN user_lesson_progress.best_accuracy > excluded.best_accuracy THEN user_lesson_progress.best_accuracy ELSE excluded.best_accuracy END, last_attempted_at = excluded.last_attempted_at"
+            (userIdValue, rowBandLessonId, now, scorePercentValue, now)
+      | otherwise = pure ()
 
 buildVocabularyCard :: UTCTime -> [LexemeProgressRow] -> LexemeRow -> VocabularyCard
 buildVocabularyCard now progressRows lexemeRow =

@@ -226,6 +226,34 @@ data VocabularyReviewResult
   deriving stock (Show, Eq, Generic)
   deriving anyclass (FromJSON, ToJSON)
 
+data PlacementQuestion
+  = PlacementQuestion
+      {questionId :: String
+      , cefrBand :: String
+      , skill :: String
+      , prompt :: String
+      , promptDetail :: Maybe String
+      , choices :: [String]
+      }
+  deriving stock (Show, Eq, Generic)
+  deriving anyclass (FromJSON, ToJSON)
+
+data PlacementAnswer
+  = PlacementAnswer
+      {questionId :: String
+      , selectedChoice :: Maybe String
+      , answerText :: Maybe String
+      }
+  deriving stock (Show, Eq, Generic)
+  deriving anyclass (FromJSON, ToJSON)
+
+data PlacementSubmission
+  = PlacementSubmission
+      {answers :: [PlacementAnswer]
+      }
+  deriving stock (Show, Eq, Generic)
+  deriving anyclass (FromJSON, ToJSON)
+
 data AppBootstrap
   = AppBootstrap
       {profile :: LearnerProfile
@@ -234,6 +262,18 @@ data AppBootstrap
       , reviewQueue :: [ReviewSummary]
       , vocabulary :: VocabularyDashboard
       , units :: [UnitSummary]
+      }
+  deriving stock (Show, Eq, Generic)
+  deriving anyclass (FromJSON, ToJSON)
+
+data PlacementResult
+  = PlacementResult
+      {placedCefrBand :: String
+      , scorePercent :: Int
+      , xpAwarded :: Int
+      , completedLessonsDelta :: Int
+      , recommendedLessonId :: Maybe String
+      , bootstrap :: AppBootstrap
       }
   deriving stock (Show, Eq, Generic)
   deriving anyclass (FromJSON, ToJSON)

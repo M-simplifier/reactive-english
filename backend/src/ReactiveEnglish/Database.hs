@@ -29,8 +29,10 @@ import ReactiveEnglish.Curriculum
     CurriculumExercise (..),
     CurriculumLexeme (..),
     CurriculumLesson (..),
+    CurriculumPlacementQuestion (..),
     CurriculumUnit (..),
     lexemes,
+    placementQuestions,
   )
 import ReactiveEnglish.Db
   ( DbConnection,
@@ -145,6 +147,43 @@ instance PGToRow.ToRow LexemeSeedRow where
     ]
 #endif
 
+data PlacementQuestionSeedRow = PlacementQuestionSeedRow
+  { seedQuestionId :: String,
+    seedQuestionCefrBand :: String,
+    seedQuestionSkill :: String,
+    seedQuestionPrompt :: String,
+    seedQuestionPromptDetail :: Maybe String,
+    seedQuestionChoicesJson :: BS.ByteString,
+    seedQuestionAcceptableAnswersJson :: BS.ByteString,
+    seedQuestionExplanation :: String
+  }
+
+instance SQLiteToRow.ToRow PlacementQuestionSeedRow where
+  toRow PlacementQuestionSeedRow {seedQuestionId, seedQuestionCefrBand, seedQuestionSkill, seedQuestionPrompt, seedQuestionPromptDetail, seedQuestionChoicesJson, seedQuestionAcceptableAnswersJson, seedQuestionExplanation} =
+    [ SQLiteToField.toField seedQuestionId,
+      SQLiteToField.toField seedQuestionCefrBand,
+      SQLiteToField.toField seedQuestionSkill,
+      SQLiteToField.toField seedQuestionPrompt,
+      SQLiteToField.toField seedQuestionPromptDetail,
+      SQLiteToField.toField seedQuestionChoicesJson,
+      SQLiteToField.toField seedQuestionAcceptableAnswersJson,
+      SQLiteToField.toField seedQuestionExplanation
+    ]
+
+#ifdef POSTGRES_BACKEND
+instance PGToRow.ToRow PlacementQuestionSeedRow where
+  toRow PlacementQuestionSeedRow {seedQuestionId, seedQuestionCefrBand, seedQuestionSkill, seedQuestionPrompt, seedQuestionPromptDetail, seedQuestionChoicesJson, seedQuestionAcceptableAnswersJson, seedQuestionExplanation} =
+    [ PGToField.toField seedQuestionId,
+      PGToField.toField seedQuestionCefrBand,
+      PGToField.toField seedQuestionSkill,
+      PGToField.toField seedQuestionPrompt,
+      PGToField.toField seedQuestionPromptDetail,
+      PGToField.toField seedQuestionChoicesJson,
+      PGToField.toField seedQuestionAcceptableAnswersJson,
+      PGToField.toField seedQuestionExplanation
+    ]
+#endif
+
 prepareDatabase :: DbConnection -> FilePath -> IO ()
 prepareDatabase connection curriculumPath = do
   case dbDialect connection of
@@ -248,6 +287,13 @@ migrations dialect =
         "CREATE INDEX IF NOT EXISTS idx_user_lexeme_due ON user_lexeme_progress(user_id, due_at, mastery_percent)",
         "CREATE INDEX IF NOT EXISTS idx_user_lexeme_events_user ON user_lexeme_review_events(user_id, reviewed_at)"
       ]
+    ),
+    ( 6,
+      [ "CREATE TABLE IF NOT EXISTS placement_questions (question_id TEXT PRIMARY KEY, cefr_band TEXT NOT NULL, skill TEXT NOT NULL, prompt TEXT NOT NULL, prompt_detail TEXT, choices_json " <> binaryType dialect <> " NOT NULL, acceptable_answers_json " <> binaryType dialect <> " NOT NULL, explanation TEXT NOT NULL)",
+        "CREATE TABLE IF NOT EXISTS user_placement_results (result_id " <> identityPrimaryKey dialect <> ", user_id INTEGER NOT NULL REFERENCES users(user_id) ON DELETE CASCADE, placed_cefr_band TEXT NOT NULL, score_percent INTEGER NOT NULL, correct_count INTEGER NOT NULL, total_questions INTEGER NOT NULL, xp_awarded INTEGER NOT NULL, completed_lessons_delta INTEGER NOT NULL, submitted_at " <> timestampType dialect <> " NOT NULL)",
+        "CREATE INDEX IF NOT EXISTS idx_placement_questions_band ON placement_questions(cefr_band, question_id)",
+        "CREATE INDEX IF NOT EXISTS idx_user_placement_results_user ON user_placement_results(user_id, submitted_at)"
+      ]
     )
   ]
 
@@ -287,6 +333,7 @@ seedCurriculum connection curriculum fingerprint =
     upsertLessons connection (units curriculum)
     upsertExercises connection (units curriculum)
     upsertLexemes connection (fromMaybe [] (lexemes curriculum))
+    upsertPlacementQuestions connection (fromMaybe [] (placementQuestions curriculum))
     pruneRemovedRows connection curriculum
     seededAt <- getCurrentTime
     execute
@@ -370,6 +417,23 @@ upsertLexemes connection curriculumLexemes =
           seedTagsJson = BL.toStrict (Aeson.encode (tags curriculumLexeme))
         }
 
+upsertPlacementQuestions :: DbConnection -> [CurriculumPlacementQuestion] -> IO ()
+upsertPlacementQuestions connection curriculumPlacementQuestions =
+  forM_ curriculumPlacementQuestions $ \question ->
+    execute
+      connection
+      "INSERT INTO placement_questions (question_id, cefr_band, skill, prompt, prompt_detail, choices_json, acceptable_answers_json, explanation) VALUES (?, ?, ?, ?, ?, ?, ?, ?) ON CONFLICT (question_id) DO UPDATE SET cefr_band = excluded.cefr_band, skill = excluded.skill, prompt = excluded.prompt, prompt_detail = excluded.prompt_detail, choices_json = excluded.choices_json, acceptable_answers_json = excluded.acceptable_answers_json, explanation = excluded.explanation"
+      PlacementQuestionSeedRow
+        { seedQuestionId = questionId question,
+          seedQuestionCefrBand = placementCefrBand question,
+          seedQuestionSkill = skill question,
+          seedQuestionPrompt = placementPrompt question,
+          seedQuestionPromptDetail = placementPromptDetail question,
+          seedQuestionChoicesJson = BL.toStrict (Aeson.encode (placementChoices question)),
+          seedQuestionAcceptableAnswersJson = BL.toStrict (Aeson.encode (placementAcceptableAnswers question)),
+          seedQuestionExplanation = placementExplanation question
+        }
+
 pruneRemovedRows :: DbConnection -> Curriculum -> IO ()
 pruneRemovedRows connection curriculum = do
   let curriculumUnits = units curriculum
@@ -382,6 +446,8 @@ pruneRemovedRows connection curriculum = do
             curriculumExercise <- exercises curriculumLesson
         ]
       activeLexemes = map lexemeId (fromMaybe [] (lexemes curriculum))
+      activePlacementQuestions = map questionId (fromMaybe [] (placementQuestions curriculum))
+  deleteMissingIds connection "placement_questions" "question_id" activePlacementQuestions
   deleteMissingIds connection "lexemes" "lexeme_id" activeLexemes
   deleteMissingIds connection "exercises" "exercise_id" activeExercises
   deleteMissingIds connection "lessons" "lesson_id" activeLessons

@@ -18,6 +18,8 @@ The proof target is intentionally narrow:
   permutations of the canonical bank
 - the vocabulary review scalar kernel: bounded mastery, allowed/monotone
   review-hour buckets, and positive dimension XP deltas
+- the placement scalar kernel: ordered CEFR XP awards, nonnegative placement XP
+  deltas, zero downgrade/repeat deltas, and lower-rank lesson skipping
 
 It is not a proof of the whole running web application.
 
@@ -53,3 +55,7 @@ presentation is explicitly not the original order.
 For vocabulary review, the proof does not model curriculum authoring, SQLite
 queries, or learner text normalization. It proves the scalar scheduler and XP
 facts used after the backend has built a typed review prompt.
+
+For placement, the proof does not model scoring free-text answers or CEFR
+curriculum validity. It proves the pure reward and rank rules used after the
+backend has normalized answers and chosen a placement band.

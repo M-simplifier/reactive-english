@@ -192,6 +192,72 @@ theorem lessonStatusNonRecommendedLocked
     lessonStatusFrom recommendedLessonId lessonId false attemptCount = .locked := by
   simp [lessonStatusFrom, h]
 
+inductive CefrLevel where
+  | a1
+  | a2
+  | b1
+  | b2
+  | c1
+  | c2
+deriving DecidableEq, Repr
+
+def placementRank : CefrLevel → Nat
+  | .a1 => 1
+  | .a2 => 2
+  | .b1 => 3
+  | .b2 => 4
+  | .c1 => 5
+  | .c2 => 6
+
+def placementXpForLevel : CefrLevel → Nat
+  | .a1 => 0
+  | .a2 => 240
+  | .b1 => 560
+  | .b2 => 980
+  | .c1 => 1540
+  | .c2 => 2400
+
+def placementXpDelta (previousLevel : Option CefrLevel) (nextLevel : CefrLevel) : Nat :=
+  placementXpForLevel nextLevel -
+    match previousLevel with
+    | none => 0
+    | some previous => placementXpForLevel previous
+
+def shouldCompleteLessonForPlacement (placementLevel lessonLevel : CefrLevel) : Bool :=
+  decide (placementRank lessonLevel < placementRank placementLevel)
+
+theorem placementRankPositive (level : CefrLevel) :
+    0 < placementRank level := by
+  cases level <;> simp [placementRank]
+
+theorem placementXpForLevelNonnegative (level : CefrLevel) :
+    0 ≤ placementXpForLevel level := by
+  exact Nat.zero_le _
+
+theorem placementXpForLevelMonotone {lower upper : CefrLevel}
+    (h : placementRank lower ≤ placementRank upper) :
+    placementXpForLevel lower ≤ placementXpForLevel upper := by
+  cases lower <;> cases upper <;> simp [placementRank, placementXpForLevel] at h ⊢
+
+theorem placementXpDeltaNonnegative (previousLevel : Option CefrLevel) (nextLevel : CefrLevel) :
+    0 ≤ placementXpDelta previousLevel nextLevel := by
+  exact Nat.zero_le _
+
+theorem placementXpDeltaZeroWhenPriorAtLeast
+    (previousLevel nextLevel : CefrLevel)
+    (h : placementXpForLevel nextLevel ≤ placementXpForLevel previousLevel) :
+    placementXpDelta (some previousLevel) nextLevel = 0 := by
+  unfold placementXpDelta
+  exact Nat.sub_eq_zero_of_le h
+
+theorem placementCompletesOnlyLowerRank
+    (placementLevel lessonLevel : CefrLevel) :
+    shouldCompleteLessonForPlacement placementLevel lessonLevel = true →
+      placementRank lessonLevel < placementRank placementLevel := by
+  unfold shouldCompleteLessonForPlacement
+  intro h
+  exact of_decide_eq_true h
+
 inductive GoogleEmailVerified where
   | missing
   | unverified
