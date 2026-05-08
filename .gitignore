@@ -2,12 +2,7 @@
 !*/
 **/.*
 
-!/.dockerignore
-!/.github/
-!/.github/workflows/
-!/.github/workflows/deploy-cloud-run.yml
 !/.gitignore
-!/Dockerfile
 !/README.md
 !/cabal.project
 !/package.json
@@ -41,9 +36,3 @@
 !/proof/ReactiveEnglishProof/**
 
 !/scripts/**
-
-!/infra/terraform/*.tf
-!/infra/terraform/.terraform.lock.hcl
-!/infra/terraform/terraform.tfvars.example
-
-!/docs/deployment-gcp.md

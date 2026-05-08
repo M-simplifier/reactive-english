@@ -163,7 +163,7 @@ renderSignedOut flow =
           , "<h3>Sign in with Google</h3>"
           , "</div>"
           , "</div>"
-          , "<p>Use this once to verify the production browser path. Progress, XP, streaks, and review cards attach to this user.</p>"
+          , "<p>Use this once to verify the real account browser path. Progress, XP, streaks, and review cards attach to this user.</p>"
           , "<div class=\"google-button-frame\">"
           , "<div id=\"google-signin-button\" class=\"google-signin-slot\"></div>"
           , "</div>"

@@ -106,7 +106,7 @@ parseAppConfig = do
                   "  --static-dir frontend/dist",
                   "",
                   "Environment:",
-                  "  PORT=8080                  Server port, used by Cloud Run",
+                  "  PORT=8080                  Server port",
                   "  DATABASE_BACKEND=sqlite|postgres",
                   "  DATABASE_URL=...          Required when DATABASE_BACKEND=postgres",
                   "  GOOGLE_CLIENT_ID=...      Enable Sign in with Google",
